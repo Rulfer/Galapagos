@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\_scripts\GameMaster.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
+     <Compile Include="Assets\_scripts\randomEvents.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
