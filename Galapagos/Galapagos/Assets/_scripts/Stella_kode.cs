@@ -345,14 +345,14 @@ public class Stella_kode : MonoBehaviour
 		return totForsopling;
 	}
 
-	int updateHaifertil(int fertilHai)
-	{
-		int Grown_up_shark = 0;
-		int Dod_pga_plass_voksen = 0;
-		int Dor_av_tyvfiske = 0;
-		int Dod_alderdom = 0;
-
-
-
-	}
+//	int updateHaifertil(int fertilHai)
+//	{
+//		int Grown_up_shark = 0;
+//		int Dod_pga_plass_voksen = 0;
+//		int Dor_av_tyvfiske = 0;
+//		int Dod_alderdom = 0;
+//
+//
+//
+//	}
 }
