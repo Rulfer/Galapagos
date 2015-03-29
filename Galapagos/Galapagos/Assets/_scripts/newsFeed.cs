@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class newsFeed : MonoBehaviour{
-	string[] newsArray = new string[7]; //Array that contains all news
-	string[] newsImportantArray = new string[10]; //Array that contains queued important news
-	public int newsQueue = 0; //Used to tell how many important news that are queued
+	public static string[] newsArray = new string[9]; //Array that contains all news
+	public static string[] newsImportantArray = new string[20]; //Array that contains queued important news
+	public static int newsQueue = 0; //Used to tell how many important news that are queued
 
 
 	float speed = 0.001f; //The speed of the newsfeed
@@ -30,7 +30,6 @@ public class newsFeed : MonoBehaviour{
 		{
 			transform.position = startPos; //Moves the newsbox to the starting position
 			printNews(); //Time to print some new news
-			Debug.Log ("hit");
 		}
 	}
 
@@ -40,8 +39,11 @@ public class newsFeed : MonoBehaviour{
 		newsArray[2] = "Fiske opplever nedgang, og innbygerne tror det er tyvfiskere sin skyld. Når planlegger staten å gjøre noe med dette?";
 		newsArray [3] = "Jeg gikk tom for ideer. Dere andre får skrive noe.";
 		newsArray [4] = "Fremdeles tom for ideer, guys. Kan vi inkludere Obamacare på en eller annen måte?";
-		newsArray [5] = "Important news 1.";
-		newsArray [6] = "Important news 2.";
+		newsArray [5] = "Important news! Et cruise kjørte forbi Galapagos og campet på en av øyene. Store mengder søppel er lagt igjen.";
+		newsArray [6] = "Important news! Flyselskap tilbyr gratis reiser til Galapagos, så store mengder turister er forventet.";
+		newsArray [7] = "Important news! Lav populasjon av hai har gjort den ettertraktet på svartemarkedet. Myndighetene håper de har nok politi til å stoppe tyvfiskerne.";
+		newsArray [8] = "Important news! .";
+		newsArray [9] = "Important news! .";
 	}
 
 	void pickRanNews(){ //If there are no important news then a random funny one will be displayed
@@ -53,15 +55,18 @@ public class newsFeed : MonoBehaviour{
 
 	//Use this function to queue important news
 	//Are there a lot of pirates? Then send inn the n value that represent the newsArray you want to reach
-	void disasterNews(int n){ 
-		newsQueue ++; //Increases the queue
+	public static void disasterNews(int n){
 		newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
+		Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray[newsQueue]);
+		Debug.Log ("Newsqueue: " + newsQueue);
+		newsQueue ++; //Increases the queue
 	}
 
 	void printNews(){
 		if (newsQueue >= 1) {
 			news.color = Color.red; //Changes the color of the text as the news are important
 			news.text = newsImportantArray[0];
+			Debug.Log(newsImportantArray[0]);
 			newsQueue --; //Decrese as the neews has been shown
 
 			newsImportantArray[0] = null; //Removes the now used news
