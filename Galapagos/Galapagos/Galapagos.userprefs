@@ -1,8 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets\_scripts\Stella_kode.cs" Line="359" Column="1" />
+=======
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="808" Column="37" />
+>>>>>>> John
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
