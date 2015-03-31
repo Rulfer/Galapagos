@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class newsFeed : MonoBehaviour{
-	public static string[] newsArray = new string[9]; //Array that contains all news
+	public static string[] newsArray = new string[10]; //Array that contains all news
 	public static string[] newsImportantArray = new string[20]; //Array that contains queued important news
 	public static int newsQueue = 0; //Used to tell how many important news that are queued
 

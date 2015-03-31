@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\mouseClicker.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="359" Column="1" />
-=======
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="808" Column="37" />
->>>>>>> John
+      <File FileName="Assets\_scripts\Island\santaCruzScript.cs" Line="57" Column="1" />
+      <File FileName="Assets\_scripts\newsFeed.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\isabelaScript.cs" Line="6" Column="1" />
+      <File FileName="Assets\_scripts\Island\sanCristobalScript.cs" Line="19" Column="23" />
+      <File FileName="Assets\_scripts\Island\closePaper.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\sanSalvadorScript.cs" Line="19" Column="22" />
+      <File FileName="Assets\_scripts\Island\fernandinaScript.cs" Line="19" Column="5" />
+      <File FileName="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" Line="22" Column="3" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="53" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
