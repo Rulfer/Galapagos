@@ -56,6 +56,7 @@
      <Compile Include="Assets\_scripts\Island\sanSalvadorScript.cs" />
      <Compile Include="Assets\_scripts\Island\santaCruzScript.cs" />
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
+     <Compile Include="Assets\_scripts\islandInfo.cs" />
      <Compile Include="Assets\_scripts\mouseClicker.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />

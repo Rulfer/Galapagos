@@ -12,16 +12,27 @@ public class hireOpprydder : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnMouseDown(){
-		if (isabelaScript.visitedIsabela == true) {
-			isabelaScript.endreAnsatte = isabelaScript.endreAnsatte + 5;
-			Debug.Log (isabelaScript.endreAnsatte);
-			//isabelaScript.showText();
-		} 
-	
-		if (sanCristobalScript.visitedSCritobal == true) {
-			sanCristobalScript.endreAnsatte = sanCristobalScript.endreAnsatte +5;
+
+	//Tester hvilken øy spilleren besøker. Den korrekte øya vil ha visited = true
+	//Endrer a_endret variabelen for korrekt øy og legger til 5 ansatte.
+	//Når disse er endret vil update funksjonen i islandInfo oppdage det og endre verdiene og samtidig oppdatere informasjonen på skjermen
+	public static void hireStuff(){
+		Debug.Log ("hire stuff");
+		if (islandInfo.visitedIsabela == true) {
+			islandInfo.a_endretIsabela += 5;
+			Debug.Log ("hire isabela");
+		} else if (islandInfo.visitedFernadina == true) {
+			islandInfo.a_endretFernadina += 5;
+			Debug.Log ("hire fernadina");
+		} else if (islandInfo.visitedSanCristobal == true) {
+			islandInfo.a_endretSanCristobal += 5;
+			Debug.Log ("hire san cristobal");
+		} else if (islandInfo.visitedSanSalvador == true) {
+			islandInfo.a_endretSanSalvador += 5;
+			Debug.Log ("hire san salvador");
+		} else if (islandInfo.visitedSantaCruz == true) {
+			islandInfo.a_endretSantaCruz += 5;
+			Debug.Log ("hire santa cruz");
 		}
 	}
-
 }
