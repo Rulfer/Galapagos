@@ -1,3 +1,6 @@
+using UnityEngine;
+using System.Collections;
+
 public class Stella_kode : MonoBehaviour 
 {
 	//Timer delt inn i uker, månder og år
@@ -21,7 +24,7 @@ public class Stella_kode : MonoBehaviour
 	int Tyvfiskere_Sjopolse = 0;
 	
 	//Søppel og plukkere
-	int Oppryddere = 3000;
+	public static int Oppryddere = 3000;
 	int Forsopling = 500000;
 	float Forsopling_fordelt= 0;
 	int Soppel_fra_mennesker = 0;
