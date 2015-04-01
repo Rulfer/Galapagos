@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class Stella_kode : MonoBehaviour 
@@ -19,18 +20,18 @@ public class Stella_kode : MonoBehaviour
 	//Initierer de forskjellige stockene fra STELLA
 			
 	//Politi og tyvfiskere
-	int Politi = 3000;
+	int Politi = 0;
 	int Tyvfiskere_Hai = 0;
 	int Tyvfiskere_Sjopolse = 0;
 	
 	//Søppel og plukkere
-	public static int Oppryddere = 3000;
-	int Forsopling = 500000;
+	public static int Oppryddere = 0;
+	int Forsopling = 0;
 	float Forsopling_fordelt= 0;
 	int Soppel_fra_mennesker = 0;
 	
 	//Populasjonen på øya og deres ting
-		int Populasjon = 26000;
+	int Populasjon = 26000;
 	int Flytter_pga_jobb = 0;
 	int Antall_jobber = 0;
 	int Kommunal = 0;
@@ -55,7 +56,7 @@ public class Stella_kode : MonoBehaviour
 	int Sjopolse_Unge = 20000000;
 
 	//Okonomien er gjort public for å kunne eksperementere med i Unity
-	public int okonomi = 0;
+	public static int okonomi = 0;
 
 	//Lovlig fiske
 	int Fisking = 780;
@@ -102,124 +103,132 @@ public class Stella_kode : MonoBehaviour
 	//Fått_Sparken ting. Altså den som teller hvor mange som har fått sparken
 	int Faatt_Sparken = 0;
 	int Faatt_Sparken_lite_soppel = 0;
-	
 
 	//Fisketing
 	int Fertil_Fisk = 25000000;
 	int Yngel = 5000000;
-	
+
+
+	int antOppdateringer;
 	// Use this for initialization
 	void Start () 
 	{
+		timer = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		//Oppdaterer variabler
-				
-		//Oppdaterer plassen hvert enkelt dyr har
-		Plass_fisk_trenger = (Yngel / 10000) + (Fertil_Fisk / 10000);
-		Plass_BP_trenger = (Brown_Pelican_Fertil / 2) + (Brown_Pelican_Unge / 2);
-		Plass_hai_trenger = Hai_Unge + Hai_Fertil;
-		Plass_iguana_trenger = (Iguana_Unge / 10) + (Iguana_Fertil / 10);
-		Plass_sjopolse_trenger = (Sjopolse_Unge / 1000) + (Sjopolse_Fertil / 1000);
-		
-		//Oppdaterer hvor mye rykte dyrene sprer
-		Hai_Reklame = (int)Math.Floor(Hai_Fertil * 0.01 + Hai_Unge * 0.01);
-		Iguana_Reklame = (int)Math.Ceiling((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.01));
-		Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.00000001);
-		Reklame = (int)Math.Ceiling((turister * 0.1) + Hai_Reklame + Iguana_Reklame);
+		timer -= Time.deltaTime;
 
-		//Oppdaterer pengene vi får inn
-		penger_fra_turister_og_innbyggere = turister * 150 + Populasjon * 50;
+		if (timer <= 0) {
+			antOppdateringer ++;
+			Debug.Log("Antall oppdateringer: " + antOppdateringer);
+			//Oppdaterer plassen hvert enkelt dyr har
+			Plass_fisk_trenger = (Yngel / 10000) + (Fertil_Fisk / 10000);
+			Plass_BP_trenger = (Brown_Pelican_Fertil / 2) + (Brown_Pelican_Unge / 2);
+			Plass_hai_trenger = Hai_Unge + Hai_Fertil;
+			Plass_iguana_trenger = (Iguana_Unge / 10) + (Iguana_Fertil / 10);
+			Plass_sjopolse_trenger = (Sjopolse_Unge / 1000) + (Sjopolse_Fertil / 1000);
+			
+			//Oppdaterer hvor mye rykte dyrene sprer
+			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.0001);
+			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.0001));
+			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.00000000001);
+			Reklame = (int)Math.Ceiling ((turister * 0.1) + Hai_Reklame + Iguana_Reklame);
 
-		//Oppdaterer antall kommunale ansatte
-		Kommunal = 9880 + Politi + Oppryddere;
-		//Oppdaterer hvor mange som ahr hørt om hai fisk og sjøpølse fisking
-		Informerte_om_sjopolse = (int)Math.Ceiling(Sjopolse_Reklame * 0.01);
-		Informerte_Hai = (int)Math.Ceiling(Hai_Reklame * 0.1);
-		//Deler søpla på arealet
-		Forsopling_fordelt = Forsopling / 1000;
-		//Oppdaterer søppel fra mennesker
-		Soppel_fra_mennesker = (int)((turister + Populasjon) / 60);
-		//Regner ut antall ansatte innfor Turisme
-		Turisme = turister * 2;
-		//Regner ut antall jobber på øyene
-		Antall_jobber = Turisme+Fisking+Kommunal;
-		
-		//Regner ut plassen for dyrene å leve på
-		Tilgjengelig_BP_plass = (int)Math.Ceiling ((8000 * 2) - (Forsopling_fordelt * 0.09));
-		Tilgjengelig_Fisk_plass = (int)(90000000-Forsopling_fordelt);
-		Tilgjengelig_Hai_plass = (int)(90000000-Forsopling_fordelt);
-		Tilgjengelig_Iguana_plass = (int)Math.Ceiling((8000*10)-(Forsopling_fordelt*0.09));
-		Tilgjengelig_Sjopolse_plass = (int)Math.Ceiling (4500000 - Forsopling_fordelt);
-		
-		//Timer
-		timer += Time.deltaTime;
-		uker = (int)Math.Floor(timer / antallSekundermellomUker);
-		maander = (int)(uker / 4);
-		aar = (int)(maander / 12);
-		
-		Debug.Log (uker);
+			//Oppdaterer pengene vi får inn
+			penger_fra_turister_og_innbyggere = turister * 150 + Populasjon * 50;
 
-		//Regner ut hvor mange som flytter på grunn av jobb
-		//
-		Flytter_pga_jobb = oppdatererAntall_jobber (Flytter_pga_jobb);
+			//Oppdaterer antall kommunale ansatte
+			Kommunal = 9880 + Politi + Oppryddere;
+			//Oppdaterer hvor mange som ahr hørt om hai fisk og sjøpølse fisking
+			Informerte_om_sjopolse = (int)Math.Ceiling (Sjopolse_Reklame * 0.01);
+			Informerte_Hai = (int)Math.Ceiling (Hai_Reklame * 0.1);
+			//Deler søpla på arealet
+			Forsopling_fordelt = Forsopling / 1000;
+			//Oppdaterer søppel fra mennesker
+			Soppel_fra_mennesker = (int)((turister + Populasjon) / 60);
+			//Regner ut antall ansatte innfor Turisme
+			Turisme = turister * 2;
+			//Regner ut antall jobber på øyene
+			Antall_jobber = Turisme + Fisking + Kommunal;
+			
+			//Regner ut plassen for dyrene å leve på
+			Tilgjengelig_BP_plass = (int)Math.Ceiling ((8000 * 2) - (Forsopling_fordelt * 0.09));
+			Tilgjengelig_Fisk_plass = (int)(90000000 - Forsopling_fordelt);
+			Tilgjengelig_Hai_plass = (int)(90000000 - Forsopling_fordelt);
+			Tilgjengelig_Iguana_plass = (int)Math.Ceiling ((8000 * 10) - (Forsopling_fordelt * 0.09));
+			Tilgjengelig_Sjopolse_plass = (int)Math.Ceiling (4500000 - Forsopling_fordelt);
+			
+			//Timer
+			timer += Time.deltaTime;
+			uker = (int)Math.Floor (timer / antallSekundermellomUker);
+			maander = (int)(uker / 4);
+			aar = (int)(maander / 12);
+			
+			Debug.Log (uker);
 
-		// Her sjekkes om alle disse situasjonene stemmer. De returnerer enten 1 eller 0. Disse varibalene blir brukt under i andre oppdateringer
-		Kan_ansette_opprydder = sjekkomAnsettesOppryddere (okonomi);
-		Kan_ansette_politi = sjekkomAnsettesPoliti (okonomi);
-		Maa_ansette_nye = sjekkOmAnsettOpprydder(Forsopling, Oppryddere);
-		Maa_ansette_politi_pga_hai = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Hai);
-		Maa_ansette_politi_pga_sjopolse = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Sjopolse);
-		
-		//Oppdaterer bestanden av pelican
-		Brown_Pelican_Fertil = updatePelican (Brown_Pelican_Fertil);
-		Brown_Pelican_Unge = updatePelicanUnge (Brown_Pelican_Unge);
-		//Sparker de som skal sparkes. Disse variablene bare sjekker hvor mange som har blitt sparket. Den sparker ikke fra oppryddere eller politi. 
-		//Det skjer i hver sin respektive funksjon
-		Faatt_Sparken = sparkerPgaPenger (Faatt_Sparken);
-		Faatt_Sparken_lite_soppel = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppel);
-		//Oppdaterer fiskebestanden
-		Fertil_Fisk = updateFertilFisk (Fertil_Fisk);
-		Yngel = updateYngel (Yngel);
-		//Ser hvor mye søppel folk har lagt igjen
-		Forsopling = updateForsopling (Forsopling);
-		//Oppdaterer haibestanden
-		Hai_Fertil = updateHaifertil (Hai_Fertil);
-		Hai_Unge = updateHaiunge (Hai_Unge);
-		//Oppdaterer Iguana bestanden
-		Iguana_Fertil = updateIguanafertil (Iguana_Fertil);
-		Iguana_Unge = updateIguanaunge (Iguana_Unge);
-		//Oppdaterer økonomien
-		okonomi = updateOkonomi (okonomi);
-		//Hyrer eller sparker oppryddere
-		Oppryddere = updateOppryddere (Oppryddere);
-		//Hyrer eller sparker politi
-		Politi = updatePoliti (Politi);
-		//Oppdaterer populasjonen etter endringen som har skjedd
-		Populasjon = updatePopulasjon (Populasjon);
-		//Oppdaterer sjøpølse bestanden
-		Sjopolse_Fertil = updateSjopolsefertil (Sjopolse_Fertil);
-		Sjopolse_Unge = updateSjopolseung (Sjopolse_Unge);
-		//Oppdaterer Tyvfiskerne
-		Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
-		Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
+			//Regner ut hvor mange som flytter på grunn av jobb
+			//
+			Flytter_pga_jobb = oppdatererAntall_jobber (Flytter_pga_jobb);
 
-		//Turist conveyer
-		//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
-				
-		if (maander > forrigemaande) 
-		{
-			Turister_drar = Turister_kommer;
-			Turister_kommer = Reklame;
-			turister = turister + (Turister_kommer - Turister_drar);
+			// Her sjekkes om alle disse situasjonene stemmer. De returnerer enten 1 eller 0. Disse varibalene blir brukt under i andre oppdateringer
+			Kan_ansette_opprydder = sjekkomAnsettesOppryddere (okonomi);
+			Kan_ansette_politi = sjekkomAnsettesPoliti (okonomi);
+			Maa_ansette_nye = sjekkOmAnsettOpprydder (Forsopling, Oppryddere);
+			Maa_ansette_politi_pga_hai = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Hai);
+			Maa_ansette_politi_pga_sjopolse = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Sjopolse);
+			
+			//Oppdaterer bestanden av pelican
+			Brown_Pelican_Fertil = updatePelican (Brown_Pelican_Fertil);
+			Brown_Pelican_Unge = updatePelicanUnge (Brown_Pelican_Unge);
+			//Sparker de som skal sparkes. Disse variablene bare sjekker hvor mange som har blitt sparket. Den sparker ikke fra oppryddere eller politi. 
+			//Det skjer i hver sin respektive funksjon
+			Faatt_Sparken = sparkerPgaPenger (Faatt_Sparken);
+			Faatt_Sparken_lite_soppel = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppel);
+			//Oppdaterer fiskebestanden
+			Fertil_Fisk = updateFertilFisk (Fertil_Fisk);
+			Yngel = updateYngel (Yngel);
+			//Ser hvor mye søppel folk har lagt igjen
+			Forsopling = updateForsopling (Forsopling);
+			//Oppdaterer haibestanden
+			Hai_Fertil = updateHaifertil (Hai_Fertil);
+			Hai_Unge = updateHaiunge (Hai_Unge);
+			//Oppdaterer Iguana bestanden
+			Iguana_Fertil = updateIguanafertil (Iguana_Fertil);
+			Iguana_Unge = updateIguanaunge (Iguana_Unge);
+			//Oppdaterer økonomien
+			okonomi = updateOkonomi (okonomi);
+			//Hyrer eller sparker oppryddere
+			Oppryddere = updateOppryddere (Oppryddere);
+			//Hyrer eller sparker politi
+			Politi = updatePoliti (Politi);
+			//Oppdaterer populasjonen etter endringen som har skjedd
+			Populasjon = updatePopulasjon (Populasjon);
+			//Oppdaterer sjøpølse bestanden
+			Sjopolse_Fertil = updateSjopolsefertil (Sjopolse_Fertil);
+			Sjopolse_Unge = updateSjopolseung (Sjopolse_Unge);
+			//Oppdaterer Tyvfiskerne
+			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
+			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
+
+			//Turist conveyer
+			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
+					
+			if (maander > forrigemaande) {
+				Turister_drar = Turister_kommer;
+				Turister_kommer = Reklame;
+				turister = turister + (Turister_kommer - Turister_drar);
+			}
+			
+			//I tilfelle det blir månedskifte settes disse lik hverandre
+			forrigeuke = uker;
+			forrigemaande = maander;
+
+			timer = 1;
 		}
-		
-		//I tilfelle det blir månedskifte settes disse lik hverandre
-		forrigeuke = uker;
-		forrigemaande = maander;
 	}
 		
 		int oppdatererAntall_jobber(int Aj)

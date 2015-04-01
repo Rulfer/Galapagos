@@ -3,11 +3,11 @@ using System.Collections;
 
 public class newsFeed : MonoBehaviour{
 	public static string[] newsArray = new string[10]; //Array that contains all news
-	public static string[] newsImportantArray = new string[20]; //Array that contains queued important news
+	public static string[] newsImportantArray = new string[1000]; //Array that contains queued important news
 	public static int newsQueue = 0; //Used to tell how many important news that are queued
 
 
-	float speed = 0.001f; //The speed of the newsfeed
+	float speed = 0.0015f; //The speed of the newsfeed
 	Vector3 startPos; //Remembers the starting position of the news
 	public GUIText news;
 
@@ -42,13 +42,13 @@ public class newsFeed : MonoBehaviour{
 		newsArray [5] = "Important news! Et cruise kjørte forbi Galapagos og campet på en av øyene. Store mengder søppel er lagt igjen.";
 		newsArray [6] = "Important news! Flyselskap tilbyr gratis reiser til Galapagos, så store mengder turister er forventet.";
 		newsArray [7] = "Important news! Lav populasjon av hai har gjort den ettertraktet på svartemarkedet. Myndighetene håper de har nok politi til å stoppe tyvfiskerne.";
-		newsArray [8] = "Important news! .";
+		newsArray [8] = "Important news! Galapagos sliter med økonomisk ustabilitet.";
 		newsArray [9] = "Important news! .";
 	}
 
 	void pickRanNews(){ //If there are no important news then a random funny one will be displayed
 		int ranNum = Random.Range (0, 5); //A random number between 0 and 5 are generated, meaning 0 - 4 in the array
-		news.color = Color.green;
+		news.color = Color.black;
 		news.text = newsArray[ranNum]; //Print the news to the screen
 		Debug.Log (ranNum);
 	}
@@ -56,10 +56,23 @@ public class newsFeed : MonoBehaviour{
 	//Use this function to queue important news
 	//Are there a lot of pirates? Then send inn the n value that represent the newsArray you want to reach
 	public static void disasterNews(int n){
-		newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
-		Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray[newsQueue]);
-		Debug.Log ("Newsqueue: " + newsQueue);
-		newsQueue ++; //Increases the queue
+		if (newsQueue == 0) {
+			newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
+			Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray [newsQueue]);
+			Debug.Log ("Newsqueue: " + newsQueue);
+			newsQueue ++; //Increases the queue
+		} else {
+			for (int i = 0; i < newsQueue; i++) {
+				if (newsImportantArray [newsQueue] != newsImportantArray [n]) {
+					newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
+					Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray [newsQueue]);
+					Debug.Log ("Newsqueue: " + newsQueue);
+					newsQueue ++; //Increases the queue
+				} else {
+					//Denne finnes alt
+				}
+			}
+		}
 	}
 
 	void printNews(){

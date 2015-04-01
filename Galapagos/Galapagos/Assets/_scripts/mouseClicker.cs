@@ -6,7 +6,6 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBox;
 	public GUIText info;
 	public static bool visitedIsabela = false;
-	bool show = false;
 
 	// Use this for initialization
 	void Start () {
