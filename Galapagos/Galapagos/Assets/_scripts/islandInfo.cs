@@ -26,11 +26,11 @@ public class islandInfo : MonoBehaviour {
 	// Use this for initialization
 	public static void Start () {
 		//Random tall jeg har lagt til
-		ansatteFernadina = 300;
-		ansatteIsabela = 500;
-		ansatteSanCristobal = 100;
-		ansatteSanSalvador = 50;
-		ansatteSantaCruz = 10;
+		ansatteFernadina = 20;
+		ansatteIsabela = 20;
+		ansatteSanCristobal = 20;
+		ansatteSanSalvador = 20;
+		ansatteSantaCruz = 20;
 
 		//Sørger for at endret er lik antall ansatte i starten
 		//Gjøres ikke dette vil masse fine buggy ting skje
