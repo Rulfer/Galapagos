@@ -2,18 +2,19 @@
 using System.Collections;
 
 public class mouseClicker : MonoBehaviour {
-	string[] islandName = new string[5];
+	string[] areaName = new string[6];
 	public GameObject infoBox;
 	public GUIText info;
 	public static bool visitedIsabela = false;
 
 	// Use this for initialization
 	void Start () {
-		islandName[0] = "Fernadina";
-		islandName [1] = "Isabela";
-		islandName [2] = "San Cristobal";
-		islandName [3] = "Santa Cruz";
-		islandName [4] = "San Salvador";
+		areaName[0] = "Fernadina";
+		areaName [1] = "Isabela";
+		areaName [2] = "San Cristobal";
+		areaName [3] = "Santa Cruz";
+		areaName [4] = "San Salvador";
+		areaName [5] = "Ocean";
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
 	}
@@ -52,6 +53,11 @@ public class mouseClicker : MonoBehaviour {
 				islandInfo.visitedSanSalvador = true;
 				showText(4);
 			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ocean") {
+				Debug.Log ("treffer Havet");
+				oceanInfo.visitedOcean = true;
+				showText(5);
+			}
 
 			//Tester om spilleren klikker på enten kjøp eller selg ansatte
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansett") {
@@ -74,10 +80,10 @@ public class mouseClicker : MonoBehaviour {
 		infoBox.transform.position = new Vector3 (0, 0, 0);
 		
 		info.text = "";
-		info.text = islandName [n] + "\n";
+		info.text = areaName [n] + "\n";
 		info.text += "\n";
-		info.text += "Antall turister på øya: " + "\n";
-		info.text += "Antall dyr på øye: " + "\n";
+		info.text += "Antall turister: " + "\n";
+		info.text += "Antall dyr: " + "\n";
 		info.text += "Mengde søppel: " + "\n";
 		info.text += "\n";
 		switch (n) {
@@ -90,6 +96,8 @@ public class mouseClicker : MonoBehaviour {
 		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
 			break;
 		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador;
+			break;
+		case 5: info.text += "Antall politifolk: " + oceanInfo.ansatteOcean;
 			break;
 		}
 		info.text += "\n";
@@ -112,6 +120,8 @@ public class mouseClicker : MonoBehaviour {
 			islandInfo.visitedSanSalvador = false;
 		}if (islandInfo.visitedSantaCruz == true) {
 			islandInfo.visitedSantaCruz = false;
+		}if (oceanInfo.visitedOcean == true) {
+			oceanInfo.visitedOcean = false;
 		}
 	}
 }

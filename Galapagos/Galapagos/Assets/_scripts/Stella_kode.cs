@@ -33,7 +33,7 @@ public class Stella_kode : MonoBehaviour
 	public static int prosentSantaCruz = 0;
 	
 	//Politi og tyvfiskere
-	int Politi = 3000;
+	public static int Politi;
 	int Tyvfiskere_Hai = 0;
 	int Tyvfiskere_Sjopolse = 0;
 	
@@ -221,6 +221,7 @@ public class Stella_kode : MonoBehaviour
 		oppryddereSanCristobal = islandInfo.ansatteSanCristobal;
 		oppryddereSanSalvador = islandInfo.ansatteSanSalvador;
 		oppryddereSantaCruz = islandInfo.ansatteSantaCruz;
+		Politi = oceanInfo.ansatteOcean;
 		
 		//Regner ut total areal av alle øyene7
 		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanCristobal+arealSanSalvador+arealSantaCruz;

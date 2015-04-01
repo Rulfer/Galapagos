@@ -38,6 +38,10 @@ public class hireOpprydder : MonoBehaviour {
 			islandInfo.a_endretSantaCruz += 5;
 			Stella_kode.oppryddereSantaCruz += 5;
 			Debug.Log ("hire santa cruz");
+		} else if (oceanInfo.visitedOcean == true) {
+			oceanInfo.a_endretOcean += 5;
+			Stella_kode.Politi += 5;
+			Debug.Log ("hire ocean");
 		}
 	}
 }
