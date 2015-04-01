@@ -1,18 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
     <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="448" Column="5" />
-      <File FileName="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" Line="21" Column="1" />
-      <File FileName="Assets\_scripts\islandInfo.cs" Line="28" Column="33" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="781" Column="20" />
+      <File FileName="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\islandInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\Island\Hire_Fire\fireOpprydder.cs" Line="43" Column="1" />
+      <File FileName="Assets\_scripts\Island\Hire_Fire\fireOpprydder.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\Island\fernandinaScript.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\Island\closePaper.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\Island\isabelaScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\Island\sanSalvadorScript.cs" Line="13" Column="46" />
+      <File FileName="Assets\_scripts\Island\sanSalvadorScript.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\Island\sanCristobalScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\Island\santaCruzScript.cs" Line="11" Column="32" />
+      <File FileName="Assets\_scripts\Island\santaCruzScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
