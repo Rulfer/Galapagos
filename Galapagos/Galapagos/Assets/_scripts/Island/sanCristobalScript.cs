@@ -10,7 +10,7 @@ public class sanCristobalScript : MonoBehaviour {
 	public static bool visitedSCritobal = false;
 	// Use this for initialization
 	void Start () {
-		ansatte = Stella_kode.Oppryddere;
+		ansatte = Stella_kode.oppryddereSanCristobal;
 		endreAnsatte = ansatte;
 	}
 	
@@ -18,9 +18,9 @@ public class sanCristobalScript : MonoBehaviour {
 	void Update () {
 		if (visitedSCritobal == true) {
 			
-			ansatte = Stella_kode.Oppryddere;
+			ansatte = Stella_kode.oppryddereSanCristobal;
 			endreAnsatte = ansatte;
-			if (ansatte > Stella_kode.Oppryddere || ansatte < Stella_kode.Oppryddere) {
+			if (ansatte > Stella_kode.oppryddereSanCristobal || ansatte < Stella_kode.oppryddereSanCristobal) {
 				showText ();
 			}
 			if (endreAnsatte > ansatte || endreAnsatte < ansatte) {

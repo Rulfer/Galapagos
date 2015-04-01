@@ -10,26 +10,26 @@ public class fernandinaScript : MonoBehaviour {
 	public static bool visitedFernadina = false;
 	// Use this for initialization
 	void Start () {
-		ansatte = Stella_kode.Oppryddere;
+		ansatte = Stella_kode.oppryddereFernandina;
 		endreAnsatte = ansatte;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if (visitedFernadina == true) {
-//			
-//			ansatte = Stella_kode.Oppryddere;
-//			endreAnsatte = ansatte;
-//			if (ansatte > Stella_kode.Oppryddere || ansatte < Stella_kode.Oppryddere) {
-//				showText ();
-//			}
-//			if (endreAnsatte > ansatte || endreAnsatte < ansatte) {
-//				showText ();
-//			}
-//		} 
-//		else {
-//			close ();
-//		}
+		if (visitedFernadina == true) {
+			
+			ansatte = Stella_kode.oppryddereFernandina;
+			endreAnsatte = ansatte;
+			if (ansatte > Stella_kode.oppryddereFernandina || ansatte < Stella_kode.oppryddereFernandina) {
+				showText ();
+			}
+			if (endreAnsatte > ansatte || endreAnsatte < ansatte) {
+				showText ();
+			}
+		} 
+		else {
+			close ();
+		}
 	}
 	
 	void showText(){
@@ -48,8 +48,8 @@ public class fernandinaScript : MonoBehaviour {
 		info.text += "Ansett/Spark ansatte: ANSETT SPARK";
 	}
 	
-//	void close(){
-//		info.text = "";
-//		infoBox.transform.position = new Vector3(0, 0, 10);
-//	}
+	void close(){
+		info.text = "";
+		infoBox.transform.position = new Vector3(0, 0, 10);
+	}
 }

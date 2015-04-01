@@ -10,7 +10,7 @@ public class sanSalvadorScript : MonoBehaviour {
 	public static bool visitedSalvador = false;
 	// Use this for initialization
 	void Start () {
-		ansatte = Stella_kode.Oppryddere;
+		ansatte = Stella_kode.oppryddereSanSalvador;
 		endreAnsatte = ansatte;
 	}
 	
@@ -18,9 +18,9 @@ public class sanSalvadorScript : MonoBehaviour {
 	void Update () {
 		if (visitedSalvador == true) {
 					
-					ansatte = Stella_kode.Oppryddere;
+					ansatte = Stella_kode.oppryddereSanSalvador;
 					endreAnsatte = ansatte;
-					if (ansatte > Stella_kode.Oppryddere || ansatte < Stella_kode.Oppryddere) {
+					if (ansatte > Stella_kode.oppryddereSanCristobal || ansatte < Stella_kode.oppryddereSanSalvador) {
 						showText ();
 					}
 					if (endreAnsatte > ansatte || endreAnsatte < ansatte) {

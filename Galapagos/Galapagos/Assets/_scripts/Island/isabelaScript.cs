@@ -11,7 +11,7 @@ public class isabelaScript : MonoBehaviour {
 	// Use this for initialization
 
 	void Start () {
-		ansatte = Stella_kode.Oppryddere;
+		ansatte = Stella_kode.oppryddereIsabela;
 		endreAnsatte = ansatte;
 		visitedIsabela = true;
 		infoBox.transform.position = new Vector3(0, 0, 0);
@@ -23,9 +23,9 @@ public class isabelaScript : MonoBehaviour {
 	void Update () {
 		if (visitedIsabela == true) {
 
-			ansatte = Stella_kode.Oppryddere;
+			ansatte = Stella_kode.oppryddereIsabela;
 			endreAnsatte = ansatte;
-			if (ansatte > Stella_kode.Oppryddere || ansatte < Stella_kode.Oppryddere) {
+			if (ansatte > Stella_kode.oppryddereIsabela || ansatte < Stella_kode.oppryddereIsabela) {
 				showText ();
 			}
 			if (endreAnsatte > ansatte || endreAnsatte < ansatte) {

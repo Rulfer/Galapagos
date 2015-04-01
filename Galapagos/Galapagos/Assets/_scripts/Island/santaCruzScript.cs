@@ -10,16 +10,16 @@ public class santaCruzScript : MonoBehaviour {
 	public static bool visitedsanta = false;
 	// Use this for initialization
 	void Start () {
-		ansatte = Stella_kode.Oppryddere;
+		ansatte = Stella_kode.oppryddereSantaCruz;
 		endreAnsatte = ansatte;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (visitedsanta == true) {
-			ansatte = Stella_kode.Oppryddere;
+			ansatte = Stella_kode.oppryddereSantaCruz;
 			endreAnsatte = ansatte;
-			if (ansatte > Stella_kode.Oppryddere || ansatte < Stella_kode.Oppryddere) {
+			if (ansatte > Stella_kode.oppryddereSantaCruz || ansatte < Stella_kode.oppryddereSantaCruz) {
 				showText ();
 			}
 			if (endreAnsatte > ansatte || endreAnsatte < ansatte) {
