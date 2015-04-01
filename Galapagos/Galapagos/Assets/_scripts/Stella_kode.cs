@@ -11,7 +11,7 @@ public class Stella_kode : MonoBehaviour
 	int maander = 0;
 	int forrigemaande = 0;
 	int aar = 0;
-	int forrigeaar = 0;
+	//int forrigeaar = 0;
 	static float dt = 1;
 	
 	//Her stilles det hvor mange sekunder det skal ta mellom hver uke.
@@ -255,7 +255,6 @@ public class Stella_kode : MonoBehaviour
 		Iguana_UngSanCristobal = (int)(prosentSanCristobal * Iguana_Unge / 100);
 		Iguana_UngSanSalvador = (int)(prosentSanSalvador * Iguana_Unge / 100);
 		Iguana_UngSantaCruz = (int)(prosentSantaCruz * Iguana_Unge / 100);
-		Debug.Log ("AntallOppryddere: " + totalAreal);
 	}
 	
 	// Update is called once per frame
@@ -346,16 +345,16 @@ public class Stella_kode : MonoBehaviour
 			Flytter_pga_jobb = oppdatererAntall_jobber (Flytter_pga_jobb);
 			
 			// Her sjekkes om alle disse situasjonene stemmer. De returnerer enten 1 eller 0. Disse varibalene blir brukt under i andre oppdateringer
-			Kan_ansette_opprydder = sjekkomAnsettesOppryddere (okonomi);
-			Kan_ansette_politi = sjekkomAnsettesPoliti (okonomi);
-			Maa_ansette_nyeFernandina = sjekkOmAnsettOpprydder (ForsoplingFernandina, oppryddereFernandina);
-			Maa_ansette_nyeIsabela = sjekkOmAnsettOpprydder (ForsoplingIsabela, oppryddereIsabela);
-			Maa_ansette_nyeSanCristobal = sjekkOmAnsettOpprydder (ForsoplingSanCristobal, oppryddereSanCristobal);
-			Maa_ansette_nyeSanSalvador = sjekkOmAnsettOpprydder (ForsoplingSanSalvador, oppryddereSanSalvador);
-			Maa_ansette_nyeSantaCruz = sjekkOmAnsettOpprydder (ForsoplingSantaCruz, oppryddereSantaCruz);
-			
-			Maa_ansette_politi_pga_hai = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Hai);
-			Maa_ansette_politi_pga_sjopolse = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Sjopolse);
+//			Kan_ansette_opprydder = sjekkomAnsettesOppryddere (okonomi);
+//			Kan_ansette_politi = sjekkomAnsettesPoliti (okonomi);
+//			Maa_ansette_nyeFernandina = sjekkOmAnsettOpprydder (ForsoplingFernandina, oppryddereFernandina);
+//			Maa_ansette_nyeIsabela = sjekkOmAnsettOpprydder (ForsoplingIsabela, oppryddereIsabela);
+//			Maa_ansette_nyeSanCristobal = sjekkOmAnsettOpprydder (ForsoplingSanCristobal, oppryddereSanCristobal);
+//			Maa_ansette_nyeSanSalvador = sjekkOmAnsettOpprydder (ForsoplingSanSalvador, oppryddereSanSalvador);
+//			Maa_ansette_nyeSantaCruz = sjekkOmAnsettOpprydder (ForsoplingSantaCruz, oppryddereSantaCruz);
+//			
+//			Maa_ansette_politi_pga_hai = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Hai);
+//			Maa_ansette_politi_pga_sjopolse = sjekkOmAnsettPolitipgaTyvfiskere (Politi, Tyvfiskere_Sjopolse);
 			
 			//Oppdaterer bestanden av pelican
 			Brown_Pelican_FertilFernandina = updatePelican (Brown_Pelican_FertilFernandina, Brown_Pelican_UngeFernandina, Plass_BP_trengerFernadina, Tilgjengelig_BP_plassFernandia);
@@ -372,14 +371,14 @@ public class Stella_kode : MonoBehaviour
 			
 			//Sparker de som skal sparkes. Disse variablene bare sjekker hvor mange som har blitt sparket. Den sparker ikke fra oppryddere eller politi.
 			//Det skjer i hver sin respektive funksjon
-			Faatt_Sparken = sparkerPgaPenger (Faatt_Sparken);
-			
-			Faatt_Sparken_lite_soppelFernandina = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelFernandina, oppryddereFernandina, ForsoplingFernandina);
-			Faatt_Sparken_lite_soppelIsabela = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelIsabela, oppryddereIsabela, ForsoplingIsabela);
-			Faatt_Sparken_lite_soppelSanCristobal = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanCristobal, oppryddereSanCristobal, ForsoplingSanCristobal);
-			Faatt_Sparken_lite_soppelSanSalvador = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanSalvador, oppryddereSanSalvador, ForsoplingSanSalvador);
-			Faatt_Sparken_lite_soppelSantaCruz = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereSantaCruz, ForsoplingSantaCruz);
-			Faatt_Sparken_lite_soppelHav = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereHav, ForsoplingHav);
+//			Faatt_Sparken = sparkerPgaPenger (Faatt_Sparken);
+//			
+//			Faatt_Sparken_lite_soppelFernandina = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelFernandina, oppryddereFernandina, ForsoplingFernandina);
+//			Faatt_Sparken_lite_soppelIsabela = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelIsabela, oppryddereIsabela, ForsoplingIsabela);
+//			Faatt_Sparken_lite_soppelSanCristobal = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanCristobal, oppryddereSanCristobal, ForsoplingSanCristobal);
+//			Faatt_Sparken_lite_soppelSanSalvador = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanSalvador, oppryddereSanSalvador, ForsoplingSanSalvador);
+//			Faatt_Sparken_lite_soppelSantaCruz = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereSantaCruz, ForsoplingSantaCruz);
+//			Faatt_Sparken_lite_soppelHav = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereHav, ForsoplingHav);
 			
 			//Oppdaterer fiskebestanden
 			Fertil_Fisk = updateFertilFisk (Fertil_Fisk);
@@ -411,14 +410,14 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer økonomien
 			okonomi = updateOkonomi (okonomi);
 			//Hyrer eller sparker oppryddere
-			oppryddereFernandina = updateOppryddere (oppryddereFernandina, Maa_ansette_nyeFernandina, ForsoplingFernandina);
-			oppryddereIsabela = updateOppryddere (oppryddereIsabela, Maa_ansette_nyeIsabela, ForsoplingIsabela);
-			oppryddereSanCristobal = updateOppryddere (oppryddereSanCristobal, Maa_ansette_nyeSanCristobal, ForsoplingSanCristobal);
-			oppryddereSanSalvador = updateOppryddere (oppryddereSanSalvador, Maa_ansette_nyeSanSalvador, ForsoplingSanSalvador);
-			oppryddereSantaCruz = updateOppryddere (oppryddereSantaCruz, Maa_ansette_nyeSantaCruz, ForsoplingSantaCruz);
-			oppryddereHav = updateOppryddere (oppryddereHav, Maa_ansette_nyeHav, ForsoplingHav);
-			//Hyrer eller sparker politi
-			Politi = updatePoliti (Politi);
+//			oppryddereFernandina = updateOppryddere (oppryddereFernandina, Maa_ansette_nyeFernandina, ForsoplingFernandina);
+//			oppryddereIsabela = updateOppryddere (oppryddereIsabela, Maa_ansette_nyeIsabela, ForsoplingIsabela);
+//			oppryddereSanCristobal = updateOppryddere (oppryddereSanCristobal, Maa_ansette_nyeSanCristobal, ForsoplingSanCristobal);
+//			oppryddereSanSalvador = updateOppryddere (oppryddereSanSalvador, Maa_ansette_nyeSanSalvador, ForsoplingSanSalvador);
+//			oppryddereSantaCruz = updateOppryddere (oppryddereSantaCruz, Maa_ansette_nyeSantaCruz, ForsoplingSantaCruz);
+//			oppryddereHav = updateOppryddere (oppryddereHav, Maa_ansette_nyeHav, ForsoplingHav);
+//			//Hyrer eller sparker politi
+//			Politi = updatePoliti (Politi);
 			//Oppdaterer populasjonen etter endringen som har skjedd
 			totPopulasjon = updatePopulasjon (totPopulasjon);
 			populasjonFernandina = (prosentFernadina * totPopulasjon) / 100;
@@ -436,16 +435,18 @@ public class Stella_kode : MonoBehaviour
 			//Turist conveyer
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
-			if (maander > forrigemaande) {
+			//if (maander > forrigemaande) {
 				Turister_drar = Turister_kommer;
 				Turister_kommer = Reklame;
+				Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
 				totTurister = totTurister + (Turister_kommer - Turister_drar);
+				Debug.Log ("totalt antall turister = " + totTurister);
 				turisterFernandina = totTurister * prosentFernadina / 100;
 				turisterIsabela = totTurister * prosentIsabela / 100;
 				turisterSanCristobal = totTurister * prosentSanCristobal / 100;
 				turisterSanSalvador = totTurister * prosentSanSalvador / 100;
 				turisterSantaCruz = totTurister * prosentSantaCruz / 100;
-			}
+			//}
 			
 			
 			
@@ -470,62 +471,62 @@ public class Stella_kode : MonoBehaviour
 		return (Aj);
 	}
 	
-	int sjekkomAnsettesOppryddere (int okonomi)
-	{
-		//Her sjekkes det om vi har økonomi til å hyre oppryddere
-		// 5 er antallet vi hyrer om gangen og 300 er lønnen deres
-		if (okonomi > 5 * 300)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	
-	int sjekkomAnsettesPoliti (int okonomi)
-	{
-		//Her sjekkes det om vi kan hyre politi
-		//30 er antallet som hyres om gangen og 700 er lønnen
-		if (okonomi > 30 * 700)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	
-	int sjekkOmAnsettOpprydder (int forsopling, int oppryddere)
-	{
-		//Her sjekkes det om det er nødvendig å hyre oppryddere
-		//ALtså om det er mer søppel enn de opprydderene vi har kan klare
-		//500 her er hvor mye søppel i kilo en person klarer å rydde i måneden.
-		if (forsopling >= oppryddere * 500)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	
-	int sjekkOmAnsettPolitipgaTyvfiskere(int politi, int tyvfiskere)
-	{
-		//Her sjekkes det om det er flere tyvfiskere enn det politiet klarer å fange
-		//3 her er hvor mange tyvfiskere en politimann klare å fange i måneden
-		if (politi * 3 < tyvfiskere)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
-	}
+//	int sjekkomAnsettesOppryddere (int okonomi)
+//	{
+//		//Her sjekkes det om vi har økonomi til å hyre oppryddere
+//		// 5 er antallet vi hyrer om gangen og 300 er lønnen deres
+//		if (okonomi > 5 * 300)
+//		{
+//			return 1;
+//		}
+//		else
+//		{
+//			return 0;
+//		}
+//	}
+//	
+//	int sjekkomAnsettesPoliti (int okonomi)
+//	{
+//		//Her sjekkes det om vi kan hyre politi
+//		//30 er antallet som hyres om gangen og 700 er lønnen
+//		if (okonomi > 30 * 700)
+//		{
+//			return 1;
+//		}
+//		else
+//		{
+//			return 0;
+//		}
+//	}
+//	
+//	int sjekkOmAnsettOpprydder (int forsopling, int oppryddere)
+//	{
+//		//Her sjekkes det om det er nødvendig å hyre oppryddere
+//		//ALtså om det er mer søppel enn de opprydderene vi har kan klare
+//		//500 her er hvor mye søppel i kilo en person klarer å rydde i måneden.
+//		if (forsopling >= oppryddere * 500)
+//		{
+//			return 1;
+//		}
+//		else
+//		{
+//			return 0;
+//		}
+//	}
+//	
+//	int sjekkOmAnsettPolitipgaTyvfiskere(int politi, int tyvfiskere)
+//	{
+//		//Her sjekkes det om det er flere tyvfiskere enn det politiet klarer å fange
+//		//3 her er hvor mange tyvfiskere en politimann klare å fange i måneden
+//		if (politi * 3 < tyvfiskere)
+//		{
+//			return 1;
+//		}
+//		else
+//		{
+//			return 0;
+//		}
+//	}
 	
 	int updatePelican(int fertilBrownPelican, int ungBrownPelican, int Plass_BP_trenger, int Tilgjengelig_BP_plass)
 	{
@@ -601,47 +602,47 @@ public class Stella_kode : MonoBehaviour
 		return ungBrownPelican;
 	}
 	
-	int sparkerPgaPenger (int faat_Sparken)
-	{
-		//Trenger ingen teller her fordi ingen PULSE som INFLOW eller OUTFLOW
-		//Denne her regner ut hvor mange som blir sparket.
-		//Den sparker ikke oppryddere akkurat her, men den teller opp hvor mange som vil bli sparket lenger nede
-		
-		int ikkeNokPenger;
-		//300 er lønna til oppryderne
-		if (okonomi <= totAntallOppryddere * 300)
-		{
-			ikkeNokPenger = 50;
-		}
-		else
-		{
-			ikkeNokPenger = 0;
-		}
-		
-		faat_Sparken = faat_Sparken + ikkeNokPenger;
-		return (faat_Sparken);
-	}
-	
-	int sparkerPgaLiteForsopling(int faarSparkenLiteSoppel, int Oppryddere, int Forsopling)
-	{
-		//§
-		//Trenger ingen teller her fordi ingen PULSE som INFLOW eller OUTFLOW
-		//Denne her regner ut hvor mange som blir sparket.
-		//Den sparker ikke oppryddere akkurat her, men den teller opp hvor mange som vil bli sparket lenger nede
-		
-		int faarSparken;
-		if (Forsopling < Oppryddere * 500)
-		{
-			faarSparken = 1;
-		}
-		else
-		{
-			faarSparken = 0;
-		}
-		
-		faarSparkenLiteSoppel = faarSparkenLiteSoppel + faarSparken;
-		return (faarSparkenLiteSoppel);
-	}
+//	int sparkerPgaPenger (int faat_Sparken)
+//	{
+//		//Trenger ingen teller her fordi ingen PULSE som INFLOW eller OUTFLOW
+//		//Denne her regner ut hvor mange som blir sparket.
+//		//Den sparker ikke oppryddere akkurat her, men den teller opp hvor mange som vil bli sparket lenger nede
+//		
+//		int ikkeNokPenger;
+//		//300 er lønna til oppryderne
+//		if (okonomi <= totAntallOppryddere * 300)
+//		{
+//			ikkeNokPenger = 50;
+//		}
+//		else
+//		{
+//			ikkeNokPenger = 0;
+//		}
+//		
+//		faat_Sparken = faat_Sparken + ikkeNokPenger;
+//		return (faat_Sparken);
+//	}
+//	
+//	int sparkerPgaLiteForsopling(int faarSparkenLiteSoppel, int Oppryddere, int Forsopling)
+//	{
+//		//§
+//		//Trenger ingen teller her fordi ingen PULSE som INFLOW eller OUTFLOW
+//		//Denne her regner ut hvor mange som blir sparket.
+//		//Den sparker ikke oppryddere akkurat her, men den teller opp hvor mange som vil bli sparket lenger nede
+//		
+//		int faarSparken;
+//		if (Forsopling < Oppryddere * 500)
+//		{
+//			faarSparken = 1;
+//		}
+//		else
+//		{
+//			faarSparken = 0;
+//		}
+//		
+//		faarSparkenLiteSoppel = faarSparkenLiteSoppel + faarSparken;
+//		return (faarSparkenLiteSoppel);
+//	}
 	
 	int updateFertilFisk(int totFFisk)
 	{
@@ -843,21 +844,26 @@ public class Stella_kode : MonoBehaviour
 	
 	int updateOkonomi(int totOkonomi)
 	{
+
 		//Variabler for input og output
 		int Inntekter = 0;
-		int sparing = (int)Math.Floor (totOkonomi*0.3);
-		int Penger_politi = Politi*700;
-		int Penger_Oppryddere = totAntallOppryddere*300;
+		//int sparing = (int)Math.Floor (totOkonomi*0.3);
+		int Penger_politi = 0;
+		int Penger_Oppryddere = 0;
+		Inntekter = penger_fra_turister_og_innbyggere;
+		Debug.Log ("Inntekter: " + Inntekter);
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#
-		if (maander > forrigemaande)
+		if (maander > forrigemaande) 
 		{
 			//Tar penger fra turister og innbyggere
 			//Stjeler litt fra dyrene også med det snakker vi ikke om
-			Inntekter = penger_fra_turister_og_innbyggere;
+
+			Penger_politi = Politi*700;
+			Penger_Oppryddere = totAntallOppryddere*300;
 		}
 		
-		totOkonomi = totOkonomi + (Inntekter - sparing - Penger_politi - Penger_Oppryddere);
+		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		return totOkonomi;
 	}
 	
@@ -890,70 +896,70 @@ public class Stella_kode : MonoBehaviour
 	//              return totOppryddere;
 	//      }
 	
-	int updateOppryddere (int totOppryddere, int Maa_ansette_nye, int Forsopling)
-	{
-		//Variabler: Input og ouput
-		int ansette_nye = 0;
-		int Sparken = 0;
-		int Sparken_ikke_mer_penger = 0;
-		
-		if (Maa_ansette_nye + Kan_ansette_opprydder == 2)
-		{
-			//Ansettes ny oppryddere fordi vi kan og må (maa)
-			ansette_nye=50;
-		}
-		
-		if (Forsopling <= totOppryddere * 500)
-		{
-			//Sparkes fordi de ikke trengs
-			Sparken = 1;
-		}
-		
-		if (okonomi <= totOppryddere * 300)
-		{
-			//Har ikke nok penger til å betale folk
-			Sparken_ikke_mer_penger = 50;
-		}
-		
-		totOppryddere = totOppryddere+(ansette_nye-Sparken-Sparken_ikke_mer_penger);
-		return totOppryddere;
-	}
-	
-	int updatePoliti (int totPoliti)
-	{
-		//Variabler med input og output
-		int Politi_ansettes_pga_hai = 0;
-		int Politi_ansettes_pga_Sjopolse = 0;
-		int Politi_sparkes_ingen_tyver = 0;
-		int Politi_sparkes_lite_penger = 0;
-		
-		if (Maa_ansette_politi_pga_hai + Kan_ansette_politi == 2)
-		{
-			//Her ansettes det hvis man må (pga hai) og kan (nok penger)
-			Politi_ansettes_pga_hai = 50;
-		}
-		
-		if (Maa_ansette_politi_pga_sjopolse + Kan_ansette_politi == 2)
-		{
-			//Her ansettes det hvis man må (pga sjøpølse) og kan (nok penger)
-			Politi_ansettes_pga_Sjopolse = 50;
-		}
-		
-		if (Tyvfiskere_Hai < Politi / 3)
-		{
-			//Nedkutting hos politiet
-			Politi_sparkes_ingen_tyver = 5;
-		}
-		
-		if (okonomi <= totPoliti * 700)
-		{
-			//Her sparker de bare fordi de ikke har råd
-			Politi_sparkes_lite_penger = 50;
-		}
-		
-		totPoliti = totPoliti + (Politi_ansettes_pga_hai + Maa_ansette_politi_pga_sjopolse - Politi_sparkes_ingen_tyver - Politi_sparkes_lite_penger);
-		return totPoliti;
-	}
+//	int updateOppryddere (int totOppryddere, int Maa_ansette_nye, int Forsopling)
+//	{
+//		//Variabler: Input og ouput
+//		int ansette_nye = 0;
+//		int Sparken = 0;
+//		int Sparken_ikke_mer_penger = 0;
+//		
+//		if (Maa_ansette_nye + Kan_ansette_opprydder == 2)
+//		{
+//			//Ansettes ny oppryddere fordi vi kan og må (maa)
+//			ansette_nye=50;
+//		}
+//		
+//		if (Forsopling <= totOppryddere * 500)
+//		{
+//			//Sparkes fordi de ikke trengs
+//			Sparken = 1;
+//		}
+//		
+//		if (okonomi <= totOppryddere * 300)
+//		{
+//			//Har ikke nok penger til å betale folk
+//			Sparken_ikke_mer_penger = 50;
+//		}
+//		
+//		totOppryddere = totOppryddere+(ansette_nye-Sparken-Sparken_ikke_mer_penger);
+//		return totOppryddere;
+//	}
+//	
+//	int updatePoliti (int totPoliti)
+//	{
+//		//Variabler med input og output
+//		int Politi_ansettes_pga_hai = 0;
+//		int Politi_ansettes_pga_Sjopolse = 0;
+//		int Politi_sparkes_ingen_tyver = 0;
+//		int Politi_sparkes_lite_penger = 0;
+//		
+//		if (Maa_ansette_politi_pga_hai + Kan_ansette_politi == 2)
+//		{
+//			//Her ansettes det hvis man må (pga hai) og kan (nok penger)
+//			Politi_ansettes_pga_hai = 50;
+//		}
+//		
+//		if (Maa_ansette_politi_pga_sjopolse + Kan_ansette_politi == 2)
+//		{
+//			//Her ansettes det hvis man må (pga sjøpølse) og kan (nok penger)
+//			Politi_ansettes_pga_Sjopolse = 50;
+//		}
+//		
+//		if (Tyvfiskere_Hai < Politi / 3)
+//		{
+//			//Nedkutting hos politiet
+//			Politi_sparkes_ingen_tyver = 5;
+//		}
+//		
+//		if (okonomi <= totPoliti * 700)
+//		{
+//			//Her sparker de bare fordi de ikke har råd
+//			Politi_sparkes_lite_penger = 50;
+//		}
+//		
+//		totPoliti = totPoliti + (Politi_ansettes_pga_hai + Maa_ansette_politi_pga_sjopolse - Politi_sparkes_ingen_tyver - Politi_sparkes_lite_penger);
+//		return totPoliti;
+//	}
 	
 	int updatePopulasjon (int Populasjon)
 	{

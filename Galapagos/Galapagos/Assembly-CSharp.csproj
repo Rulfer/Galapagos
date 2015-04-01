@@ -50,11 +50,6 @@
      <Compile Include="Assets\_scripts\Island\Hire_Fire\fireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
-     <Compile Include="Assets\_scripts\Island\fernandinaScript.cs" />
-     <Compile Include="Assets\_scripts\Island\isabelaScript.cs" />
-     <Compile Include="Assets\_scripts\Island\sanCristobalScript.cs" />
-     <Compile Include="Assets\_scripts\Island\sanSalvadorScript.cs" />
-     <Compile Include="Assets\_scripts\Island\santaCruzScript.cs" />
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
      <Compile Include="Assets\_scripts\bankAccount.cs" />
      <Compile Include="Assets\_scripts\islandInfo.cs" />
