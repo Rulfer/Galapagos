@@ -65,24 +65,25 @@ public class Stella_kode : MonoBehaviour
 	int totSoppel_fra_mennesker = 0;
 	
 	//Populasjonen på øya og deres ting
-	int totPopulasjon = 26000;
-	int populasjonFernandina = 0;
-	int populasjonIsabela = 0;
-	int populasjonSanCristobal = 0;
-	int populasjonSanSalvador = 0;
-	int populasjonSantaCruz = 0;
+	int totPopulasjon = 100;
+	int movingIn;
+	public static int populasjonFernandina = 5;
+	public static int populasjonIsabela = 20;
+	public static int populasjonSanCristobal = 40;
+	public static int populasjonSanSalvador = 5;
+	public static int populasjonSantaCruz = 30;
 	
 	int Flytter_pga_jobb = 0;
 	int Antall_jobber = 0;
 	int Kommunal = 0;
 	
 	//turisme
-	int turisterFernandina = 0;
-	int turisterIsabela = 0;
-	int turisterSanCristobal = 0;
-	int turisterSanSalvador = 0;
-	int turisterSantaCruz = 0;
-	int totTurister = 10000;
+	public static int turisterFernandina = 0;
+	public static int turisterIsabela = 0;
+	public static int turisterSanCristobal = 0;
+	public static int turisterSanSalvador = 0;
+	public static int turisterSantaCruz = 0;
+	int totTurister = 500;
 	int Turister_kommer = 0;
 	int Turister_drar = 0;
 	int Turisme = 0;
@@ -119,16 +120,16 @@ public class Stella_kode : MonoBehaviour
 	
 	//Disse variablene blir brukt til å finne ut om noe er sant, der 1 betyr at påstanden er sann, og 0 at den er usann.
 	//For eksempel Kan_ansette_politi = 0 betyr at det ikke kan hyres politi, mens = 1 betyr at det er mulig.
-	int Kan_ansette_opprydder = 0;
-	int Kan_ansette_politi = 0;
-	int Maa_ansette_nyeFernandina = 0;
-	int Maa_ansette_nyeIsabela = 0;
-	int Maa_ansette_nyeSanCristobal = 0;
-	int Maa_ansette_nyeSanSalvador = 0;
-	int Maa_ansette_nyeSantaCruz = 0;
-	int Maa_ansette_nyeHav = 0;
-	int Maa_ansette_politi_pga_hai= 0;
-	int Maa_ansette_politi_pga_sjopolse = 0;
+//	int Kan_ansette_opprydder = 0;
+//	int Kan_ansette_politi = 0;
+//	int Maa_ansette_nyeFernandina = 0;
+//	int Maa_ansette_nyeIsabela = 0;
+//	int Maa_ansette_nyeSanCristobal = 0;
+//	int Maa_ansette_nyeSanSalvador = 0;
+//	int Maa_ansette_nyeSantaCruz = 0;
+//	int Maa_ansette_nyeHav = 0;
+//	int Maa_ansette_politi_pga_hai= 0;
+//	int Maa_ansette_politi_pga_sjopolse = 0;
 	
 	//I disse varibalene lagres plass i forhold til all dyrene.
 	int Tilgjengelig_BP_plassFernandia = 0;
@@ -175,12 +176,12 @@ public class Stella_kode : MonoBehaviour
 	//Fått_Sparken ting. Altså den som teller hvor mange som har fått sparken
 	int Faatt_Sparken = 0;
 	
-	int Faatt_Sparken_lite_soppelFernandina = 0;
-	int Faatt_Sparken_lite_soppelIsabela = 0;
-	int Faatt_Sparken_lite_soppelSanCristobal = 0;
-	int Faatt_Sparken_lite_soppelSanSalvador = 0;
-	int Faatt_Sparken_lite_soppelSantaCruz = 0;
-	int Faatt_Sparken_lite_soppelHav = 0;
+//	int Faatt_Sparken_lite_soppelFernandina = 0;
+//	int Faatt_Sparken_lite_soppelIsabela = 0;
+//	int Faatt_Sparken_lite_soppelSanCristobal = 0;
+//	int Faatt_Sparken_lite_soppelSanSalvador = 0;
+//	int Faatt_Sparken_lite_soppelSantaCruz = 0;
+//	int Faatt_Sparken_lite_soppelHav = 0;
 	
 	//Fisketing
 	int Fertil_Fisk = 25000000;
@@ -290,8 +291,8 @@ public class Stella_kode : MonoBehaviour
 			
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
-			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.01));
-			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.00000001);
+			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.0001));
+			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.000000001);
 			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame);
 			
 			//Oppdaterer pengene vi får inn
@@ -437,22 +438,30 @@ public class Stella_kode : MonoBehaviour
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
 			//if (maander > forrigemaande) {
-				Turister_drar = Turister_kommer;
-				Turister_kommer = Reklame;
-				Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
-				totTurister = totTurister + (Turister_kommer - Turister_drar);
-				Debug.Log ("totalt antall turister = " + totTurister);
-				turisterFernandina = totTurister * prosentFernadina / 100;
-				turisterIsabela = totTurister * prosentIsabela / 100;
-				turisterSanCristobal = totTurister * prosentSanCristobal / 100;
-				turisterSanSalvador = totTurister * prosentSanSalvador / 100;
-				turisterSantaCruz = totTurister * prosentSantaCruz / 100;
-			//}
-			
-			
-			
-			Debug.Log ("Antall Oppryddere = " + totAntallOppryddere);
-			Debug.Log ("Antall Oppryddere Santa Cruz = " + oppryddereSantaCruz);
+			Turister_drar = totTurister;
+			movingIn = (int)Math.Floor (totTurister * 0.1);
+			Debug.Log ("Moving in: " + movingIn);
+			totPopulasjon = totPopulasjon + movingIn;
+			Debug.Log("tot populasjon: " + totPopulasjon);
+			Turister_kommer = Reklame;
+			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
+			populasjonFernandina += (int)Math.Floor (movingIn * 0.1) + populasjonFernandina;
+			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
+			populasjonIsabela += (int)Math.Floor (movingIn * 0.3) + populasjonIsabela;
+			populasjonSanCristobal += (int)Math.Floor (movingIn * 0.2) + populasjonSanCristobal;
+			populasjonSanSalvador += (int)Math.Floor (movingIn * 0.2) + populasjonSanSalvador;
+			populasjonSantaCruz += (int)Math.Floor (movingIn * 0.2) + populasjonSantaCruz;
+
+			Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
+			totTurister = Turister_kommer - Turister_drar;
+			Debug.Log ("totalt antall turister = " + totTurister);
+			turisterFernandina =(int)Math.Floor (totTurister * 0.2);
+			turisterIsabela =(int)Math.Floor (totTurister * 0.2);
+			turisterSanCristobal =(int)Math.Floor (totTurister * 0.4);
+			turisterSanSalvador =(int)Math.Floor (totTurister * 0.1);
+			turisterSantaCruz =(int)Math.Floor (totTurister * 0.1);
+			Debug.Log ("Turister isabela: " + turisterIsabela);
+
 			Debug.Log ("Økonomi = " + okonomi);
 		}
 		

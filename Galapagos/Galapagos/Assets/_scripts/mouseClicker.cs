@@ -82,7 +82,36 @@ public class mouseClicker : MonoBehaviour {
 		info.text = "";
 		info.text = areaName [n] + "\n";
 		info.text += "\n";
-		info.text += "Antall turister: " + "\n";
+		switch (n) {
+		case 0: info.text += "Populasjon: " + islandInfo.populasjonFernandina;
+			break;
+		case 1: info.text += "Populasjon: " + islandInfo.populasjonIsabela;
+			break;
+		case 2: info.text += "Populasjon: " + islandInfo.populasjonSanCristobal;
+			break;
+		case 3: info.text += "Populasjon: " + islandInfo.populasjonSanSalvador;
+			break;
+		case 4: info.text += "Populasjon: " + islandInfo.populasjonSantaCruz;
+			break;
+		case 5: info.text += "Populasjon: Dette er et hav.";
+			break;
+		}
+		info.text += "\n";
+		switch (n) {
+		case 0: info.text += "Antall turister: " + islandInfo.turisterFernandina;
+			break;
+		case 1: info.text += "Antall turister: " + islandInfo.turisterIsabela;
+			break;
+		case 2: info.text += "Antall turister: " + islandInfo.turisterSanCristobal;
+			break;
+		case 3: info.text += "Antall turister: " + islandInfo.turisterSanSalvador;
+			break;
+		case 4: info.text += "Antall turister: " + islandInfo.turisterSantaCruz;
+			break;
+		case 5: info.text += "Antall turister: Dette er et hav.";
+			break;
+		}
+		info.text += "\n";
 		info.text += "Antall dyr: " + "\n";
 		info.text += "Mengde søppel: " + "\n";
 		info.text += "\n";

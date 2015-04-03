@@ -21,23 +21,28 @@ public class fireOpprydder : MonoBehaviour {
 			islandInfo.a_endretIsabela -= 5;
 			Stella_kode.oppryddereIsabela -= 5;
 			Debug.Log ("fire isabela");
-		} else if (islandInfo.visitedFernadina == true) {
+		} 
+		else if (islandInfo.visitedFernadina == true) {
 			islandInfo.a_endretFernadina -= 5;
 			Stella_kode.oppryddereFernandina -= 5;
 			Debug.Log ("fire fernadina");
-		} else if (islandInfo.visitedSanCristobal == true) {
+		}
+		else if (islandInfo.visitedSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 5;
 			Stella_kode.oppryddereSanCristobal -= 5;
 			Debug.Log ("fire san cristobal");
-		} else if (islandInfo.visitedSanSalvador == true) {
+		} 
+		else if (islandInfo.visitedSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 5;
 			Stella_kode.oppryddereSanSalvador -= 5;
 			Debug.Log ("fire san salvador");
-		} else if (islandInfo.visitedSantaCruz == true) {
+		} 
+		else if (islandInfo.visitedSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 5;
 			Stella_kode.oppryddereSantaCruz -= 5;
 			Debug.Log ("fire santa cruz");
-		} else if (oceanInfo.visitedOcean == true) {
+		} 
+		else if (oceanInfo.visitedOcean == true) {
 			oceanInfo.a_endretOcean -= 5;
 			Stella_kode.Politi -= 5;
 			Debug.Log ("fire ocean");
