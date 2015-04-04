@@ -15,7 +15,7 @@ public class Stella_kode : MonoBehaviour
 	static float dt = 1;
 	
 	//Her stilles det hvor mange sekunder det skal ta mellom hver uke.
-	public int antallSekundermellomUker = 10;
+	public int antallSekundermellomUker = 5;
 	
 	//Initierer de forskjellige stockene fra STELLA
 	
@@ -66,6 +66,7 @@ public class Stella_kode : MonoBehaviour
 	
 	//Populasjonen på øya og deres ting
 	int totPopulasjon = 100;
+	int prevPopulasjon;
 	int movingIn;
 	public static int populasjonFernandina = 5;
 	public static int populasjonIsabela = 20;
@@ -440,12 +441,14 @@ public class Stella_kode : MonoBehaviour
 			//if (maander > forrigemaande) {
 			Turister_drar = totTurister;
 			movingIn = (int)Math.Floor (totTurister * 0.1);
+			prevPopulasjon = totPopulasjon;
 			Debug.Log ("Moving in: " + movingIn);
 			totPopulasjon = totPopulasjon + movingIn;
 			Debug.Log("tot populasjon: " + totPopulasjon);
 			Turister_kommer = Reklame;
 			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
-			populasjonFernandina += (int)Math.Floor (movingIn * 0.1) + populasjonFernandina;
+			prevPopulasjon = populasjonFernandina;
+			populasjonFernandina += (int)Math.Floor (movingIn * 0.1) + prevPopulasjon;
 			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
 			populasjonIsabela += (int)Math.Floor (movingIn * 0.3) + populasjonIsabela;
 			populasjonSanCristobal += (int)Math.Floor (movingIn * 0.2) + populasjonSanCristobal;
