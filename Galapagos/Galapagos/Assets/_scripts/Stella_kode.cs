@@ -34,8 +34,8 @@ public class Stella_kode : MonoBehaviour
 	
 	//Politi og tyvfiskere
 	public static int Politi;
-	int Tyvfiskere_Hai = 0;
-	int Tyvfiskere_Sjopolse = 0;
+	public static int Tyvfiskere_Hai = 0;
+	public static int Tyvfiskere_Sjopolse = 0;
 	
 	//Søppel og plukkere
 	public static int oppryddereFernandina = 0;

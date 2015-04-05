@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\fangesensor.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\SpawnTyvfiskere.cs">
     <Files>
-      <File FileName="Assets\fangesensor.cs" Line="43" Column="34" />
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="44" Column="46" />
+      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="22" Column="20" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="38" Column="16" />
       <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
       <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\hitsFloor.cs" Line="1" Column="1" />
       <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\BondMovement.cs" Line="1" Column="1" />

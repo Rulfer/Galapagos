@@ -50,14 +50,15 @@
      <Compile Include="Assets\_scripts\Island\Hire_Fire\fireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
+     <Compile Include="Assets\_scripts\SpawnTyvfiskere.cs" />
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
      <Compile Include="Assets\_scripts\bankAccount.cs" />
+     <Compile Include="Assets\_scripts\fangesensor.cs" />
      <Compile Include="Assets\_scripts\islandInfo.cs" />
      <Compile Include="Assets\_scripts\mouseClicker.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
-     <Compile Include="Assets\fangesensor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Program files Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
