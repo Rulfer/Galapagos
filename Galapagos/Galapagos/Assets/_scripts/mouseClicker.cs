@@ -4,8 +4,11 @@ using System.Collections;
 public class mouseClicker : MonoBehaviour {
 	string[] areaName = new string[6];
 	public GameObject infoBox;
+	public GameObject shopBox;
+	public GUIText shop;
 	public GUIText info;
 	public static bool visitedIsabela = false;
+	bool visitedShop;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +18,8 @@ public class mouseClicker : MonoBehaviour {
 		areaName [3] = "Santa Cruz";
 		areaName [4] = "San Salvador";
 		areaName [5] = "Ocean";
+
+		visitedShop = false;
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
 	}
@@ -31,32 +36,38 @@ public class mouseClicker : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandFernadina") {
 				Debug.Log ("treffer Fernadina");
 				islandInfo.visitedFernadina = true;
-				showText(0);
-			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandIsabela") {
+				showText (0);
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandIsabela") {
 				Debug.Log ("treffer Isabela");
 				islandInfo.visitedIsabela = true;
-				showText(1);
-			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanCristobal") {
+				showText (1);
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanCristobal") {
 				Debug.Log ("treffer San Cristobal");
-				islandInfo.visitedSanCristobal =  true;
-				showText(2);
-			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSantaCruz") {
+				islandInfo.visitedSanCristobal = true;
+				showText (2);
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSantaCruz") {
 				Debug.Log ("treffer Santa Cruz");
 				islandInfo.visitedSantaCruz = true;
-				showText(3);
-			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanSalvador") {
+				showText (3);
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanSalvador") {
 				Debug.Log ("treffer San Salvador");
 				islandInfo.visitedSanSalvador = true;
-				showText(4);
-			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ocean") {
+				showText (4);
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ocean") {
 				Debug.Log ("treffer Havet");
 				oceanInfo.visitedOcean = true;
-				showText(5);
+				showText (5);
+
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
+				if(visitedShop == false){
+					shopBox.transform.position = new Vector3 (4.35f, 0.4825f, 0f);
+					showShop();
+					visitedShop = true;
+				}
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "closeShop"){
+				shopBox.transform.position = new Vector3 (0, 0, 10);
+				shop.text = "";
+				visitedShop = false;
 			}
 
 			//Tester om spilleren klikker på enten kjøp eller selg ansatte
@@ -136,6 +147,8 @@ public class mouseClicker : MonoBehaviour {
 			break;
 		case 4: info.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
 			break;
+		case 5: info.text += "Mengde søppel: 0";
+			break;
 		}
 		info.text += "\n";
 		info.text += "\n";
@@ -158,8 +171,21 @@ public class mouseClicker : MonoBehaviour {
 		info.text += "Ansett/Spark ansatte: ANSETT SPARK";
 	}
 
+	void showShop() {
+		shop.text += "\n";
+		shop.text += "+1 opprydder      -1 opprydder";
+		shop.text += "\n";
+		shop.text += "\n";
+		shop.text += "+5 oppryddere     -5 oppryddere";
+		shop.text += "\n";
+		shop.text += "\n";
+		shop.text += "+10 oppryddere    -10 oppryddere";
+		shop.text += "\n";
+	}
+
 	public void close(){
 		infoBox.transform.position = new Vector3 (0, 0, 10);
+		shopBox.transform.position = new Vector3 (0, 0, 10);
 		info.text = "";
 
 		if (islandInfo.visitedFernadina == true) {

@@ -17,7 +17,13 @@ public class oceanInfo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (a_endretOcean < ansatteOcean || a_endretOcean > ansatteOcean) {
-			ansatteOcean = a_endretOcean;
+			if(a_endretOcean <= 0){
+				ansatteOcean = 0;
+				a_endretOcean = ansatteOcean;
+			}
+			else{
+				ansatteOcean = a_endretOcean;
+			}
 			Debug.Log ("ansatte" + ansatteOcean);
 			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(5);
 		}
