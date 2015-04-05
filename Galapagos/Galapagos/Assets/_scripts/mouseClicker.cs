@@ -60,11 +60,23 @@ public class mouseClicker : MonoBehaviour {
 			}
 
 			//Tester om spilleren klikker på enten kjøp eller selg ansatte
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansett") {
-				hireOpprydder.hireStuff();
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettOne") {
+				hireOpprydder.hireOne();
 			}
-			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "spark") {
-				fireOpprydder.fireStuff();
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettFive") {
+				hireOpprydder.hireFive();
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettTen") {
+				hireOpprydder.hireTen();
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkOne") {
+				fireOpprydder.fireOne();
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkFive") {
+				fireOpprydder.fireFive();
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkTen") {
+				fireOpprydder.fireTen();
 			}
 
 			//Tester om spilleren klikker utenfor informasjonsboksen (er en hitbox der)
@@ -113,7 +125,19 @@ public class mouseClicker : MonoBehaviour {
 		}
 		info.text += "\n";
 		info.text += "Antall dyr: " + "\n";
-		info.text += "Mengde søppel: " + "\n";
+		switch (n) {
+		case 0: info.text += "Mengde søppel: " + islandInfo.forsoplingFernandina;
+			break;
+		case 1: info.text += "Mengde søppel: " + islandInfo.forsoplingIsabela;
+			break;
+		case 2: info.text += "Mengde søppel: " + islandInfo.forsoplingSanCristobal;
+			break;
+		case 3: info.text += "Mengde søppel: " + islandInfo.forsoplingSanSalvador;
+			break;
+		case 4: info.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
+			break;
+		}
+		info.text += "\n";
 		info.text += "\n";
 		switch (n) {
 		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina;
@@ -131,11 +155,10 @@ public class mouseClicker : MonoBehaviour {
 		}
 		info.text += "\n";
 		info.text += "\n";
-		info.text += "\n";
 		info.text += "Ansett/Spark ansatte: ANSETT SPARK";
 	}
 
-	void close(){
+	public void close(){
 		infoBox.transform.position = new Vector3 (0, 0, 10);
 		info.text = "";
 

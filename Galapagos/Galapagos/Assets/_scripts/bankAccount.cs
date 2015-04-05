@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class bankAccount : MonoBehaviour {
-	int penger;
+	public static int penger;
 	public GameObject infoBox;
 	public GUIText info;
 	// Use this for initialization
@@ -23,7 +23,7 @@ public class bankAccount : MonoBehaviour {
 		}
 	}
 
-	void print(){
+	public void print(){
 		info.text = "";
 		info.text = penger + "$";
 	}
