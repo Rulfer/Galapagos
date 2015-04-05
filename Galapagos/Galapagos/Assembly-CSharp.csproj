@@ -57,6 +57,7 @@
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
+     <Compile Include="Assets\fangesensor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Program files Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
