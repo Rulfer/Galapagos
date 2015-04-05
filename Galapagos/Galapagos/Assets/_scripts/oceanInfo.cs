@@ -9,7 +9,7 @@ public class oceanInfo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ansatteOcean = 30;
+		ansatteOcean = 100;
 		a_endretOcean = ansatteOcean;
 		visitedOcean = false;
 	}

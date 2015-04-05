@@ -1,4 +1,5 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
 <<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
@@ -25,6 +26,18 @@
       <File FileName="Assets\_scripts\oceanInfo.cs" Line="21" Column="41" />
       <File FileName="Assets\_scripts\Island\Hire_Fire\hireOpprydder.cs" Line="48" Column="1" />
 >>>>>>> 8762183e5fa66574612002127714cb222ad9e140
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
+    <Files>
+      <File FileName="Assets\_scripts\islandInfo.cs" Line="63" Column="23" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="106" Column="35" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="72" Column="86" />
+      <File FileName="Assets\_scripts\oceanInfo.cs" Line="22" Column="46" />
+      <File FileName="Assets\_scripts\shortcuts.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\bankAccount.cs" Line="4" Column="43" />
+      <File FileName="Assets\_scripts\Island\Hire_Fire\fireOpprydder.cs" Line="21" Column="43" />
+>>>>>>> facd30939fbe39c7c879e2d3a11d2b3b9b1f97c5
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
