@@ -786,31 +786,18 @@ public class Stella_kode : MonoBehaviour
 
 		//Variabler for input og output
 		int Inntekter = 0;
-<<<<<<< HEAD
-		int sparing = (int)Math.Floor (totOkonomi*0.3);
-		int Penger_politi = 0;
-		int Penger_Oppryddere = 0;
-=======
 		//int sparing = (int)Math.Floor (totOkonomi*0.3);
 		int Penger_politi = 0;
 		int Penger_Oppryddere = 0;
 		Inntekter = penger_fra_turister_og_innbyggere;
 		Debug.Log ("Inntekter: " + Inntekter);
->>>>>>> 8762183e5fa66574612002127714cb222ad9e140
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#
 		if (maander > forrigemaande) 
 		{
 			//Tar penger fra turister og innbyggere
 			//Stjeler litt fra dyrene også med det snakker vi ikke om
-<<<<<<< HEAD
 			Inntekter = penger_fra_turister_og_innbyggere;
-			Penger_politi = Politi*700;
-			Penger_Oppryddere = totAntallOppryddere*300;
-		}
-=======
->>>>>>> 8762183e5fa66574612002127714cb222ad9e140
-
 			Penger_politi = Politi*700;
 			Penger_Oppryddere = totAntallOppryddere*300;
 		}
