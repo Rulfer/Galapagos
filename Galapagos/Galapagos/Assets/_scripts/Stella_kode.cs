@@ -291,7 +291,7 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
 			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.01));
-			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.00000001);
+			Sjopolse_Reklame = (int)Math.Ceiling ((/*Sjopolse_Unge +*/ Sjopolse_Fertil)/ 0.00000001);
 			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame);
 			
 			//Oppdaterer pengene vi får inn
@@ -432,7 +432,16 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer Tyvfiskerne
 			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
 			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
-			
+
+			if (Tyvfiskere_Hai < 0)
+			{
+				Tyvfiskere_Hai = 0;
+			}
+
+			if (Tyvfiskere_Sjopolse < 0)
+			{
+				Tyvfiskere_Sjopolse = 0;
+			}
 			//Turist conveyer
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
@@ -1061,6 +1070,7 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereHai = totTyvfiskereHai + (Tyvfiskere_Hai_kommer - haifiskere_fanget - Tyvfiskere_hai_slutter);
+
 		return totTyvfiskereHai;
 	}
 	
@@ -1078,6 +1088,7 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereSjopolse = totTyvfiskereSjopolse + (Tyvfiskere_sjopolse_kommer - sjopolsefiskere_fanget - Tyvfiske_sjopolse_slutter);
+
 		return totTyvfiskereSjopolse;
 	}
 	
