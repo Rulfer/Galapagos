@@ -23,6 +23,7 @@ public class islandInfo : MonoBehaviour {
 	public static int turisterSanSalvador;
 	public static int turisterSantaCruz;
 
+	//Brukes for å oppdatere antall turister
 	public static int nyeTuristerFernandina;
 	public static int nyeTuristerIsabela;
 	public static int nyeTuristerSanCristobal;
@@ -36,17 +37,25 @@ public class islandInfo : MonoBehaviour {
 	public static int populasjonSanSalvador;
 	public static int populasjonSantaCruz;
 
+	//Holder på mengden søppel på hver øy
 	public static int forsoplingFernandina;
 	public static int forsoplingIsabela;
 	public static int forsoplingSanCristobal;
 	public static int forsoplingSanSalvador;
 	public static int forsoplingSantaCruz;
 
+	//Brukes for å oppdatere søppelmengden på hver ø
 	public static int nyForsoplingFernandina;
 	public static int nyForsoplingIsabela;
 	public static int nyForsoplingSanCristobal;
 	public static int nyForsoplingSanSalvador;
 	public static int nyForsoplingSantaCruz;
+
+	public static int maxTurismeFernandina;
+	public static int maxTurismeIsabela;
+	public static int maxTurismeSanCristobal;
+	public static int maxTurismeSanSalvador;
+	public static int maxTurismeSantaCruz;
 
 	//Brukes for å si hvilken informasjon til hvilken øy spilleren er ute etter
 	public static bool visitedFernadina;
@@ -103,6 +112,12 @@ public class islandInfo : MonoBehaviour {
 		nyForsoplingSanCristobal = forsoplingSanCristobal;
 		nyForsoplingSanSalvador = forsoplingSanSalvador;
 		nyForsoplingSantaCruz = forsoplingSantaCruz;
+
+		maxTurismeFernandina = 500;
+		maxTurismeIsabela = 500;
+		maxTurismeSanCristobal = 500;
+		maxTurismeSanSalvador = 500;
+		maxTurismeSantaCruz = 500;
 
 		//Sier at spilleren ikke har besøkt noen plass for å forhindre bugs
 		visitedFernadina = false;
@@ -179,16 +194,17 @@ public class islandInfo : MonoBehaviour {
 		}
 
 		//Dersom turismen oppdateres skal dette skje her
-		if (turisterFernandina < nyeTuristerFernandina || turisterFernandina > nyeTuristerFernandina) {
-			turisterFernandina = nyeTuristerFernandina;
-		} else if (turisterIsabela < nyeTuristerIsabela || turisterIsabela > nyeTuristerIsabela) {
-			turisterIsabela = nyeTuristerIsabela;
-		} else if (turisterSanCristobal < nyeTuristerSanCristobal || turisterSanCristobal > nyeTuristerSanCristobal) {
-			turisterSanCristobal = nyeTuristerSanCristobal;
-		} else if (turisterSanSalvador < nyeTuristerSanSalvador || turisterSanSalvador > nyeTuristerSanSalvador) {
-			turisterSanSalvador = nyeTuristerSanSalvador;
-		} else if (turisterSantaCruz < nyeTuristerSantaCruz || turisterSantaCruz > nyeTuristerSantaCruz) {
-			turisterSantaCruz = nyeTuristerSantaCruz;
+		if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
+			turisterFernandina = Stella_kode.turisterFernandina ;
+			Debug.Log ("turisterfernandina er: " + turisterFernandina);
+		} else if (turisterIsabela < Stella_kode.turisterIsabela || turisterIsabela > Stella_kode.turisterIsabela) {
+			turisterIsabela = Stella_kode.turisterIsabela;
+		} else if (turisterSanCristobal < Stella_kode.turisterSanCristobal || turisterSanCristobal > Stella_kode.turisterSanCristobal) {
+			turisterSanCristobal = Stella_kode.turisterSanCristobal;
+		} else if (turisterSanSalvador < Stella_kode.turisterSanSalvador || turisterSanSalvador > Stella_kode.turisterSanSalvador) {
+			turisterSanSalvador = Stella_kode.turisterSanSalvador;
+		} else if (turisterSantaCruz < Stella_kode.turisterSantaCruz || turisterSantaCruz > Stella_kode.turisterSantaCruz) {
+			turisterSantaCruz = Stella_kode.turisterSantaCruz;
 		}
 
 		if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
@@ -216,11 +232,10 @@ public class islandInfo : MonoBehaviour {
 			forsoplingSantaCruz = nyForsoplingSantaCruz;
 		}
 
-
-
 		if (visitedFernadina == true) {
-			if (turisterFernandina < nyeTuristerFernandina || turisterFernandina > nyeTuristerFernandina) {
-				turisterFernandina = nyeTuristerFernandina;
+			if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
+				turisterFernandina = Stella_kode.turisterFernandina;
+				Debug.Log ("turister fernandina: " + turisterFernandina);
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
 			} else if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
 				populasjonFernandina = Stella_kode.populasjonFernandina;

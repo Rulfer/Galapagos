@@ -20,22 +20,27 @@ public class fireOpprydder : MonoBehaviour {
 		Debug.Log ("fire stuff");
 		if (islandInfo.visitedIsabela == true) {
 			islandInfo.a_endretIsabela -= 1;
+			Stella_kode.oppryddereIsabela += 1;
 			Debug.Log ("fire isabela");
 		} 
 		else if (islandInfo.visitedFernadina == true) {
 			islandInfo.a_endretFernadina -= 1;
+			Stella_kode.oppryddereFernandina -= 1;
 			Debug.Log ("fire fernadina");
 		} 
 		else if (islandInfo.visitedSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 1;
+			Stella_kode.oppryddereSanCristobal -= 1;
 			Debug.Log ("fire san cristobal");
 		} 
 		else if (islandInfo.visitedSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 1;
+			Stella_kode.oppryddereSanSalvador -= 1;
 			Debug.Log ("fire san salvador");
 		} 
 		else if (islandInfo.visitedSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 1;
+			Stella_kode.oppryddereSantaCruz -= 1;
 			Debug.Log ("fire santa cruz");
 		} 
 		else if (oceanInfo.visitedOcean == true) {
@@ -49,10 +54,12 @@ public class fireOpprydder : MonoBehaviour {
 		Debug.Log ("fire stuff");
 		if (islandInfo.visitedIsabela == true) {
 			islandInfo.a_endretIsabela -= 5;
+			Stella_kode.oppryddereIsabela -= 5;
 			Debug.Log ("fire isabela");
 		} 
 		else if (islandInfo.visitedFernadina == true) {
 			islandInfo.a_endretFernadina -= 5;
+			Stella_kode.oppryddereFernandina -= 5;
 			Debug.Log ("fire fernadina");
 		} 
 		else if (islandInfo.visitedSanCristobal == true) {
@@ -61,10 +68,12 @@ public class fireOpprydder : MonoBehaviour {
 		} 
 		else if (islandInfo.visitedSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 5;
+			Stella_kode.oppryddereSanSalvador -= 5;
 			Debug.Log ("fire san salvador");
 		} 
 		else if (islandInfo.visitedSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 5;
+			Stella_kode.oppryddereSantaCruz -= 5;
 			Debug.Log ("fire santa cruz");
 		} 
 		else if (oceanInfo.visitedOcean == true) {
@@ -78,6 +87,7 @@ public class fireOpprydder : MonoBehaviour {
 		Debug.Log ("fire stuff");
 		if (islandInfo.visitedIsabela == true) {
 			islandInfo.a_endretIsabela -= 10;
+			Stella_kode.oppryddereIsabela -= 10;
 			Debug.Log ("fire isabela");
 		} 
 		else if (islandInfo.visitedFernadina == true) {
@@ -87,14 +97,17 @@ public class fireOpprydder : MonoBehaviour {
 		} 
 		else if (islandInfo.visitedSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 10;
+			Stella_kode.oppryddereSanCristobal -= 10;
 			Debug.Log ("fire san cristobal");
 		} 
 		else if (islandInfo.visitedSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 10;
+			Stella_kode.oppryddereSanSalvador -= 10;
 			Debug.Log ("fire san salvador");
 		} 
 		else if (islandInfo.visitedSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 10;
+			Stella_kode.oppryddereSantaCruz -= 10;
 			Debug.Log ("fire santa cruz");
 		} 
 		else if (oceanInfo.visitedOcean == true) {
