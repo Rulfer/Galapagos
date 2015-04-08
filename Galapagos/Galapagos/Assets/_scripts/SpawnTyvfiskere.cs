@@ -37,8 +37,23 @@ public class SpawnTyvfiskere : MonoBehaviour {
 		randomX = rnd.Next (-10, 10);
 		randomY = rnd.Next (-5, 4);
 		//Spawner en ny tyvfisker båt
-		Instantiate(Tyvfisker, new Vector3(randomX, randomY, 0), Quaternion.identity);
+		Instantiate(Tyvfisker, new Vector3(randomX, randomY, 1), Quaternion.identity);
 			antallBater ++;
 		}
+	}
+
+	void OnTriggerStay (Collider other)
+	{
+		//Etter hvilken side båten er på vil den bli dyttet vekk fra posisjonen til tingen den kolliderer med.
+		if (other.transform.position.x <= transform.position.x && other.transform.position.y <= transform.position.y) {
+			transform.Translate (0.1f, 0.1f, 0);
+		} else if (other.transform.position.x <= transform.position.x && other.transform.position.y >= transform.position.y) {
+			transform.Translate (0.1f, -0.1f, 0);
+		} else if (other.transform.position.x >= transform.position.x && other.transform.position.y >= transform.position.y) {
+			transform.Translate (-0.1f, -0.1f, 0);
+		} else if (other.transform.position.x >= transform.position.x && other.transform.position.y <= transform.position.y) {
+			transform.Translate (-0.1f, 0.1f, 0);
+		}
+		
 	}
 }
