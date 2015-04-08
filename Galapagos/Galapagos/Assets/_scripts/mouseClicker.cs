@@ -12,7 +12,7 @@ public class mouseClicker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		areaName[0] = "Fernadina";
+		areaName[0] = "Fernandina";
 		areaName [1] = "Isabela";
 		areaName [2] = "San Cristobal";
 		areaName [3] = "Santa Cruz";
@@ -60,14 +60,15 @@ public class mouseClicker : MonoBehaviour {
 
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
 				if(visitedShop == false){
-					shopBox.transform.position = new Vector3 (4.35f, 0.4825f, 0f);
 					showShop();
-					visitedShop = true;
+					Debug.Log ("asdasdadasdas");
 				}
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "closeShop"){
-				shopBox.transform.position = new Vector3 (0, 0, 10);
-				shop.text = "";
-				visitedShop = false;
+				if(visitedShop == true){
+					shopBox.transform.position = new Vector3 (0, 0, 10);
+					shop.text = "";
+					visitedShop = false;
+				}
 			}
 
 			//Tester om spilleren klikker på enten kjøp eller selg ansatte
@@ -88,6 +89,13 @@ public class mouseClicker : MonoBehaviour {
 			}
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkTen") {
 				fireOpprydder.fireTen();
+			}
+
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "buildHotel") {
+				Hotel.build();
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "destroyHotel") {
+				Hotel.destroy();
 			}
 
 			//Tester om spilleren klikker utenfor informasjonsboksen (er en hitbox der)
@@ -172,6 +180,8 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	void showShop() {
+		visitedShop = true;
+		shopBox.transform.position = new Vector3 (4.35f, 0.4825f, 0f);
 		shop.text += "\n";
 		shop.text += "+1 opprydder      -1 opprydder";
 		shop.text += "\n";
@@ -186,6 +196,8 @@ public class mouseClicker : MonoBehaviour {
 	public void close(){
 		infoBox.transform.position = new Vector3 (0, 0, 10);
 		shopBox.transform.position = new Vector3 (0, 0, 10);
+		shop.text = "";
+		visitedShop = false;
 		info.text = "";
 
 		if (islandInfo.visitedFernadina == true) {

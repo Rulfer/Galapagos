@@ -213,6 +213,8 @@ public class Stella_kode : MonoBehaviour
 	int Iguana_UngSanCristobal;
 	int Iguana_UngSanSalvador;
 	int Iguana_UngSantaCruz;
+
+	int test = 0;
 	
 	// Use this for initialization
 	void Start ()
@@ -288,9 +290,11 @@ public class Stella_kode : MonoBehaviour
 			
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
-			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.0001));
-			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.000000001);
-			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame);
+			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
+			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
+			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
+			Debug.Log ("sjopolse reklame " + Sjopolse_Reklame);
+			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
 			
 			//Oppdaterer pengene vi får inn
 			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
@@ -340,17 +344,6 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_UngeSanCristobal = updatePelicanUnge (Brown_Pelican_FertilSanCristobal, Brown_Pelican_UngeSanCristobal, Plass_BP_trengerSanCristobal, Tilgjengelig_BP_plassSanCristobal);
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
-			
-			//Sparker de som skal sparkes. Disse variablene bare sjekker hvor mange som har blitt sparket. Den sparker ikke fra oppryddere eller politi.
-			//Det skjer i hver sin respektive funksjon
-//			Faatt_Sparken = sparkerPgaPenger (Faatt_Sparken);
-//			
-//			Faatt_Sparken_lite_soppelFernandina = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelFernandina, oppryddereFernandina, ForsoplingFernandina);
-//			Faatt_Sparken_lite_soppelIsabela = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelIsabela, oppryddereIsabela, ForsoplingIsabela);
-//			Faatt_Sparken_lite_soppelSanCristobal = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanCristobal, oppryddereSanCristobal, ForsoplingSanCristobal);
-//			Faatt_Sparken_lite_soppelSanSalvador = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSanSalvador, oppryddereSanSalvador, ForsoplingSanSalvador);
-//			Faatt_Sparken_lite_soppelSantaCruz = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereSantaCruz, ForsoplingSantaCruz);
-//			Faatt_Sparken_lite_soppelHav = sparkerPgaLiteForsopling (Faatt_Sparken_lite_soppelSantaCruz, oppryddereHav, ForsoplingHav);
 			
 			//Oppdaterer fiskebestanden
 			Fertil_Fisk = updateFertilFisk (Fertil_Fisk);
@@ -440,14 +433,29 @@ public class Stella_kode : MonoBehaviour
 			totTurister = Turister_kommer - Turister_drar;
 			Debug.Log ("totalt antall turister = " + totTurister);
 			turisterFernandina =(int)Math.Floor (totTurister * 0.2);
+			if(turisterFernandina >= islandInfo.maxTurismeFernandina){
+				turisterFernandina = islandInfo.maxTurismeFernandina;
+			}
 			islandInfo.nyeTuristerFernandina = turisterFernandina;
 			turisterIsabela =(int)Math.Floor (totTurister * 0.2);
+			if(turisterIsabela >= islandInfo.maxTurismeIsabela){
+				turisterIsabela = islandInfo.maxTurismeIsabela;
+			}
 			islandInfo.nyeTuristerIsabela = turisterIsabela;
 			turisterSanCristobal =(int)Math.Floor (totTurister * 0.4);
+			if(turisterSanCristobal >= islandInfo.maxTurismeSanCristobal){
+				turisterSanCristobal = islandInfo.maxTurismeSanCristobal;
+			}
 			islandInfo.nyeTuristerSanCristobal = turisterSanCristobal;
 			turisterSanSalvador =(int)Math.Floor (totTurister * 0.1);
+			if(turisterSanSalvador >= islandInfo.maxTurismeSanSalvador){
+				turisterSanSalvador = islandInfo.maxTurismeSanSalvador;
+			}
 			islandInfo.nyeTuristerSanSalvador = turisterSanSalvador;
 			turisterSantaCruz =(int)Math.Floor (totTurister * 0.1);
+			if(turisterSantaCruz >= islandInfo.maxTurismeSantaCruz){
+				turisterSantaCruz = islandInfo.maxTurismeSantaCruz;
+			}
 			islandInfo.nyeTuristerSantaCruz = turisterSantaCruz;
 			Debug.Log ("Turister isabela: " + turisterIsabela);
 
@@ -491,6 +499,8 @@ public class Stella_kode : MonoBehaviour
 			totSoppel_fra_mennesker = (int)((totTurister + totPopulasjon) / 60);
 
 			Debug.Log ("Økonomi = " + okonomi);
+			test++;
+			Debug.Log ( "TEST ER " + test);
 		}
 		
 		//I tilfelle det blir månedskifte settes disse lik hverandre
@@ -800,9 +810,12 @@ public class Stella_kode : MonoBehaviour
 			Inntekter = penger_fra_turister_og_innbyggere;
 			Penger_politi = Politi*700;
 			Penger_Oppryddere = totAntallOppryddere*300;
+			Debug.Log("Betaler opprydderne: " + Penger_Oppryddere);
 		}
 		
 		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+		okonomi =okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+		Debug.Log ("okonomi etter lønninger: " + okonomi);
 		return totOkonomi;
 	}
 	
