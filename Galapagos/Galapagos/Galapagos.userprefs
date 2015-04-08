@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\SpawnTyvfiskere.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
     <Files>
-      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="45" Column="20" />
-      <File FileName="Assets\_scripts\fangesensor.cs" Line="61" Column="42" />
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="218" Column="35" />
+      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="40" Column="42" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="44" Column="37" />
       <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
       <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\hitsFloor.cs" Line="1" Column="1" />
       <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\BondMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="17" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

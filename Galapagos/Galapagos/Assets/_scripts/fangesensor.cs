@@ -40,9 +40,9 @@ public class fangesensor : MonoBehaviour {
 		//Når triggeren rundt båten treffer en tyvfisker så forsvinner den
 		if (other.gameObject.tag == "tyvfisker")
 		{
-			other.gameObject.SetActive(false);
-			Stella_kode.Tyvfiskere_Hai -= 1;
-			Stella_kode.Tyvfiskere_Sjopolse -= 9;
+			Destroy(other.gameObject);
+			Stella_kode.Tyvfiskere_Hai -= 100000;
+			Stella_kode.Tyvfiskere_Sjopolse -= 900000;
 			SpawnTyvfiskere.antallBater --;
 			Debug.Log ("Tyvfiskere kvelt");
 		}

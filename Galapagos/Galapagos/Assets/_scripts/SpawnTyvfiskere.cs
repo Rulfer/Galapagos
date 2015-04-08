@@ -41,19 +41,4 @@ public class SpawnTyvfiskere : MonoBehaviour {
 			antallBater ++;
 		}
 	}
-
-	void OnTriggerStay (Collider other)
-	{
-		//Etter hvilken side båten er på vil den bli dyttet vekk fra posisjonen til tingen den kolliderer med.
-		if (other.transform.position.x <= transform.position.x && other.transform.position.y <= transform.position.y) {
-			transform.Translate (0.1f, 0.1f, 0);
-		} else if (other.transform.position.x <= transform.position.x && other.transform.position.y >= transform.position.y) {
-			transform.Translate (0.1f, -0.1f, 0);
-		} else if (other.transform.position.x >= transform.position.x && other.transform.position.y >= transform.position.y) {
-			transform.Translate (-0.1f, -0.1f, 0);
-		} else if (other.transform.position.x >= transform.position.x && other.transform.position.y <= transform.position.y) {
-			transform.Translate (-0.1f, 0.1f, 0);
-		}
-		
-	}
 }

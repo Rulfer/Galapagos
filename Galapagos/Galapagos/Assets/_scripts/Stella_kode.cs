@@ -224,13 +224,15 @@ public class Stella_kode : MonoBehaviour
 		Politi = oceanInfo.ansatteOcean;
 		
 		//Regner ut total areal av alle øyene7
-		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanCristobal+arealSanSalvador+arealSantaCruz;
+		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanSalvador+arealSantaCruz;
 		//Regner ut prosent av arealet av øyene
 		prosentFernadina = ((arealFernadina / totalAreal) * 100);
 		prosentIsabela = ((arealIsabela / totalAreal) * 100);
 		prosentSanCristobal = ((arealSanCristobal / totalAreal) * 100);
 		prosentSanSalvador = ((arealSanSalvador / totalAreal) * 100);
 		prosentSantaCruz = ((arealSantaCruz / totalAreal) * 100);
+		Debug.Log ("Areal: " + prosentFernadina);
+
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
 		Brown_Pelican_FertilFernandina = (int) (prosentFernadina * Brown_Pelican_Fertil / 100);
@@ -433,15 +435,6 @@ public class Stella_kode : MonoBehaviour
 			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
 			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
 
-			if (Tyvfiskere_Hai < 0)
-			{
-				Tyvfiskere_Hai = 0;
-			}
-
-			if (Tyvfiskere_Sjopolse < 0)
-			{
-				Tyvfiskere_Sjopolse = 0;
-			}
 			//Turist conveyer
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
