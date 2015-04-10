@@ -56,7 +56,7 @@ public class islandInfo : MonoBehaviour {
 	public static int maxTurismeSanCristobal;
 	public static int maxTurismeSanSalvador;
 	public static int maxTurismeSantaCruz;
-
+	
 	//Brukes for å si hvilken informasjon til hvilken øy spilleren er ute etter
 	public static bool visitedFernadina;
 	public static bool visitedIsabela;
@@ -219,6 +219,7 @@ public class islandInfo : MonoBehaviour {
 			populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
 		}
 
+
 		if (forsoplingFernandina < nyForsoplingFernandina || forsoplingFernandina > nyForsoplingFernandina) {
 			forsoplingFernandina = nyForsoplingFernandina;
 			Debug.Log ("Forsopling hos fernandina er oppdatert: " + nyForsoplingFernandina);
@@ -255,7 +256,7 @@ public class islandInfo : MonoBehaviour {
 				forsoplingIsabela = nyForsoplingIsabela;
 				Debug.Log("her har søppelet til isabela endra seg");
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
-			} 
+			}
 
 		} else if (visitedSanCristobal == true) {
 			if (turisterSanCristobal < nyeTuristerSanCristobal || turisterSanCristobal > nyeTuristerSanCristobal) {
