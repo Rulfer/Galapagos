@@ -5,7 +5,7 @@ using System;
 public class Stella_kode : MonoBehaviour
 {
 	//Timer delt inn i uker, månder og år
-	float timer = 0;
+	public static float timer = 0;
 	int uker = 0;
 	int forrigeuke = 0;
 	int maander = 0;
@@ -33,8 +33,8 @@ public class Stella_kode : MonoBehaviour
 	
 	//Politi og tyvfiskere
 	public static int Politi;
-	int Tyvfiskere_Hai = 0;
-	int Tyvfiskere_Sjopolse = 0;
+	public static int Tyvfiskere_Hai = 0;
+	public static int Tyvfiskere_Sjopolse = 0;
 	
 	//Søppel og plukkere
 	public static int oppryddereFernandina = 0;
@@ -211,6 +211,9 @@ public class Stella_kode : MonoBehaviour
 		prosentSanCristobal = 7.55f;
 		prosentSanSalvador = 7.91f;
 		prosentSantaCruz = 13.34f;
+		
+		//Regner ut total areal av alle øyene7
+		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanSalvador+arealSantaCruz;
 
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
@@ -353,11 +356,24 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_FertilSanSalvador = updatePelican (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_FertilSantaCruz = updatePelican (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
 			
+<<<<<<< HEAD
 			Brown_Pelican_UngeFernandina = updatePelicanUnge (Brown_Pelican_FertilFernandina, Brown_Pelican_UngeFernandina, Plass_BP_trengerFernadina, Tilgjengelig_BP_plassFernandia);
 			Brown_Pelican_UngeIsabela = updatePelicanUnge (Brown_Pelican_FertilIsabela, Brown_Pelican_UngeIsabela, Plass_BP_trengerIsabela, Tilgjengelig_BP_plassIsabela);
 			Brown_Pelican_UngeSanCristobal = updatePelicanUnge (Brown_Pelican_FertilSanCristobal, Brown_Pelican_UngeSanCristobal, Plass_BP_trengerSanCristobal, Tilgjengelig_BP_plassSanCristobal);
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
+=======
+			//Oppdaterer hvor mye rykte dyrene sprer
+			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
+
+			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
+			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
+			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
+			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
+			
+			//Oppdaterer pengene vi får inn
+			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
+>>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
 			
 			//Regner ut plassen for dyrene å leve på
 			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
@@ -429,7 +445,6 @@ public class Stella_kode : MonoBehaviour
 			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
 			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
 
-
 			//Regner ut antall ansatte innfor Turisme
 			Turisme = totTurister * 2;
 			//Regner ut antall jobber på øyene
@@ -440,7 +455,6 @@ public class Stella_kode : MonoBehaviour
 			//totAntallForsopling = ForsoplingFernandina + ForsoplingIsabela + ForsoplingSanCristobal + ForsoplingSanSalvador + ForsoplingSantaCruz + ForsoplingHav;
 			//Oppdaterer antall kommunale ansatte
 			Kommunal = 9880 + Politi + totAntallOppryddere;
-			
 			//Turist conveyer
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
@@ -857,12 +871,12 @@ public class Stella_kode : MonoBehaviour
 		{
 			//Tar penger fra turister og innbyggere
 			//Stjeler litt fra dyrene også med det snakker vi ikke om
-
+			Inntekter = penger_fra_turister_og_innbyggere;
 			Penger_politi = Politi*700;
 			Penger_Oppryddere = totAntallOppryddere*300;
 			Debug.Log("Betaler opprydderne: " + Penger_Oppryddere);
 		}
-		
+	
 		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		if (totOkonomi <= 0) {
 			mangler = totOkonomi * (-1);
@@ -998,9 +1012,13 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereHai = totTyvfiskereHai + (Tyvfiskere_Hai_kommer - haifiskere_fanget - Tyvfiskere_hai_slutter);
+<<<<<<< HEAD
 		if (totTyvfiskereHai <= 0) {
 			totTyvfiskereHai = 0;
 		}
+=======
+
+>>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
 		return totTyvfiskereHai;
 	}
 	
@@ -1018,9 +1036,13 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereSjopolse = totTyvfiskereSjopolse + (Tyvfiskere_sjopolse_kommer - sjopolsefiskere_fanget - Tyvfiske_sjopolse_slutter);
+<<<<<<< HEAD
 		if (totTyvfiskereSjopolse <= 0) {
 			totTyvfiskereSjopolse = 0;
 		}
+=======
+
+>>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
 		return totTyvfiskereSjopolse;
 	}
 	
