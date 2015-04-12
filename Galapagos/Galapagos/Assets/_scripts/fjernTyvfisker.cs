@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class fjernTyvfisker : MonoBehaviour {
+	//Lagrer en av de 4 retningene
+	int randomDir = 0;
+	//Lagrer hvor mange sekunder som har gått
+	int lagretTid = 0;
+
+	System.Random rnd = new System.Random();
 
 	// Use this for initialization
 	void Start () {
@@ -10,7 +17,39 @@ public class fjernTyvfisker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		if (Stella_kode.timer > lagretTid)
+			{
+
+				//Lager et random tall som skal velge hvilken retning tyvfiskeren vil gå
+				randomDir = rnd.Next (0, 4);
+				//Skjekker at tyvfiskeren er innenfor grensen
+			if (transform.position.x >= -10 && transform.position.x <= 10 && transform.position.y <= 5 && transform.position.y >= -5)
+			{
+				//Bruker switch til å translatere
+				switch(randomDir)
+				{
+					case 0:
+						transform.Translate (0.1f, 0.1f, 0);
+						break;
+
+					case 1:
+						transform.Translate (0.1f, -0.1f, 0);
+						break;
+					case 2:
+						transform.Translate (-0.1f, -0.1f, 0);
+						break;
+					case 3:
+						transform.Translate (-0.1f, 0.1f, 0);
+					break;
+				}
+			}
+		}
+
+		lagretTid = (int)Math.Ceiling(Stella_kode.timer);
+
+		Debug.Log ("Random tall for retning tyvfiskere går = " + randomDir);
+
 	}
 
 	void onTriggerEnter (Collider other)

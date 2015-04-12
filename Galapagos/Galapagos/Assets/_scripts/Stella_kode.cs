@@ -5,7 +5,7 @@ using System;
 public class Stella_kode : MonoBehaviour
 {
 	//Timer delt inn i uker, månder og år
-	float timer = 0;
+	public static float timer = 0;
 	int uker = 0;
 	int forrigeuke = 0;
 	int maander = 0;
