@@ -190,6 +190,9 @@ public class Stella_kode : MonoBehaviour
 	public static int Iguana_UngSanSalvador;
 	public static int Iguana_UngSantaCruz;
 
+	public static int slutter;
+	public static int mangler;
+
 	int test = 0;
 	
 	// Use this for initialization
@@ -248,10 +251,12 @@ public class Stella_kode : MonoBehaviour
 		//Oppdaterer variabler
 		
 		//Timer
-		timer += Time.deltaTime;
-		uker = (int)Math.Floor (timer / antallSekundermellomUker);
-		maander = (int)(uker / 4);
-		aar = (int)(maander / 12);
+		if (pause.isPaused == false) {
+			timer += Time.deltaTime;
+			uker = (int)Math.Floor (timer / antallSekundermellomUker);
+			maander = (int)(uker / 4);
+			aar = (int)(maander / 12);
+		}
 
 		oppryddereFernandina = islandInfo.ansatteFernadina;
 		oppryddereIsabela = islandInfo.ansatteIsabela;
@@ -327,7 +332,7 @@ public class Stella_kode : MonoBehaviour
 			
 			Plass_BP_trengerFernadina = (Brown_Pelican_FertilFernandina / 2) + (Brown_Pelican_UngeFernandina / 2);
 			Plass_BP_trengerIsabela = (Brown_Pelican_FertilIsabela / 2) + (Brown_Pelican_UngeIsabela / 2);
-			Debug.Log("Plass som trengs er eeeeeeeeeeeeeeeeeeeeeee: " + Plass_BP_trengerFernadina);
+			Debug.Log("Plass som trengs er eeeeeeeeeeeeeeeeeeeeeee: " + Plass_BP_trengerIsabela);
 			Plass_BP_trengerSanCristobal = (Brown_Pelican_FertilSanCristobal / 2) + (Brown_Pelican_UngeSanCristobal / 2);
 			Plass_BP_trengerSanSalvador = (Brown_Pelican_FertilSanSalvador / 2) + (Brown_Pelican_UngeSanSalvador / 2);
 			Plass_BP_trengerSantaCruz = (Brown_Pelican_FertilSantaCruz / 2) + (Brown_Pelican_UngeSantaCruz / 2);
@@ -355,18 +360,18 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
 			
 			//Regner ut plassen for dyrene å leve på
-			Tilgjengelig_BP_plassFernandia = (int)Math.Ceiling ((arealFernadina) - (Forsopling_fordeltFernandina));
-			Tilgjengelig_BP_plassIsabela = (int)Math.Ceiling ((arealIsabela) - (Forsopling_fordeltIsabela * 20));
-			Debug.Log("Plass igjen er eeeeeeeeeeeeeeeeeeeeeee: " + Tilgjengelig_Iguana_plassFernandina);
-			Tilgjengelig_BP_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal) - (Forsopling_fordeltSanCristobal));
-			Tilgjengelig_BP_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador) - (Forsopling_fordeltSanSalvador));
-			Tilgjengelig_BP_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz) - (Forsopling_fordeltSantaCruz));
+			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
+			Tilgjengelig_BP_plassIsabela = ((arealIsabela) - (ForsoplingFernandina));
+			Debug.Log("Plass igjen er eeeeeeeeeeeeeeeeeeeeeee: " + Tilgjengelig_BP_plassIsabela);
+			Tilgjengelig_BP_plassSanCristobal = ((arealSanCristobal) - (ForsoplingSanCristobal));
+			Tilgjengelig_BP_plassSanSalvador =  ((arealSanSalvador) - (ForsoplingSanSalvador));
+			Tilgjengelig_BP_plassSantaCruz =  ((arealSantaCruz) - (ForsoplingSantaCruz));
 			
-			Tilgjengelig_Iguana_plassFernandina = (int)Math.Ceiling ((arealFernadina) - (Forsopling_fordeltFernandina));
-			Tilgjengelig_Iguana_plassIsabela = (int)Math.Ceiling ((arealIsabela) - (Forsopling_fordeltIsabela));
-			Tilgjengelig_Iguana_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal) - (Forsopling_fordeltSanCristobal));
-			Tilgjengelig_Iguana_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador) - (Forsopling_fordeltSanSalvador));
-			Tilgjengelig_Iguana_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz) - (Forsopling_fordeltSantaCruz));
+			Tilgjengelig_Iguana_plassFernandina =((arealFernadina) - (ForsoplingFernandina));
+			Tilgjengelig_Iguana_plassIsabela =  ((arealIsabela) - (ForsoplingFernandina));
+			Tilgjengelig_Iguana_plassSanCristobal =  ((arealSanCristobal) - (ForsoplingSanCristobal));
+			Tilgjengelig_Iguana_plassSanSalvador =  ((arealSanSalvador) - (ForsoplingSanSalvador));
+			Tilgjengelig_Iguana_plassSantaCruz =  ((arealSantaCruz) - (ForsoplingSantaCruz));
 			
 			Tilgjengelig_Fisk_plass = (int)(90000000 - Forsopling_fordeltHav);
 			Tilgjengelig_Hai_plass = (int)(90000000 - Forsopling_fordeltHav);
@@ -570,6 +575,9 @@ public class Stella_kode : MonoBehaviour
 		
 		//Regner sammen både innput og output
 		fertilBrownPelican = fertilBrownPelican + (BPvokseropp - BPFdorAlderdom - BPFdorForsopling);
+		if (fertilBrownPelican <= 0) {
+			fertilBrownPelican = 0;
+		}
 		return (fertilBrownPelican);
 	}
 	
@@ -606,6 +614,9 @@ public class Stella_kode : MonoBehaviour
 		
 		//Regner sammen både innput og output
 		ungBrownPelican = ungBrownPelican+(pelicanKlekkes-BPvokseropp-BPdorforsopling);
+		if (ungBrownPelican <= 0) {
+			ungBrownPelican = 0;
+		}
 		return ungBrownPelican;
 	}
 	
@@ -705,6 +716,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		fertilHai = fertilHai+(Grown_up_shark-Dod_pga_plass_voksen-Dor_av_tyvfiske-Dod_alderdom);
+		if (fertilHai <= 0) {
+			fertilHai = 0;
+		}
 		return fertilHai;
 	}
 	
@@ -741,6 +755,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		ungHai = ungHai + (Hai_fodt - Grown_up_shark - dod_pga_plass - dor_av_tyvfiske_unge);
+		if (ungHai <= 0) {
+			ungHai = 0;
+		}
 		return ungHai;
 	}
 	
@@ -778,6 +795,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		fertilIguana = fertilIguana + (Iguana_blir_voksen-Dor_av_forsopling_iguana_fertil- Dor_av_alderdom_Iguana);
+		if (fertilIguana <= 0) {
+			fertilIguana = 0;
+		}
 		return fertilIguana;
 	}
 	
@@ -815,19 +835,22 @@ public class Stella_kode : MonoBehaviour
 		//Iguana_UngFernandina = updateIguanaunge (Iguana_FertilFernandina, Iguana_UngFernandina, Plass_iguana_trengerFernandina, Tilgjengelig_Iguana_plassFernandina);
 
 		ungeIguana = ungeIguana + (Iguana_fodt - Iguana_blir_voksen - Dor_av_forsopling_iguana_Unge);
+		if (ungeIguana <= 0) {
+			ungeIguana = 0;
+		}
 		return ungeIguana;
 	}
 	
 	int updateOkonomi(int totOkonomi)
 	{
-
 		//Variabler for input og output
 		int Inntekter = 0;
 		//int sparing = (int)Math.Floor (totOkonomi*0.3);
 		int Penger_politi = 0;
 		int Penger_Oppryddere = 0;
+
+		int ansatte = 0;
 		Inntekter = penger_fra_turister_og_innbyggere;
-		Debug.Log ("Inntekter: " + Inntekter);
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#
 		if (maander > forrigemaande) 
@@ -842,13 +865,29 @@ public class Stella_kode : MonoBehaviour
 		
 		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		if (totOkonomi <= 0) {
+			mangler = totOkonomi * (-1);
+			ansatte = Politi + totAntallOppryddere;
+			slutter = (int)ansatte / mangler;
+			Debug.Log("SLUTTER SLUTTER SLUTTER SLUTTER SLUTTER SLUTTER:::::: " + slutter);
+			if(Politi > 0){
+				Politi -= (int)Math.Ceiling(slutter * 0.2);
+			}
+			if(totAntallOppryddere > 0){
+				oppryddereFernandina -= (int)Math.Ceiling(slutter * 0.1);
+				oppryddereIsabela -= (int)Math.Ceiling(slutter * 0.3);
+				oppryddereSanCristobal -= (int)Math.Ceiling(slutter * 0.1);
+				oppryddereSanSalvador -= (int)Math.Ceiling(slutter * 0.2);
+				oppryddereSantaCruz -= (int)Math.Ceiling(slutter * 0.1);
+				totAntallOppryddere = (oppryddereFernandina+oppryddereIsabela+oppryddereSanCristobal+oppryddereSanSalvador+oppryddereSantaCruz);
+			}
 			totOkonomi = 0;
+			okonomi = 0;
+			pause.pauseGame();
 		}
 		okonomi =okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		if (okonomi <= 0) {
 			okonomi = 0;
 		}
-		Debug.Log ("okonomi etter lønninger: " + okonomi);
 		return totOkonomi;
 	}
 	
@@ -865,6 +904,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		Populasjon = Populasjon + (Folk_inn - Folk_flytter);
+		if (Populasjon <= 0) {
+			Populasjon = 0;
+		}
 		return Populasjon;
 	}
 	
@@ -895,6 +937,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		fertilSjopolse = fertilSjopolse + (Sjopolse_blir_voksen - Dor_av_forsopling_sjopolse_Fertil - Dor_av_alderdom_sjopolse - lovlig_fiske_F - Ulovlig_fiske_F);
+		if (fertilSjopolse <= 0) {
+			fertilSjopolse = 0;
+		}
 		return fertilSjopolse;
 	}
 	
@@ -934,6 +979,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		ungSjopolse = ungSjopolse + (Sjopolse_klekkes - Sjopolse_blir_voksen - Dor_av_forsopling_sjopolse_unge - lovlig_fiske_U - Ulovlig_fiske_U);
+		if (ungSjopolse <= 0) {
+			ungSjopolse = 0;
+		}
 		return ungSjopolse;
 	}
 	
@@ -950,6 +998,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereHai = totTyvfiskereHai + (Tyvfiskere_Hai_kommer - haifiskere_fanget - Tyvfiskere_hai_slutter);
+		if (totTyvfiskereHai <= 0) {
+			totTyvfiskereHai = 0;
+		}
 		return totTyvfiskereHai;
 	}
 	
@@ -967,6 +1018,9 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereSjopolse = totTyvfiskereSjopolse + (Tyvfiskere_sjopolse_kommer - sjopolsefiskere_fanget - Tyvfiske_sjopolse_slutter);
+		if (totTyvfiskereSjopolse <= 0) {
+			totTyvfiskereSjopolse = 0;
+		}
 		return totTyvfiskereSjopolse;
 	}
 	

@@ -1,3 +1,7 @@
+12.04
+- Endret på hvordan forsøpling nå påvirker boplassen til et dyr. Det er nå ForsøplingX, svaret man får fra updateForsopliong, som sier hvor mye plass som er tatt.
+
+
 11.04
 - Flyttet rundt på ting i Update i Stella_kode for å endre på rekkefølgen funksjoner tar sted
 - Fikset forsøpling. Stella_kode oppdaterer nå mengden søppel korrekt, samt rydder søppel. Mengden søppel oppdateres nå gjennom Stella_Kode istedenfor islandInfo.

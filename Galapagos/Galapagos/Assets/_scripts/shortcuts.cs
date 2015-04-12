@@ -25,8 +25,9 @@ public class shortcuts : MonoBehaviour {
 			GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().close ();
 			islandInfo.visitedSantaCruz = true;
 			GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
-		} else if (Input.GetKeyDown (KeyCode.Escape)) {
-			GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().close ();
 		}
+//		} else if (Input.GetKeyDown (KeyCode.Escape)) {
+//			pause.pauseGame();
+//		}
 	}
 }

@@ -6,9 +6,11 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBox;
 	public GameObject shopBox;
 	public GameObject weeklybox;
+	public GameObject pausedBox;
 	public GUIText shop;
 	public GUIText info;
 	public GUIText weekly;
+	public GUIText paused;
 	bool visitedShop;
 	public static bool visitedWeekly;
 
@@ -107,6 +109,10 @@ public class mouseClicker : MonoBehaviour {
 				}
 			}
 
+			else if(Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "blockBack"){
+				Debug.Log("lol");
+			}
+
 			//Tester om spilleren klikker utenfor informasjonsboksen (er en hitbox der)
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "close") {
 				Debug.Log ("lukker");
@@ -187,15 +193,20 @@ public class mouseClicker : MonoBehaviour {
 		info.text += "\n";
 		info.text += "\n";
 		switch (n) {
-		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina;
+		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina + "\n";
+			info.text += "Neste uke ryddes: " + (islandInfo.ansatteFernadina * 125) + "kg";
 			break;
-		case 1: info.text += "Antall oppryddere: " + islandInfo.ansatteIsabela;
+		case 1: info.text += "Antall oppryddere: " + islandInfo.ansatteIsabela + "\n";
+			info.text += "Neste uke ryddes: " + (islandInfo.ansatteIsabela * 125) + "kg";
 			break;
-		case 2: info.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal;
+		case 2: info.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal + "\n";
+			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanCristobal * 125) + "kg";
 			break;
-		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
+		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz + "\n";
+			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSantaCruz * 125) + "kg";
 			break;
-		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador;
+		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador + "\n";
+			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanSalvador * 125) + "kg";
 			break;
 		case 5: info.text += "Antall politifolk: " + oceanInfo.ansatteOcean;
 			break;
@@ -239,16 +250,27 @@ public class mouseClicker : MonoBehaviour {
 		}
 	}
 
+	public void pausedText(){
+		pausedBox.transform.position = new Vector3 (0, 0, 0);
+		paused.text = "Du har for lite penger til å lønne alle ansatte.";
+		weekly.text += "\n";
+		paused.text += "Du mangler " + Stella_kode.mangler + "$";
+		weekly.text += "\n";
+		weekly.text += "Som følge slutter " + Stella_kode.slutter + " ansatte.";
+	}
+
 	public void close(){
 		infoBox.transform.position = new Vector3 (0, 0, 10);
 		shopBox.transform.position = new Vector3 (0, 0, 10);
 		weeklybox.transform.position = new Vector3 (0, 0, 10);
+		pausedBox.transform.position = new Vector3 (0, 0, 10);
 
 		shop.text = "";
 		visitedShop = false;
 		visitedWeekly = false;
 		info.text = "";
 		weekly.text = "";
+		paused.text = "";
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;
@@ -262,6 +284,10 @@ public class mouseClicker : MonoBehaviour {
 			islandInfo.visitedSantaCruz = false;
 		}if (oceanInfo.visitedOcean == true) {
 			oceanInfo.visitedOcean = false;
+		}
+
+		if (pause.isPaused == true) {
+			pause.unPause ();
 		}
 	}
 }

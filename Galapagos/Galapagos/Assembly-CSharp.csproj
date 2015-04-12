@@ -57,6 +57,7 @@
      <Compile Include="Assets\_scripts\mouseClicker.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
+     <Compile Include="Assets\_scripts\pause.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
      <Compile Include="Assets\_scripts\shortcuts.cs" />
      <Compile Include="Assets\_scripts\weeklyChange.cs" />
