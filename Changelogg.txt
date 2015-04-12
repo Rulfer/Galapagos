@@ -1,5 +1,6 @@
 12.04
 - Endret på hvordan forsøpling nå påvirker boplassen til et dyr. Det er nå ForsøplingX, svaret man får fra updateForsopliong, som sier hvor mye plass som er tatt.
+- Forsøkt å sparke ansatte automatisk når det er for lite penger til å betale lønninger, men tror ikke dette har funket som det skal.
 
 
 11.04
