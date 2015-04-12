@@ -12,8 +12,7 @@ public class Stella_kode : MonoBehaviour
 	int forrigemaande = 0;
 	int aar = 0;
 	//int forrigeaar = 0;
-	static float dt = 1;
-	
+
 	//Her stilles det hvor mange sekunder det skal ta mellom hver uke.
 	public int antallSekundermellomUker = 5;
 	
@@ -26,11 +25,11 @@ public class Stella_kode : MonoBehaviour
 	public static int arealSanSalvador = 585;
 	public static int arealSantaCruz = 986;
 	
-	public static int prosentFernadina = 0;
-	public static int prosentIsabela = 0;
-	public static int prosentSanCristobal = 0;
-	public static int prosentSanSalvador = 0;
-	public static int prosentSantaCruz = 0;
+	public static float prosentFernadina = 0;
+	public static float prosentIsabela = 0;
+	public static float prosentSanCristobal = 0;
+	public static float prosentSanSalvador = 0;
+	public static float prosentSantaCruz = 0;
 	
 	//Politi og tyvfiskere
 	public static int Politi;
@@ -52,7 +51,7 @@ public class Stella_kode : MonoBehaviour
 	public static int ForsoplingSanSalvador;
 	public static int ForsoplingSantaCruz;
 	int ForsoplingHav = 0;
-	int totAntallForsopling = 0;
+	//int totAntallForsopling = 0;
 	
 	
 	float Forsopling_fordeltFernandina = 0;
@@ -66,13 +65,12 @@ public class Stella_kode : MonoBehaviour
 	
 	//Populasjonen på øya og deres ting
 	int totPopulasjon = 100;
-	int prevPopulasjon;
 	int movingIn;
-	public static int populasjonFernandina = 50;
-	public static int populasjonIsabela = 200;
-	public static int populasjonSanCristobal = 400;
-	public static int populasjonSanSalvador = 50;
-	public static int populasjonSantaCruz = 300;
+	public static int populasjonFernandina = 10;
+	public static int populasjonIsabela = 10;
+	public static int populasjonSanCristobal = 10;
+	public static int populasjonSanSalvador = 10;
+	public static int populasjonSantaCruz = 10;
 	
 	int Flytter_pga_jobb = 0;
 	int Antall_jobber = 0;
@@ -84,26 +82,26 @@ public class Stella_kode : MonoBehaviour
 	public static int turisterSanCristobal = 0;
 	public static int turisterSanSalvador = 0;
 	public static int turisterSantaCruz = 0;
-	int totTurister = 500;
+	int totTurister = 100;
 	int Turister_kommer = 0;
 	int Turister_drar = 0;
 	int Turisme = 0;
 	int penger_fra_turister_og_innbyggere = 0;
 	
 	//Hai
-	int Hai_Fertil = 10000;
-	int Hai_Unge = 10000;
+	int Hai_Fertil = 5000;
+	int Hai_Unge = 30000;
 	
 	//Iguana
-	int Iguana_Fertil = 50000;
-	int Iguana_Unge = 50000;
+	int Iguana_Fertil = 20000;
+	int Iguana_Unge = 80000;
 	
 	//Sjøpølse
-	int Sjopolse_Fertil = 10000000;
-	int Sjopolse_Unge = 20000000;
+	int Sjopolse_Fertil = 1000000;
+	int Sjopolse_Unge = 2000000;
 	
 	//Okonomien er gjort public for å kunne eksperementere med i Unity
-	public static int okonomi = 10000;
+	public static int okonomi = 1000;
 	
 	//Lovlig fiske
 	int Fisking = 780;
@@ -118,19 +116,6 @@ public class Stella_kode : MonoBehaviour
 	int Sjopolse_Reklame = 0;
 	//Reklame tilsammen
 	int Reklame = 0;
-	
-	//Disse variablene blir brukt til å finne ut om noe er sant, der 1 betyr at påstanden er sann, og 0 at den er usann.
-	//For eksempel Kan_ansette_politi = 0 betyr at det ikke kan hyres politi, mens = 1 betyr at det er mulig.
-//	int Kan_ansette_opprydder = 0;
-//	int Kan_ansette_politi = 0;
-//	int Maa_ansette_nyeFernandina = 0;
-//	int Maa_ansette_nyeIsabela = 0;
-//	int Maa_ansette_nyeSanCristobal = 0;
-//	int Maa_ansette_nyeSanSalvador = 0;
-//	int Maa_ansette_nyeSantaCruz = 0;
-//	int Maa_ansette_nyeHav = 0;
-//	int Maa_ansette_politi_pga_hai= 0;
-//	int Maa_ansette_politi_pga_sjopolse = 0;
 	
 	//I disse varibalene lagres plass i forhold til all dyrene.
 	int Tilgjengelig_BP_plassFernandia = 0;
@@ -169,50 +154,40 @@ public class Stella_kode : MonoBehaviour
 	int Plass_sjopolse_trenger = 0;
 	
 	//Brown Pelican voksen ting
-	int Brown_Pelican_Fertil = 20000;
+	int Brown_Pelican_Fertil = 1000;
 	
 	//Brown Pelican ung ting
-	int Brown_Pelican_Unge = 30000;
-	
-	//Fått_Sparken ting. Altså den som teller hvor mange som har fått sparken
-	int Faatt_Sparken = 0;
-	
-//	int Faatt_Sparken_lite_soppelFernandina = 0;
-//	int Faatt_Sparken_lite_soppelIsabela = 0;
-//	int Faatt_Sparken_lite_soppelSanCristobal = 0;
-//	int Faatt_Sparken_lite_soppelSanSalvador = 0;
-//	int Faatt_Sparken_lite_soppelSantaCruz = 0;
-//	int Faatt_Sparken_lite_soppelHav = 0;
+	int Brown_Pelican_Unge = 2000;
 	
 	//Fisketing
-	int Fertil_Fisk = 25000000;
-	int Yngel = 5000000;
+	int Fertil_Fisk = 25000;
+	int Yngel = 50000;
 	
 	int totalAreal;
 	
-	int Brown_Pelican_FertilFernandina;
-	int Brown_Pelican_FertilIsabela;
-	int Brown_Pelican_FertilSanCristobal;
-	int Brown_Pelican_FertilSanSalvador;
-	int Brown_Pelican_FertilSantaCruz;
+	public static int Brown_Pelican_FertilFernandina;
+	public static int Brown_Pelican_FertilIsabela;
+	public static int Brown_Pelican_FertilSanCristobal;
+	public static int Brown_Pelican_FertilSanSalvador;
+	public static int Brown_Pelican_FertilSantaCruz;
 	
-	int Brown_Pelican_UngeFernandina;
-	int Brown_Pelican_UngeIsabela;
-	int Brown_Pelican_UngeSanCristobal;
-	int Brown_Pelican_UngeSanSalvador;
-	int Brown_Pelican_UngeSantaCruz;
+	public static int Brown_Pelican_UngeFernandina;
+	public static int Brown_Pelican_UngeIsabela;
+	public static int Brown_Pelican_UngeSanCristobal;
+	public static int Brown_Pelican_UngeSanSalvador;
+	public static int Brown_Pelican_UngeSantaCruz;
 	
-	int Iguana_FertilFernandina;
-	int Iguana_FertilIsabela;
-	int Iguana_FertilSanCristobal;
-	int Iguana_FertilSanSalvador;
-	int Iguana_FertilSantaCruz;
+	public static int Iguana_FertilFernandina;
+	public static int Iguana_FertilIsabela;
+	public static int Iguana_FertilSanCristobal;
+	public static int Iguana_FertilSanSalvador;
+	public static int Iguana_FertilSantaCruz;
 	
-	int Iguana_UngFernandina;
-	int Iguana_UngIsabela;
-	int Iguana_UngSanCristobal;
-	int Iguana_UngSanSalvador;
-	int Iguana_UngSantaCruz;
+	public static int Iguana_UngFernandina;
+	public static int Iguana_UngIsabela;
+	public static int Iguana_UngSanCristobal;
+	public static int Iguana_UngSanSalvador;
+	public static int Iguana_UngSantaCruz;
 
 	int test = 0;
 	
@@ -226,20 +201,28 @@ public class Stella_kode : MonoBehaviour
 		oppryddereSanSalvador = islandInfo.ansatteSanSalvador;
 		oppryddereSantaCruz = islandInfo.ansatteSantaCruz;
 		Politi = oceanInfo.ansatteOcean;
-		
-		//Regner ut total areal av alle øyene7
-		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanCristobal+arealSanSalvador+arealSantaCruz;
-		//Regner ut prosent av arealet av øyene
+
+		prosentFernadina = 8.44f;
+		prosentIsabela = 62.76f;
+		prosentSanCristobal = 7.55f;
+		prosentSanSalvador = 7.91f;
+		prosentSantaCruz = 13.34f;
 
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
+		Debug.Log ("pelikaner før: " + Brown_Pelican_FertilFernandina);
 		Brown_Pelican_FertilFernandina = (int) (prosentFernadina * Brown_Pelican_Fertil / 100);
+		Debug.Log ("pelikaner etter: " + Brown_Pelican_FertilFernandina);
+
 		Brown_Pelican_FertilIsabela = (int)(prosentIsabela * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanSalvador = (int)(prosentSanSalvador * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSantaCruz = (int)(prosentSantaCruz * Brown_Pelican_Fertil / 100);
-		
+
+		Debug.Log ("Unger Før: " + Brown_Pelican_UngeFernandina);
 		Brown_Pelican_UngeFernandina = (int)(prosentFernadina * Brown_Pelican_Unge / 100);
+		Debug.Log ("Unger etter: " + Brown_Pelican_UngeFernandina);
+
 		Brown_Pelican_UngeIsabela = (int)(prosentIsabela * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSanSalvador = (int)(prosentSanSalvador * Brown_Pelican_Unge / 100);
@@ -293,7 +276,6 @@ public class Stella_kode : MonoBehaviour
 			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
 			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
 			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
-			Debug.Log ("sjopolse reklame " + Sjopolse_Reklame);
 			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
 			
 			//Oppdaterer pengene vi får inn
@@ -375,21 +357,12 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer økonomien
 			okonomi = updateOkonomi (okonomi);
 			//Hyrer eller sparker oppryddere
-//			oppryddereFernandina = updateOppryddere (oppryddereFernandina, Maa_ansette_nyeFernandina, ForsoplingFernandina);
-//			oppryddereIsabela = updateOppryddere (oppryddereIsabela, Maa_ansette_nyeIsabela, ForsoplingIsabela);
-//			oppryddereSanCristobal = updateOppryddere (oppryddereSanCristobal, Maa_ansette_nyeSanCristobal, ForsoplingSanCristobal);
-//			oppryddereSanSalvador = updateOppryddere (oppryddereSanSalvador, Maa_ansette_nyeSanSalvador, ForsoplingSanSalvador);
-//			oppryddereSantaCruz = updateOppryddere (oppryddereSantaCruz, Maa_ansette_nyeSantaCruz, ForsoplingSantaCruz);
-//			oppryddereHav = updateOppryddere (oppryddereHav, Maa_ansette_nyeHav, ForsoplingHav);
+
 //			//Hyrer eller sparker politi
 //			Politi = updatePoliti (Politi);
 			//Oppdaterer populasjonen etter endringen som har skjedd
 			totPopulasjon = updatePopulasjon (totPopulasjon);
-//			populasjonFernandina = (prosentFernadina * totPopulasjon) / 100;
-//			populasjonIsabela = (prosentIsabela * totPopulasjon) / 100;
-//			populasjonSanCristobal = (prosentSanCristobal * totPopulasjon) / 100;
-//			populasjonSanSalvador = (prosentSanSalvador * totPopulasjon) / 100;
-//			populasjonSantaCruz = (prosentSantaCruz * totPopulasjon) / 100;
+
 			//Oppdaterer sjøpølse bestanden
 			Sjopolse_Fertil = updateSjopolsefertil (Sjopolse_Fertil);
 			Sjopolse_Unge = updateSjopolseung (Sjopolse_Unge);
@@ -405,7 +378,7 @@ public class Stella_kode : MonoBehaviour
 			//regner ut totalt antall oppryddere
 			totAntallOppryddere = oppryddereFernandina + oppryddereIsabela + oppryddereSanCristobal + oppryddereSanSalvador + oppryddereSantaCruz + oppryddereHav;
 			//Regner ut totalt søppel
-			totAntallForsopling = ForsoplingFernandina + ForsoplingIsabela + ForsoplingSanCristobal + ForsoplingSanSalvador + ForsoplingSantaCruz + ForsoplingHav;
+			//totAntallForsopling = ForsoplingFernandina + ForsoplingIsabela + ForsoplingSanCristobal + ForsoplingSanSalvador + ForsoplingSantaCruz + ForsoplingHav;
 			//Oppdaterer antall kommunale ansatte
 			Kommunal = 9880 + Politi + totAntallOppryddere;
 			
@@ -415,19 +388,17 @@ public class Stella_kode : MonoBehaviour
 			//if (maander > forrigemaande) {
 			Turister_drar = totTurister;
 			movingIn = (int)Math.Floor (totTurister * 0.1);
-			prevPopulasjon = totPopulasjon;
 			Debug.Log ("Moving in: " + movingIn);
 			totPopulasjon = totPopulasjon + movingIn;
 			Debug.Log("tot populasjon: " + totPopulasjon);
 			Turister_kommer = Reklame;
 			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
-			prevPopulasjon = populasjonFernandina;
-			populasjonFernandina += (int)Math.Floor (movingIn * 0.1) + prevPopulasjon;
-			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
-			populasjonIsabela += (int)Math.Floor (movingIn * 0.3) + populasjonIsabela;
-			populasjonSanCristobal += (int)Math.Floor (movingIn * 0.2) + populasjonSanCristobal;
-			populasjonSanSalvador += (int)Math.Floor (movingIn * 0.2) + populasjonSanSalvador;
-			populasjonSantaCruz += (int)Math.Floor (movingIn * 0.2) + populasjonSantaCruz;
+			populasjonFernandina = (int)(prosentFernadina * totPopulasjon) / 100;
+			Debug.Log ("populasjon fernandina: " + populasjonFernandina); 
+			populasjonIsabela = (int)(prosentIsabela * totPopulasjon) / 100;
+			populasjonSanCristobal = (int)(prosentSanCristobal * totPopulasjon) / 100;
+			populasjonSanSalvador = (int)(prosentSanSalvador * totPopulasjon) / 100;
+			populasjonSantaCruz = (int)(prosentSantaCruz * totPopulasjon) / 100;
 
 			Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
 			totTurister = Turister_kommer - Turister_drar;
@@ -501,6 +472,31 @@ public class Stella_kode : MonoBehaviour
 			Debug.Log ("Økonomi = " + okonomi);
 			test++;
 			Debug.Log ( "TEST ER " + test);
+
+			if(islandInfo.visitedFernadina == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0); 
+			} else if(islandInfo.visitedIsabela == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1); 
+			} else if(islandInfo.visitedSanCristobal == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2); 
+			} else if (islandInfo.visitedSanSalvador == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3); 
+			} else if(islandInfo.visitedSantaCruz == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+			}
+
+			Debug.Log ("HER KOMMER DYRENE TIL FERNANDINA");
+			Debug.Log ("Iguana fertil: " + Iguana_FertilFernandina);
+			Debug.Log ("Iguana unge: " + Iguana_UngFernandina);
+			Debug.Log ("Pelican fertil: " + Brown_Pelican_FertilFernandina);
+			Debug.Log ("Pelican ung: " + Brown_Pelican_UngeFernandina);
+			Debug.Log ("DYR SOM HØRER TIL HAVET");
+			Debug.Log ("Hai fertil: " + Hai_Fertil);
+			Debug.Log ("Hai unge: " + Hai_Unge);
+			Debug.Log ("Sjopolse fertil: " + Sjopolse_Fertil);
+			Debug.Log ("Sjopolse ung: " + Sjopolse_Unge);
+			Debug.Log ("Fisk fertil: " + Fertil_Fisk);
+			Debug.Log ("Fisk yngel: " + Yngel);
 		}
 		
 		//I tilfelle det blir månedskifte settes disse lik hverandre
@@ -576,6 +572,7 @@ public class Stella_kode : MonoBehaviour
 				//  I denne måneden så klekkes og vokser opp barnepelikanene
 				pelicanKlekkes = (int)(fertilBrownPelican / 2) * 3;
 				BPvokseropp = (int)ungBrownPelican / 4;
+				Debug.Log ("Er skjer det skumle ting1111111111");
 			}
 		}
 		
@@ -586,6 +583,7 @@ public class Stella_kode : MonoBehaviour
 			//(int) er for å konvertere til int fra hva slags annet tall det ville være
 			//Math.Floor runder tallet ned
 			BPdorforsopling = (int)Math.Floor(Brown_Pelican_Unge * 0.3);
+			Debug.Log ("Er skjer det skumle ting1111111111");
 		}
 		
 		//Regner sammen både innput og output
@@ -624,6 +622,7 @@ public class Stella_kode : MonoBehaviour
 			//(int) er for å konvertere til int fra hva slags annet tall det ville være
 			//Math.Floor runder tallet ned
 			dorPgaForsopling = (int)Math.Floor(totFFisk*0.3);
+			Debug.Log("fisken dølaer");
 		}
 		
 		//Regner sammen antall fisk
@@ -681,6 +680,7 @@ public class Stella_kode : MonoBehaviour
 			//Som tidligere dør haien når det ikke er plass igjen for den
 			// I dette tilfeller dør 10 %
 			Dod_pga_plass_voksen = (int)Math.Floor(fertilHai*0.1);
+			Debug.Log ("hallo haien dør");
 		}
 		
 		fertilHai = fertilHai+(Grown_up_shark-Dod_pga_plass_voksen-Dor_av_tyvfiske-Dod_alderdom);
@@ -739,11 +739,13 @@ public class Stella_kode : MonoBehaviour
 			{
 				//iguana vokser opp
 				Iguana_blir_voksen = ungIguana/5;
+				Debug.Log ("Er skjer det skumle ting 1111 "); 
 			}
 			else if (teller == 12)
 			{
 				//Iguana dør av alderdom
 				Dor_av_alderdom_Iguana = fertilIguana/8;
+				Debug.Log ("Er skjer det skumle ting 22");
 			}
 		}
 		
@@ -751,6 +753,7 @@ public class Stella_kode : MonoBehaviour
 		{
 			//Dør på grunn av liten plass
 			Dor_av_forsopling_iguana_fertil= (int)Math.Floor(fertilIguana* 0.2);
+			Debug.Log ("Er skjer det skumle ting");
 		}
 		
 		fertilIguana = fertilIguana + (Iguana_blir_voksen-Dor_av_forsopling_iguana_fertil- Dor_av_alderdom_Iguana);
@@ -773,11 +776,13 @@ public class Stella_kode : MonoBehaviour
 			{
 				//Iguana vokser opp
 				Iguana_blir_voksen = Iguana_Unge/5;
+				Debug.Log ("Er skjer det skumle ting21");
 			}
 			else if (teller == 4)
 			{
 				//Iguana blirn født
 				Iguana_fodt = Iguana_Fertil*2;
+				Debug.Log ("Er skjer det skumle ting12");
 			}
 		}
 		
@@ -814,7 +819,13 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+		if (totOkonomi <= 0) {
+			totOkonomi = 0;
+		}
 		okonomi =okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+		if (okonomi <= 0) {
+			okonomi = 0;
+		}
 		Debug.Log ("okonomi etter lønninger: " + okonomi);
 		return totOkonomi;
 	}
@@ -962,6 +973,7 @@ public class Stella_kode : MonoBehaviour
 		{
 			//Fisk dør pga liten plass
 			Dor_pga_forsopling_Fisk_Y = (int)Math.Floor(Yngel*0.3);
+			Debug.Log ("fisken dør ");
 		}
 		
 		totYngel = totYngel + (Fisk_klekkes - fisk_blir_voksen - Dor_pga_forsopling_Fisk_Y);

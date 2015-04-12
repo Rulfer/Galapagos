@@ -1,0 +1,6 @@
+09.04
+- Endret verdiene for dyrene ved å kjøre STELLA i 1600 måneder og kopiere gjennomsnittsverdier derfra
+-Modifisert verdiene fra STELLA til dyrene til å passe med størrelsene på øyene i spillet.
+- Fikset prosentFernandina, rosentIsabela osv. Disse gir nå korrekt verdi
+- Viser iguana og pelican for Fernandina på infokortet. Oppdateres ikke riktig.
+- Ikke lenger mulig å kjøpe ansatte om spilleren har for lite penger

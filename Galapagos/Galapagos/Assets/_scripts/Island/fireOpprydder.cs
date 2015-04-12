@@ -2,10 +2,8 @@
 using System.Collections;
 
 public class fireOpprydder : MonoBehaviour {
-	int tempFernandina;
 	// Use this for initialization
 	void Start () {
-		tempFernandina = islandInfo.ansatteFernadina;
 	}
 	
 	// Update is called once per frame

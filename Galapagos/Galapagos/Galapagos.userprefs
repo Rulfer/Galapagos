@@ -1,20 +1,29 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
 <<<<<<< HEAD
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
     <Files>
       <File FileName="Assets\_scripts\Stella_kode.cs" Line="798" Column="37" />
 =======
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\oceanInfo.cs">
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Island\hireOpprydder.cs">
+>>>>>>> 678f48a70058b32b2cc9500dc1701c780041bebc
     <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="378" Column="26" />
-      <File FileName="Assets\_scripts\islandInfo.cs" Line="197" Column="98" />
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="196" Column="19" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="793" Column="4" />
+      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\islandInfo.cs" Line="120" Column="29" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="159" Column="9" />
       <File FileName="Assets\_scripts\oceanInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\bankAccount.cs" Line="1" Column="1" />
+<<<<<<< HEAD
       <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="104" Column="41" />
       <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="23" Column="33" />
 >>>>>>> 4c1f6fd06f2c9300305c7267187ff277de527d4f
+=======
+      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="112" Column="4" />
+>>>>>>> 678f48a70058b32b2cc9500dc1701c780041bebc
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
