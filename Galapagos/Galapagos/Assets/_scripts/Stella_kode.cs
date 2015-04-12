@@ -5,7 +5,7 @@ using System;
 public class Stella_kode : MonoBehaviour
 {
 	//Timer delt inn i uker, månder og år
-	float timer = 0;
+	public static float timer = 0;
 	int uker = 0;
 	int forrigeuke = 0;
 	int maander = 0;
@@ -33,8 +33,8 @@ public class Stella_kode : MonoBehaviour
 	
 	//Politi og tyvfiskere
 	public static int Politi;
-	int Tyvfiskere_Hai = 0;
-	int Tyvfiskere_Sjopolse = 0;
+	public static int Tyvfiskere_Hai = 0;
+	public static int Tyvfiskere_Sjopolse = 0;
 	
 	//Søppel og plukkere
 	public static int oppryddereFernandina = 0;
@@ -201,12 +201,25 @@ public class Stella_kode : MonoBehaviour
 		oppryddereSanSalvador = islandInfo.ansatteSanSalvador;
 		oppryddereSantaCruz = islandInfo.ansatteSantaCruz;
 		Politi = oceanInfo.ansatteOcean;
+<<<<<<< HEAD
 
 		prosentFernadina = 8.44f;
 		prosentIsabela = 62.76f;
 		prosentSanCristobal = 7.55f;
 		prosentSanSalvador = 7.91f;
 		prosentSantaCruz = 13.34f;
+=======
+		
+		//Regner ut total areal av alle øyene7
+		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanSalvador+arealSantaCruz;
+		//Regner ut prosent av arealet av øyene
+		prosentFernadina = ((arealFernadina / totalAreal) * 100);
+		prosentIsabela = ((arealIsabela / totalAreal) * 100);
+		prosentSanCristobal = ((arealSanCristobal / totalAreal) * 100);
+		prosentSanSalvador = ((arealSanSalvador / totalAreal) * 100);
+		prosentSantaCruz = ((arealSantaCruz / totalAreal) * 100);
+		Debug.Log ("Areal: " + prosentFernadina);
+>>>>>>> JOhn
 
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
@@ -273,10 +286,16 @@ public class Stella_kode : MonoBehaviour
 			
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
+<<<<<<< HEAD
 			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
 			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
 			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
 			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
+=======
+			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.01));
+			Sjopolse_Reklame = (int)Math.Ceiling ((/*Sjopolse_Unge +*/ Sjopolse_Fertil)/ 0.00000001);
+			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame);
+>>>>>>> JOhn
 			
 			//Oppdaterer pengene vi får inn
 			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
@@ -370,6 +389,7 @@ public class Stella_kode : MonoBehaviour
 			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
 			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
 
+<<<<<<< HEAD
 
 			//Regner ut antall ansatte innfor Turisme
 			Turisme = totTurister * 2;
@@ -382,6 +402,8 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer antall kommunale ansatte
 			Kommunal = 9880 + Politi + totAntallOppryddere;
 			
+=======
+>>>>>>> JOhn
 			//Turist conveyer
 			//I månedskiftet drar de turistene som kom for en måned siden, mens nye turister kommer.
 			
@@ -812,12 +834,21 @@ public class Stella_kode : MonoBehaviour
 		{
 			//Tar penger fra turister og innbyggere
 			//Stjeler litt fra dyrene også med det snakker vi ikke om
+<<<<<<< HEAD
 			Inntekter = penger_fra_turister_og_innbyggere;
 			Penger_politi = Politi*700;
 			Penger_Oppryddere = totAntallOppryddere*300;
 			Debug.Log("Betaler opprydderne: " + Penger_Oppryddere);
 		}
 		
+=======
+
+			Inntekter = penger_fra_turister_og_innbyggere;
+			Penger_politi = Politi*700;
+			Penger_Oppryddere = totAntallOppryddere*300;
+		}
+
+>>>>>>> JOhn
 		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		if (totOkonomi <= 0) {
 			totOkonomi = 0;
@@ -928,6 +959,7 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereHai = totTyvfiskereHai + (Tyvfiskere_Hai_kommer - haifiskere_fanget - Tyvfiskere_hai_slutter);
+
 		return totTyvfiskereHai;
 	}
 	
@@ -945,6 +977,7 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereSjopolse = totTyvfiskereSjopolse + (Tyvfiskere_sjopolse_kommer - sjopolsefiskere_fanget - Tyvfiske_sjopolse_slutter);
+
 		return totTyvfiskereSjopolse;
 	}
 	
