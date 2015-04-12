@@ -1,41 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\fangesensor.cs">
     <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="798" Column="37" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\oceanInfo.cs">
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Island\hireOpprydder.cs">
->>>>>>> 678f48a70058b32b2cc9500dc1701c780041bebc
-    <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="793" Column="4" />
-      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\islandInfo.cs" Line="120" Column="29" />
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="159" Column="9" />
-      <File FileName="Assets\_scripts\oceanInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\bankAccount.cs" Line="1" Column="1" />
-<<<<<<< HEAD
-      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="104" Column="41" />
-      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="23" Column="33" />
->>>>>>> 4c1f6fd06f2c9300305c7267187ff277de527d4f
-=======
-      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="112" Column="4" />
->>>>>>> 678f48a70058b32b2cc9500dc1701c780041bebc
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\fjernTyvfisker.cs">
-    <Files>
-      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="29" Column="7" />
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="4" Column="1" />
-      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="37" Column="1" />
-      <File FileName="Assets\_scripts\fangesensor.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
-      <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\hitsFloor.cs" Line="1" Column="1" />
-      <File FileName="C:\Users\John Olav\Desktop\My First Job\Assets\_Scripts\BondMovement.cs" Line="1" Column="1" />
->>>>>>> JOhn
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="167" Column="2" />
+      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="44" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

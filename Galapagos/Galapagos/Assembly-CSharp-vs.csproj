@@ -49,12 +49,9 @@
      <Compile Include="Assets\_scripts\GameMaster.cs" />
      <Compile Include="Assets\_scripts\Island\Hotel.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\_scripts\Island\fireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\hireOpprydder.cs" />
-=======
      <Compile Include="Assets\_scripts\SpawnTyvfiskere.cs" />
->>>>>>> JOhn
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
      <Compile Include="Assets\_scripts\bankAccount.cs" />
      <Compile Include="Assets\_scripts\fangesensor.cs" />

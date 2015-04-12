@@ -41,8 +41,8 @@ public class fangesensor : MonoBehaviour {
 		if (other.gameObject.tag == "tyvfisker")
 		{
 			Destroy(other.gameObject);
-			Stella_kode.Tyvfiskere_Hai -= 100000;
-			Stella_kode.Tyvfiskere_Sjopolse -= 900000;
+			Stella_kode.Tyvfiskere_Hai -= 1;
+			Stella_kode.Tyvfiskere_Sjopolse -= 9;
 			SpawnTyvfiskere.antallBater --;
 			Debug.Log ("Tyvfiskere kvelt");
 		}
