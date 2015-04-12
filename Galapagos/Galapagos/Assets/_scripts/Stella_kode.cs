@@ -113,6 +113,7 @@ public class Stella_kode : MonoBehaviour
 	//Rykte eller reklame som dyrene lager
 	int Hai_Reklame = 0;
 	int Iguana_Reklame = 0;
+	int Pelican_Reklame = 0;
 	int Sjopolse_Reklame = 0;
 	//Reklame tilsammen
 	int Reklame = 0;
@@ -251,13 +252,82 @@ public class Stella_kode : MonoBehaviour
 		uker = (int)Math.Floor (timer / antallSekundermellomUker);
 		maander = (int)(uker / 4);
 		aar = (int)(maander / 12);
+
+		oppryddereFernandina = islandInfo.ansatteFernadina;
+		oppryddereIsabela = islandInfo.ansatteIsabela;
+		oppryddereSanCristobal = islandInfo.ansatteSanCristobal;
+		oppryddereSanSalvador = islandInfo.ansatteSanSalvador;
+		oppryddereSantaCruz = islandInfo.ansatteSantaCruz;
 		
 		if (uker > forrigeuke) {
+			///////Oppdaterer mengden søppe
+			ForsoplingFernandina = ForsoplingFernandina + ((islandInfo.turisterFernandina * 15) + (islandInfo.populasjonFernandina * 15));
+			if(ForsoplingFernandina < 0){ ForsoplingFernandina = 0;}
+
+			
+			ForsoplingIsabela = ForsoplingIsabela + ((islandInfo.turisterIsabela * 15) + (islandInfo.populasjonIsabela * 15));
+			if(ForsoplingIsabela < 0){ ForsoplingIsabela = 0;}
+			Debug.Log ("ForsoplingIsabela = " + ForsoplingIsabela);
+
+			
+			ForsoplingSanCristobal = ForsoplingSanCristobal + ((islandInfo.turisterSanCristobal * 15) + (islandInfo.populasjonSanCristobal * 15));
+			if(ForsoplingSanCristobal < 0){ ForsoplingSanCristobal = 0;}
+
+			
+			ForsoplingSanSalvador = ForsoplingSanSalvador + ((islandInfo.turisterSanSalvador * 15) + (islandInfo.populasjonSanSalvador * 15));
+			if(ForsoplingSanSalvador < 0){ ForsoplingSanSalvador = 0;}
+
+			
+			ForsoplingSantaCruz = ForsoplingSantaCruz + ((islandInfo.turisterSantaCruz * 15) + (islandInfo.populasjonSantaCruz * 15));
+			if(ForsoplingSantaCruz < 0){ ForsoplingSantaCruz = 0;}
+			islandInfo.forsoplingSantaCruz = ForsoplingSantaCruz;
+			
+			
+			//Deler søpla på arealet
+			if(ForsoplingFernandina > 0){
+				Forsopling_fordeltFernandina = ForsoplingFernandina / arealFernadina;
+				Debug.Log("hello");
+				Debug.Log("hello" + ForsoplingFernandina + " no " + arealFernadina);
+			}
+			else {Forsopling_fordeltFernandina = 0;}
+			if(ForsoplingIsabela > 0){
+				Forsopling_fordeltIsabela = ForsoplingIsabela / arealIsabela;
+			}
+			else {
+				Forsopling_fordeltIsabela = 0;
+				Debug.Log("hello, no?");
+			}
+			Debug.Log ("FORSOPLING FORDELT ISABELA :::::::: " + Forsopling_fordeltFernandina);
+			if(ForsoplingSanCristobal > 0){Forsopling_fordeltSanCristobal = ForsoplingSanCristobal / arealSanCristobal;}
+			else {Forsopling_fordeltSanCristobal = 0;}
+			if(ForsoplingSanSalvador > 0){Forsopling_fordeltSanSalvador = ForsoplingSanSalvador / arealSanSalvador;}
+			else {Forsopling_fordeltSanSalvador = 0;}
+			if(ForsoplingSantaCruz > 0){Forsopling_fordeltSantaCruz = ForsoplingSantaCruz / arealSantaCruz;}
+			else {Forsopling_fordeltSantaCruz = 0;}
+			Forsopling_fordeltHav = ForsoplingHav / 90000000;
+			//Oppdaterer søppel fra mennesker
+			totSoppel_fra_mennesker = (int)((totTurister + totPopulasjon) / 60);
+			ForsoplingFernandina = updateForsopling (ForsoplingFernandina, oppryddereFernandina);
+			islandInfo.forsoplingFernandina = ForsoplingFernandina;
+			Debug.Log ("easdasdasdadasdasdasdadasdasdasdasdasdasdasdasdasdadasdadasd: " + ForsoplingFernandina);
+
+			ForsoplingIsabela = updateForsopling (ForsoplingIsabela, oppryddereIsabela);
+			islandInfo.forsoplingIsabela = ForsoplingIsabela;
+			ForsoplingSanCristobal = updateForsopling (ForsoplingSanCristobal, oppryddereSanCristobal);
+			islandInfo.forsoplingSanCristobal = ForsoplingSanCristobal;
+			ForsoplingSanSalvador = updateForsopling (ForsoplingSanSalvador, oppryddereSanSalvador);
+			islandInfo.forsoplingSanSalvador = ForsoplingSanSalvador;
+			ForsoplingSantaCruz = updateForsopling (ForsoplingSantaCruz, oppryddereSantaCruz);
+			islandInfo.forsoplingSantaCruz = ForsoplingSantaCruz;
+			ForsoplingHav = updateForsopling (ForsoplingHav, oppryddereHav);
+
+
 			//Oppdaterer plassen hvert enkelt dyr har
 			Plass_fisk_trenger = (Yngel / 10000) + (Fertil_Fisk / 10000);
 			
 			Plass_BP_trengerFernadina = (Brown_Pelican_FertilFernandina / 2) + (Brown_Pelican_UngeFernandina / 2);
 			Plass_BP_trengerIsabela = (Brown_Pelican_FertilIsabela / 2) + (Brown_Pelican_UngeIsabela / 2);
+			Debug.Log("Plass som trengs er eeeeeeeeeeeeeeeeeeeeeee: " + Plass_BP_trengerFernadina);
 			Plass_BP_trengerSanCristobal = (Brown_Pelican_FertilSanCristobal / 2) + (Brown_Pelican_UngeSanCristobal / 2);
 			Plass_BP_trengerSanSalvador = (Brown_Pelican_FertilSanSalvador / 2) + (Brown_Pelican_UngeSanSalvador / 2);
 			Plass_BP_trengerSantaCruz = (Brown_Pelican_FertilSantaCruz / 2) + (Brown_Pelican_UngeSantaCruz / 2);
@@ -270,50 +340,7 @@ public class Stella_kode : MonoBehaviour
 			Plass_iguana_trengerSanSalvador = (Iguana_UngSanSalvador / 10) + (Iguana_FertilSanSalvador / 10);
 			
 			Plass_sjopolse_trenger = (Sjopolse_Unge / 1000) + (Sjopolse_Fertil / 1000);
-			
-			//Oppdaterer hvor mye rykte dyrene sprer
-			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
-			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
-			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
-			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
-			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
-			
-			//Oppdaterer pengene vi får inn
-			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
-			
-			//Oppdaterer hvor mange som ahr hørt om hai fisk og sjøpølse fisking
-			Informerte_om_sjopolse = (int)Math.Ceiling (Sjopolse_Reklame * 0.01);
-			Informerte_Hai = (int)Math.Ceiling (Hai_Reklame * 0.1);
 
-
-			//Regner ut plassen for dyrene å leve på
-			
-			Tilgjengelig_BP_plassFernandia = (int)Math.Ceiling ((arealFernadina * 2) - (Forsopling_fordeltFernandina * 0.09));
-			Tilgjengelig_BP_plassIsabela = (int)Math.Ceiling ((arealIsabela * 2) - (Forsopling_fordeltIsabela * 0.09));
-			Tilgjengelig_BP_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal * 2) - (Forsopling_fordeltSanCristobal * 0.09));
-			Tilgjengelig_BP_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador * 2) - (Forsopling_fordeltSanSalvador * 0.09));
-			Tilgjengelig_BP_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz * 2) - (Forsopling_fordeltSantaCruz * 0.09));
-			
-			Tilgjengelig_Iguana_plassFernandina = (int)Math.Ceiling ((arealFernadina * 10) - (Forsopling_fordeltFernandina * 0.09));
-			Tilgjengelig_Iguana_plassIsabela = (int)Math.Ceiling ((arealIsabela * 10) - (Forsopling_fordeltIsabela * 0.09));
-			Tilgjengelig_Iguana_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal * 10) - (Forsopling_fordeltSanCristobal * 0.09));
-			Tilgjengelig_Iguana_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador * 10) - (Forsopling_fordeltSanSalvador * 0.09));
-			Tilgjengelig_Iguana_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz * 10) - (Forsopling_fordeltSantaCruz * 0.09));
-			
-			Tilgjengelig_Fisk_plass = (int)(90000000 - Forsopling_fordeltHav);
-			Tilgjengelig_Hai_plass = (int)(90000000 - Forsopling_fordeltHav);
-			Tilgjengelig_Sjopolse_plass = (int)Math.Ceiling (4500000 - Forsopling_fordeltHav);
-			
-			
-			
-			Debug.Log (uker);
-			
-			//Regner ut hvor mange som flytter på grunn av jobb
-			//
-			Flytter_pga_jobb = oppdatererAntall_jobber (Flytter_pga_jobb);
-			
-
-			
 			//Oppdaterer bestanden av pelican
 			Brown_Pelican_FertilFernandina = updatePelican (Brown_Pelican_FertilFernandina, Brown_Pelican_UngeFernandina, Plass_BP_trengerFernadina, Tilgjengelig_BP_plassFernandia);
 			Brown_Pelican_FertilIsabela = updatePelican (Brown_Pelican_FertilIsabela, Brown_Pelican_UngeIsabela, Plass_BP_trengerIsabela, Tilgjengelig_BP_plassIsabela);
@@ -327,16 +354,37 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
 			
+			//Regner ut plassen for dyrene å leve på
+			Tilgjengelig_BP_plassFernandia = (int)Math.Ceiling ((arealFernadina) - (Forsopling_fordeltFernandina));
+			Tilgjengelig_BP_plassIsabela = (int)Math.Ceiling ((arealIsabela) - (Forsopling_fordeltIsabela * 20));
+			Debug.Log("Plass igjen er eeeeeeeeeeeeeeeeeeeeeee: " + Tilgjengelig_Iguana_plassFernandina);
+			Tilgjengelig_BP_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal) - (Forsopling_fordeltSanCristobal));
+			Tilgjengelig_BP_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador) - (Forsopling_fordeltSanSalvador));
+			Tilgjengelig_BP_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz) - (Forsopling_fordeltSantaCruz));
+			
+			Tilgjengelig_Iguana_plassFernandina = (int)Math.Ceiling ((arealFernadina) - (Forsopling_fordeltFernandina));
+			Tilgjengelig_Iguana_plassIsabela = (int)Math.Ceiling ((arealIsabela) - (Forsopling_fordeltIsabela));
+			Tilgjengelig_Iguana_plassSanCristobal = (int)Math.Ceiling ((arealSanCristobal) - (Forsopling_fordeltSanCristobal));
+			Tilgjengelig_Iguana_plassSanSalvador = (int)Math.Ceiling ((arealSanSalvador) - (Forsopling_fordeltSanSalvador));
+			Tilgjengelig_Iguana_plassSantaCruz = (int)Math.Ceiling ((arealSantaCruz) - (Forsopling_fordeltSantaCruz));
+			
+			Tilgjengelig_Fisk_plass = (int)(90000000 - Forsopling_fordeltHav);
+			Tilgjengelig_Hai_plass = (int)(90000000 - Forsopling_fordeltHav);
+			Tilgjengelig_Sjopolse_plass = (int)Math.Ceiling (4500000 - Forsopling_fordeltHav);
+			
+			
+			
+			Debug.Log (uker);
+			
+			//Regner ut hvor mange som flytter på grunn av jobb
+			//
+			Flytter_pga_jobb = oppdatererAntall_jobber (Flytter_pga_jobb);
+			
 			//Oppdaterer fiskebestanden
 			Fertil_Fisk = updateFertilFisk (Fertil_Fisk);
 			Yngel = updateYngel (Yngel);
 			//Ser hvor mye søppel folk har lagt igjen
-			ForsoplingFernandina = updateForsopling (ForsoplingFernandina, oppryddereFernandina);
-			ForsoplingIsabela = updateForsopling (ForsoplingIsabela, oppryddereIsabela);
-			ForsoplingSanCristobal = updateForsopling (ForsoplingSanCristobal, oppryddereSanCristobal);
-			ForsoplingSanSalvador = updateForsopling (ForsoplingSantaCruz, oppryddereSantaCruz);
-			ForsoplingSantaCruz = updateForsopling (ForsoplingSantaCruz, oppryddereSantaCruz);
-			ForsoplingHav = updateForsopling (ForsoplingHav, oppryddereHav);
+
 			
 			//Oppdaterer haibestanden
 			Hai_Fertil = updateHaifertil (Hai_Fertil);
@@ -353,13 +401,19 @@ public class Stella_kode : MonoBehaviour
 			Iguana_UngSanCristobal = updateIguanaunge (Iguana_FertilSanCristobal, Iguana_UngSanCristobal, Plass_iguana_trengerSanCristobal, Tilgjengelig_Iguana_plassSanCristobal);
 			Iguana_UngSanSalvador = updateIguanaunge (Iguana_FertilSanSalvador, Iguana_UngSanSalvador, Plass_iguana_trengerSanSalvador, Tilgjengelig_Iguana_plassSanSalvador);
 			Iguana_UngSantaCruz = updateIguanaunge (Iguana_FertilSantaCruz, Iguana_UngSantaCruz, Plass_iguana_trengerSantaCruz, Tilgjengelig_Iguana_plassSantaCruz);
-			
-			//Oppdaterer økonomien
-			okonomi = updateOkonomi (okonomi);
-			//Hyrer eller sparker oppryddere
 
-//			//Hyrer eller sparker politi
-//			Politi = updatePoliti (Politi);
+			//Oppdaterer hvor mye rykte dyrene sprer
+			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
+			Iguana_Reklame = (int)Math.Floor ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
+			Pelican_Reklame = (int)Math.Floor ((Brown_Pelican_Fertil * 0.01) + (Brown_Pelican_Unge * 0.001));
+			Sjopolse_Reklame = (int)Math.Floor ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
+			Sjopolse_Reklame = (int)Math.Floor (Sjopolse_Reklame * 0.0000001);
+			Reklame = (int)Math.Floor ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame + Pelican_Reklame);
+			
+			//Oppdaterer hvor mange som har hørt om hai fisk og sjøpølse fisking
+			Informerte_om_sjopolse = (int)Math.Ceiling (Sjopolse_Reklame * 0.01);
+			Informerte_Hai = (int)Math.Ceiling (Hai_Reklame * 0.1);
+
 			//Oppdaterer populasjonen etter endringen som har skjedd
 			totPopulasjon = updatePopulasjon (totPopulasjon);
 
@@ -400,8 +454,11 @@ public class Stella_kode : MonoBehaviour
 			populasjonSanSalvador = (int)(prosentSanSalvador * totPopulasjon) / 100;
 			populasjonSantaCruz = (int)(prosentSantaCruz * totPopulasjon) / 100;
 
+			//Her fordeles turistene mellom øyene
+			//Tester og om det kommer for mange enn det er plass til. Om det er tilfellet vil det bare komme så
+			//mange det er plass til
 			Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
-			totTurister = Turister_kommer - Turister_drar;
+			totTurister = Turister_kommer;
 			Debug.Log ("totalt antall turister = " + totTurister);
 			turisterFernandina =(int)Math.Floor (totTurister * 0.2);
 			if(turisterFernandina >= islandInfo.maxTurismeFernandina){
@@ -430,49 +487,17 @@ public class Stella_kode : MonoBehaviour
 			islandInfo.nyeTuristerSantaCruz = turisterSantaCruz;
 			Debug.Log ("Turister isabela: " + turisterIsabela);
 
-			///////Oppdaterer mengden søppel
-			ForsoplingFernandina = islandInfo.forsoplingFernandina - (islandInfo.ansatteFernadina * 500);
-			if(ForsoplingFernandina < 0){ ForsoplingFernandina = 0;}
-			islandInfo.nyForsoplingFernandina = ForsoplingFernandina;
-
-			ForsoplingIsabela = islandInfo.forsoplingIsabela - (islandInfo.ansatteIsabela * 500);
-			Debug.Log ("søppel på Isabela er : " + ForsoplingIsabela);
-			if(ForsoplingIsabela < 0){ ForsoplingIsabela = 0;}
-			Debug.Log ("søppel på Isabela er : " + ForsoplingIsabela);
-			islandInfo.nyForsoplingIsabela = ForsoplingIsabela;
-
-			ForsoplingSanCristobal = islandInfo.forsoplingSanCristobal - (islandInfo.ansatteSanCristobal * 500);
-			if(ForsoplingSanCristobal < 0){ ForsoplingSanCristobal = 0;}
-			islandInfo.nyForsoplingSanCristobal = ForsoplingSanCristobal;
-
-			ForsoplingSanSalvador = islandInfo.forsoplingSanSalvador - (islandInfo.ansatteSanSalvador * 500);
-			if(ForsoplingSanSalvador < 0){ ForsoplingSanSalvador = 0;}
-			islandInfo.nyForsoplingSanSalvador = ForsoplingSanSalvador;
-
-			ForsoplingSantaCruz = islandInfo.forsoplingSantaCruz - (islandInfo.ansatteSantaCruz * 500);
-			if(ForsoplingSantaCruz < 0){ ForsoplingSantaCruz = 0;}
-			islandInfo.nyForsoplingSantaCruz = ForsoplingSantaCruz;
-
-
-			//Deler søpla på arealet
-			if(ForsoplingFernandina > 0){Forsopling_fordeltFernandina = ForsoplingFernandina / arealFernadina;}
-			else {Forsopling_fordeltFernandina = 0;}
-			if(ForsoplingIsabela > 0){Forsopling_fordeltIsabela = ForsoplingIsabela / arealIsabela;}
-			else {Forsopling_fordeltIsabela = 0;}
-			if(ForsoplingSanCristobal > 0){Forsopling_fordeltSanCristobal = ForsoplingSanCristobal / arealSanCristobal;}
-			else {Forsopling_fordeltSanCristobal = 0;}
-			if(ForsoplingSanSalvador > 0){Forsopling_fordeltSanSalvador = ForsoplingSanSalvador / arealSanSalvador;}
-			else {Forsopling_fordeltSanSalvador = 0;}
-			if(ForsoplingSantaCruz > 0){Forsopling_fordeltSantaCruz = ForsoplingSantaCruz / arealSantaCruz;}
-			else {Forsopling_fordeltSantaCruz = 0;}
-			Forsopling_fordeltHav = ForsoplingHav / 90000000;
-			//Oppdaterer søppel fra mennesker
-			totSoppel_fra_mennesker = (int)((totTurister + totPopulasjon) / 60);
+			//Oppdaterer pengene vi får inn
+			penger_fra_turister_og_innbyggere = totTurister * 37 + totPopulasjon * 20;
+			//Oppdaterer økonomien
+			okonomi = updateOkonomi (okonomi);
 
 			Debug.Log ("Økonomi = " + okonomi);
 			test++;
 			Debug.Log ( "TEST ER " + test);
 
+			//Sjekker om spilleren ser på en øy.
+			//Om det er tilfellet skal den nye informasjonen vises
 			if(islandInfo.visitedFernadina == true){
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0); 
 			} else if(islandInfo.visitedIsabela == true){
@@ -485,18 +510,11 @@ public class Stella_kode : MonoBehaviour
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
 			}
 
-			Debug.Log ("HER KOMMER DYRENE TIL FERNANDINA");
-			Debug.Log ("Iguana fertil: " + Iguana_FertilFernandina);
-			Debug.Log ("Iguana unge: " + Iguana_UngFernandina);
-			Debug.Log ("Pelican fertil: " + Brown_Pelican_FertilFernandina);
-			Debug.Log ("Pelican ung: " + Brown_Pelican_UngeFernandina);
-			Debug.Log ("DYR SOM HØRER TIL HAVET");
-			Debug.Log ("Hai fertil: " + Hai_Fertil);
-			Debug.Log ("Hai unge: " + Hai_Unge);
-			Debug.Log ("Sjopolse fertil: " + Sjopolse_Fertil);
-			Debug.Log ("Sjopolse ung: " + Sjopolse_Unge);
-			Debug.Log ("Fisk fertil: " + Fertil_Fisk);
-			Debug.Log ("Fisk yngel: " + Yngel);
+			weeklyChange.updateFernandina((Iguana_FertilFernandina+Iguana_UngFernandina),(Brown_Pelican_FertilFernandina+Brown_Pelican_UngeFernandina));
+			Debug.Log ((Iguana_FertilFernandina+Iguana_UngFernandina));
+			if(mouseClicker.visitedWeekly == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showWeekly();
+			}
 		}
 		
 		//I tilfelle det blir månedskifte settes disse lik hverandre
@@ -640,13 +658,16 @@ public class Stella_kode : MonoBehaviour
 		//Har en pulse her, men den skal regnes ut hver måned
 		//Trenger derfor ikke noen teller
 		
-		if (maander > forrigemaande)
-		{
+		//if (maander > forrigemaande)
+		//{
 			//I månedsskiftet kaster vi søppel
-			ryddaSoppel = Oppryddere*500;
-		}
+			ryddaSoppel = Oppryddere*125;
+		//}
 		
 		totForsopling = totForsopling + (innSoppel - ryddaSoppel);
+		if (totForsopling <= 0) {
+			totForsopling = 0;
+		}
 		return totForsopling;
 	}
 	
@@ -776,13 +797,13 @@ public class Stella_kode : MonoBehaviour
 			{
 				//Iguana vokser opp
 				Iguana_blir_voksen = Iguana_Unge/5;
-				Debug.Log ("Er skjer det skumle ting21");
+				Debug.Log ("Er skjer det skumle ting211111111111111111111111111111111111111111111111111111");
 			}
 			else if (teller == 4)
 			{
 				//Iguana blirn født
 				Iguana_fodt = Iguana_Fertil*2;
-				Debug.Log ("Er skjer det skumle ting12");
+				Debug.Log ("Er skjer det skumle ting1222222222222222222222222222222222222222222222222222222");
 			}
 		}
 		
@@ -791,7 +812,8 @@ public class Stella_kode : MonoBehaviour
 			//Lite plass, mindre iguana
 			Dor_av_forsopling_iguana_Unge = (int)Math.Floor (Iguana_Unge*0.2);
 		}
-		
+		//Iguana_UngFernandina = updateIguanaunge (Iguana_FertilFernandina, Iguana_UngFernandina, Plass_iguana_trengerFernandina, Tilgjengelig_Iguana_plassFernandina);
+
 		ungeIguana = ungeIguana + (Iguana_fodt - Iguana_blir_voksen - Dor_av_forsopling_iguana_Unge);
 		return ungeIguana;
 	}

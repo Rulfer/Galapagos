@@ -59,6 +59,7 @@
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
      <Compile Include="Assets\_scripts\shortcuts.cs" />
+     <Compile Include="Assets\_scripts\weeklyChange.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

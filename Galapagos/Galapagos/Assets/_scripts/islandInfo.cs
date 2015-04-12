@@ -101,18 +101,6 @@ public class islandInfo : MonoBehaviour {
 		populasjonSanSalvador = Stella_kode.populasjonSanSalvador;
 		populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
 
-		forsoplingFernandina = (turisterFernandina * 15) + (populasjonFernandina * 15);
-		forsoplingIsabela = (turisterIsabela * 15) + (populasjonIsabela * 15);
-		forsoplingSanCristobal = turisterSanCristobal * 15 + populasjonSanCristobal * 15;
-		forsoplingSanSalvador = turisterSanSalvador * 15 + populasjonSanSalvador * 15;
-		forsoplingSantaCruz = turisterSantaCruz * 15 + populasjonSantaCruz * 15;
-
-		nyForsoplingFernandina = forsoplingFernandina;
-		nyForsoplingIsabela = forsoplingIsabela;
-		nyForsoplingSanCristobal = forsoplingSanCristobal;
-		nyForsoplingSanSalvador = forsoplingSanSalvador;
-		nyForsoplingSantaCruz = forsoplingSantaCruz;
-
 		maxTurismeFernandina = 500;
 		maxTurismeIsabela = 500;
 		maxTurismeSanCristobal = 500;
@@ -220,19 +208,6 @@ public class islandInfo : MonoBehaviour {
 		}
 
 
-		if (forsoplingFernandina < nyForsoplingFernandina || forsoplingFernandina > nyForsoplingFernandina) {
-			forsoplingFernandina = nyForsoplingFernandina;
-			Debug.Log ("Forsopling hos fernandina er oppdatert: " + nyForsoplingFernandina);
-		} else if (forsoplingIsabela < nyForsoplingIsabela || forsoplingIsabela > nyForsoplingIsabela) {
-			forsoplingIsabela = nyForsoplingIsabela;
-		} else if (forsoplingSanCristobal < nyForsoplingSanCristobal || forsoplingSanCristobal > nyForsoplingSanCristobal) {
-			forsoplingSanCristobal = nyForsoplingSanCristobal;
-		} else if (forsoplingSanSalvador < nyForsoplingSanSalvador || forsoplingSanSalvador > nyForsoplingSanSalvador) {
-			forsoplingSanSalvador = nyForsoplingSanSalvador;
-		} else if (forsoplingSantaCruz < nyForsoplingSantaCruz || forsoplingSantaCruz > nyForsoplingSantaCruz) {
-			forsoplingSantaCruz = nyForsoplingSantaCruz;
-		}
-
 		if (visitedFernadina == true) {
 			if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
 				turisterFernandina = Stella_kode.turisterFernandina;
@@ -241,10 +216,7 @@ public class islandInfo : MonoBehaviour {
 			} else if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
 				populasjonFernandina = Stella_kode.populasjonFernandina;
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
-			} else if (forsoplingFernandina < nyForsoplingFernandina || forsoplingFernandina > nyForsoplingFernandina) {
-				forsoplingFernandina = nyForsoplingFernandina;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
-			}
+			} 
 		} else if (visitedIsabela == true) {
 				if (turisterIsabela < nyeTuristerIsabela || turisterIsabela > nyeTuristerIsabela) {
 				turisterIsabela = nyeTuristerIsabela;
@@ -252,12 +224,7 @@ public class islandInfo : MonoBehaviour {
 			} else if (populasjonIsabela < Stella_kode.populasjonIsabela || populasjonIsabela > Stella_kode.populasjonIsabela) {
 				populasjonIsabela = Stella_kode.populasjonIsabela;
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
-			} else if (forsoplingIsabela < nyForsoplingIsabela || forsoplingIsabela > nyForsoplingIsabela) {
-				forsoplingIsabela = nyForsoplingIsabela;
-				Debug.Log("her har søppelet til isabela endra seg");
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
-			}
-
+			} 
 		} else if (visitedSanCristobal == true) {
 			if (turisterSanCristobal < nyeTuristerSanCristobal || turisterSanCristobal > nyeTuristerSanCristobal) {
 				turisterSanCristobal = nyeTuristerSanCristobal;
@@ -265,11 +232,7 @@ public class islandInfo : MonoBehaviour {
 			} else if (populasjonSanCristobal < Stella_kode.populasjonSanCristobal || populasjonSanCristobal > Stella_kode.populasjonSanCristobal) {
 				populasjonSanCristobal = Stella_kode.populasjonSanCristobal;
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
-			} else if (forsoplingIsabela < nyForsoplingIsabela || forsoplingIsabela > nyForsoplingIsabela) {
-				forsoplingIsabela = nyForsoplingIsabela;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
 			} 
-
 		} else if (visitedSanSalvador == true) {
 			if (turisterSanSalvador < nyeTuristerSanSalvador || turisterSanSalvador > nyeTuristerSanSalvador) {
 				turisterSanSalvador = nyeTuristerSanSalvador;
@@ -277,10 +240,7 @@ public class islandInfo : MonoBehaviour {
 			} else if (populasjonSanSalvador < Stella_kode.populasjonSanSalvador || populasjonSanSalvador > Stella_kode.populasjonSanSalvador) {
 				populasjonSanSalvador = Stella_kode.populasjonSanSalvador;
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
-			} else if (forsoplingSanSalvador < nyForsoplingSanSalvador || forsoplingSanSalvador > nyForsoplingSanSalvador) {
-				forsoplingSanSalvador = nyForsoplingSanSalvador;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
-			}
+			} 
 		} else if (visitedSantaCruz == true) {
 			if (turisterSantaCruz < nyeTuristerSantaCruz || turisterSantaCruz > nyeTuristerSantaCruz) {
 				turisterSantaCruz = nyeTuristerSantaCruz;
@@ -288,9 +248,6 @@ public class islandInfo : MonoBehaviour {
 			} else if (populasjonSantaCruz < Stella_kode.populasjonSantaCruz || populasjonSantaCruz > Stella_kode.populasjonSantaCruz) {
 				populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
-			} else if (forsoplingSantaCruz < nyForsoplingSantaCruz || forsoplingSantaCruz > nyForsoplingSantaCruz) {
-				forsoplingSantaCruz = nyForsoplingSantaCruz;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
 			}
 		}
 	}

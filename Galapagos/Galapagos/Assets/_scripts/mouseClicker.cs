@@ -5,10 +5,12 @@ public class mouseClicker : MonoBehaviour {
 	string[] areaName = new string[6];
 	public GameObject infoBox;
 	public GameObject shopBox;
+	public GameObject weeklybox;
 	public GUIText shop;
 	public GUIText info;
-	public static bool visitedIsabela = false;
+	public GUIText weekly;
 	bool visitedShop;
+	public static bool visitedWeekly;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,7 @@ public class mouseClicker : MonoBehaviour {
 		areaName [5] = "Ocean";
 
 		visitedShop = false;
+		visitedWeekly = false;
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
 	}
@@ -96,6 +99,12 @@ public class mouseClicker : MonoBehaviour {
 			}
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "destroyHotel") {
 				Hotel.destroy();
+			}
+
+			else if(Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "weekly"){
+				if(visitedWeekly == false){
+					showWeekly();
+				}
 			}
 
 			//Tester om spilleren klikker utenfor informasjonsboksen (er en hitbox der)
@@ -210,12 +219,36 @@ public class mouseClicker : MonoBehaviour {
 		shop.text += "\n";
 	}
 
+	public void showWeekly(){
+		visitedWeekly = true;
+		weeklybox.transform.position = new Vector3 (0, 0, 0);
+		weekly.text = "";
+
+		weekly.text += "Her kommer iguana";
+		weekly.text += "\n";
+		for (int i = 0; i < weeklyChange.i_numFern; i++) {
+			weekly.text += "Uke " + (i+1) + ": " + weeklyChange.igFern[i];
+			weekly.text += "\n";
+		}
+
+		weekly.text += "Her kommer pelikan";
+		weekly.text += "\n";
+		for (int i = 0; i < weeklyChange.p_numFern; i++) {
+			weekly.text += "Uke " + (i+1) + ": " + weeklyChange.peFern[i];
+			weekly.text += "\n";
+		}
+	}
+
 	public void close(){
 		infoBox.transform.position = new Vector3 (0, 0, 10);
 		shopBox.transform.position = new Vector3 (0, 0, 10);
+		weeklybox.transform.position = new Vector3 (0, 0, 10);
+
 		shop.text = "";
 		visitedShop = false;
+		visitedWeekly = false;
 		info.text = "";
+		weekly.text = "";
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;
