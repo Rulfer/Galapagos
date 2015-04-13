@@ -356,13 +356,11 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_FertilSanSalvador = updatePelican (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_FertilSantaCruz = updatePelican (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
 			
-<<<<<<< HEAD
 			Brown_Pelican_UngeFernandina = updatePelicanUnge (Brown_Pelican_FertilFernandina, Brown_Pelican_UngeFernandina, Plass_BP_trengerFernadina, Tilgjengelig_BP_plassFernandia);
 			Brown_Pelican_UngeIsabela = updatePelicanUnge (Brown_Pelican_FertilIsabela, Brown_Pelican_UngeIsabela, Plass_BP_trengerIsabela, Tilgjengelig_BP_plassIsabela);
 			Brown_Pelican_UngeSanCristobal = updatePelicanUnge (Brown_Pelican_FertilSanCristobal, Brown_Pelican_UngeSanCristobal, Plass_BP_trengerSanCristobal, Tilgjengelig_BP_plassSanCristobal);
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
-=======
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
 
@@ -373,8 +371,7 @@ public class Stella_kode : MonoBehaviour
 			
 			//Oppdaterer pengene vi får inn
 			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
->>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
-			
+
 			//Regner ut plassen for dyrene å leve på
 			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
 			Tilgjengelig_BP_plassIsabela = ((arealIsabela) - (ForsoplingFernandina));
@@ -867,40 +864,50 @@ public class Stella_kode : MonoBehaviour
 		Inntekter = penger_fra_turister_og_innbyggere;
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#
-		if (maander > forrigemaande) 
-		{
+		if (maander > forrigemaande) {
 			//Tar penger fra turister og innbyggere
 			//Stjeler litt fra dyrene også med det snakker vi ikke om
 			Inntekter = penger_fra_turister_og_innbyggere;
-			Penger_politi = Politi*700;
-			Penger_Oppryddere = totAntallOppryddere*300;
-			Debug.Log("Betaler opprydderne: " + Penger_Oppryddere);
+			Penger_politi = Politi * 700;
+			Penger_Oppryddere = totAntallOppryddere * 300;
+			Debug.Log ("Betaler opprydderne: " + Penger_Oppryddere);
 		}
-	
-		totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
-		if (totOkonomi <= 0) {
-			mangler = totOkonomi * (-1);
-			ansatte = Politi + totAntallOppryddere;
-			slutter = (int)ansatte / mangler;
-			Debug.Log("SLUTTER SLUTTER SLUTTER SLUTTER SLUTTER SLUTTER:::::: " + slutter);
-			if(Politi > 0){
-				Politi -= (int)Math.Ceiling(slutter * 0.2);
-			}
-			if(totAntallOppryddere > 0){
-				oppryddereFernandina -= (int)Math.Ceiling(slutter * 0.1);
-				oppryddereIsabela -= (int)Math.Ceiling(slutter * 0.3);
-				oppryddereSanCristobal -= (int)Math.Ceiling(slutter * 0.1);
-				oppryddereSanSalvador -= (int)Math.Ceiling(slutter * 0.2);
-				oppryddereSantaCruz -= (int)Math.Ceiling(slutter * 0.1);
-				totAntallOppryddere = (oppryddereFernandina+oppryddereIsabela+oppryddereSanCristobal+oppryddereSanSalvador+oppryddereSantaCruz);
-			}
-			totOkonomi = 0;
-			okonomi = 0;
-			pause.pauseGame();
-		}
-		okonomi =okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
-		if (okonomi <= 0) {
-			okonomi = 0;
+		Debug.Log ("NumPoliti = " + Politi);
+		Debug.Log ("NumOppryddere = " + totAntallOppryddere);
+		int lonning = Penger_politi + Penger_Oppryddere; // Regner ut lønningene denne måneden
+		int lommeboks = totOkonomi + Inntekter; //Regner ut pengene spilleren har når lønninger skal utbetales
+		int betalPoliti;
+		int betalOppryddere;
+		int totAnsatte;
+		Debug.Log ("lonning = " + lonning);
+		Debug.Log ("lommeboks = " + lommeboks);
+		//Tester om lønningene som skal utbetales er større enn pengene spilleren har
+		if (lonning > lommeboks) {
+			totOkonomi = 0; //Setter økonomien lik 0 for å forhindre -penger
+			okonomi = 0; //Setter økonomien lik 0 for å forhindre -penger
+			totAnsatte = Politi + totAntallOppryddere; //Regner ut totalt antall ansatte
+			Debug.Log ("totAnsatte = " + totAnsatte);
+			betalPoliti = (100 * Politi) / totAnsatte; //Regner ut hvor mange prosent av de ansatte som er politi
+			Debug.Log ("betalPoliti = " + betalPoliti);
+			betalOppryddere = (100 * totAntallOppryddere) / totAnsatte; //Regner ut hvor mange prosent av de ansatte som er oppryddere
+			Debug.Log ("betalOppryddere = " + betalOppryddere);
+			Politi = betalPoliti; //Endrer så bare dem som ble betalt gjenstår som politi
+			Debug.Log ("Politi = " + Politi);
+			totAntallOppryddere = betalOppryddere;//Endrer så bare dem som ble betalt gjenstår som oppryddere
+			Debug.Log ("totAntallOppryddere = " + totAntallOppryddere);
+			//Fordeler de ansatte på øyene
+			oppryddereFernandina -= (int)Math.Ceiling (totAntallOppryddere * 0.1);
+			oppryddereIsabela -= (int)Math.Ceiling (totAntallOppryddere * 0.3);
+			oppryddereSanCristobal -= (int)Math.Ceiling (totAntallOppryddere * 0.1);
+			oppryddereSanSalvador -= (int)Math.Ceiling (totAntallOppryddere * 0.2);
+			oppryddereSantaCruz -= (int)Math.Ceiling (totAntallOppryddere * 0.1);
+			mangler = lonning - lommeboks; //Variabel som skal printes ut
+			slutter = totAnsatte - (totAntallOppryddere + Politi); //Variabel som skal printes ut
+			pause.pauseGame (); //Pauser spillet
+		} 
+		else {
+			totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+			okonomi = okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 		}
 		return totOkonomi;
 	}
@@ -1012,13 +1019,10 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereHai = totTyvfiskereHai + (Tyvfiskere_Hai_kommer - haifiskere_fanget - Tyvfiskere_hai_slutter);
-<<<<<<< HEAD
 		if (totTyvfiskereHai <= 0) {
 			totTyvfiskereHai = 0;
 		}
-=======
 
->>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
 		return totTyvfiskereHai;
 	}
 	
@@ -1036,13 +1040,10 @@ public class Stella_kode : MonoBehaviour
 		}
 		
 		totTyvfiskereSjopolse = totTyvfiskereSjopolse + (Tyvfiskere_sjopolse_kommer - sjopolsefiskere_fanget - Tyvfiske_sjopolse_slutter);
-<<<<<<< HEAD
 		if (totTyvfiskereSjopolse <= 0) {
 			totTyvfiskereSjopolse = 0;
 		}
-=======
 
->>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
 		return totTyvfiskereSjopolse;
 	}
 	

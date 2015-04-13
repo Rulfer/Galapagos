@@ -32,7 +32,6 @@ public class fangesensor : MonoBehaviour {
 			}
 		} 
 
-		Debug.Log ("Er båten på øya?: " + onIsland);
 	}
 	
 	void OnTriggerEnter(Collider other) 
@@ -44,7 +43,6 @@ public class fangesensor : MonoBehaviour {
 			Stella_kode.Tyvfiskere_Hai -= 1;
 			Stella_kode.Tyvfiskere_Sjopolse -= 9;
 			SpawnTyvfiskere.antallBater --;
-			Debug.Log ("Tyvfiskere kvelt");
 		}
 	}
 
@@ -52,7 +50,6 @@ public class fangesensor : MonoBehaviour {
 	{
 		//Når båten koliderer med noe (Er bare øyer å kolidere med) så skal onIsland puttes til true,
 		onIsland = true;
-		Debug.Log ("Kollider!");
 	}
 
 	void OnCollisionStay (Collision other)

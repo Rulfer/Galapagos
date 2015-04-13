@@ -1,3 +1,8 @@
+14.04
+- Ansatte sparkes riktig. Dersom det ikke er nok penger til å lønne alle vil det regnes ut hvor mange prosent politiet og opprydderne er i forhold til totalt antall ansatte, og vil sparkes basert på det.
+- å trykke på "esc" knappen bør nå pause spillet. Klikke på den igjen vil unapause.
+- Fjernet "GameMaster" c# klassen
+
 12.04
 - Endret på hvordan forsøpling nå påvirker boplassen til et dyr. Det er nå ForsøplingX, svaret man får fra updateForsopliong, som sier hvor mye plass som er tatt.
 - Forsøkt å sparke ansatte automatisk når det er for lite penger til å betale lønninger, men tror ikke dette har funket som det skal.

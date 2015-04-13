@@ -251,6 +251,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	public void pausedText(){
+		close ();
 		pausedBox.transform.position = new Vector3 (0, 0, 0);
 		paused.text = "Du har for lite penger til å lønne alle ansatte.";
 		weekly.text += "\n";
@@ -284,10 +285,6 @@ public class mouseClicker : MonoBehaviour {
 			islandInfo.visitedSantaCruz = false;
 		}if (oceanInfo.visitedOcean == true) {
 			oceanInfo.visitedOcean = false;
-		}
-
-		if (pause.isPaused == true) {
-			pause.unPause ();
 		}
 	}
 }

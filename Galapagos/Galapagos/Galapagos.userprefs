@@ -1,25 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\Stella_kode.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\shortcuts.cs">
     <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="867" Column="1" />
-      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="886" Column="68" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="77" Column="1" />
+      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="42" Column="4" />
       <File FileName="Assets\_scripts\weeklyChange.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\islandInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="273" Column="20" />
-      <File FileName="Assets\_scripts\newsFeed.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\pause.cs" Line="23" Column="1" />
-      <File FileName="Assets\_scripts\shortcuts.cs" Line="28" Column="4" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\fangesensor.cs">
-    <Files>
-      <File FileName="Assets\_scripts\Stella_kode.cs" Line="167" Column="2" />
-      <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\fangesensor.cs" Line="44" Column="35" />
->>>>>>> 60f25eb448a8d74da14e0792984d61a7e45e5656
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="92" Column="1" />
+      <File FileName="Assets\_scripts\islandInfo.cs" Line="254" Column="2" />
+      <File FileName="Assets\_scripts\pause.cs" Line="17" Column="19" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="253" Column="27" />
+      <File FileName="Assets\_scripts\shortcuts.cs" Line="8" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

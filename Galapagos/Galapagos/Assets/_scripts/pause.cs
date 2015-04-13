@@ -15,10 +15,16 @@ public class pause : MonoBehaviour {
 
 	public static void pauseGame(){
 		isPaused = true;
+	}
+
+	public static void pauseMoney(){
+		isPaused = true;
 		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().pausedText ();
 	}
 
 	public static void unPause(){
 		isPaused = false;
 	}
+
+
 }
