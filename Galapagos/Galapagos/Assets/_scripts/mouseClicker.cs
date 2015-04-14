@@ -2,23 +2,25 @@
 using System.Collections;
 
 public class mouseClicker : MonoBehaviour {
-	string[] areaName = new string[6];
-	public GameObject infoBox;
+	public GameObject infoBoxIsabela;
+	public GameObject infoBoxCristobal;
+	public GameObject infoBoxSalvador;
+	public GameObject infoBoxCruz;
+	public GameObject infoBoxFernadina;
+	public GameObject infoBoxHav;
 	public GameObject shopBox;
 	public GUIText shop;
-	public GUIText info;
+	public GUIText infoIsabela;	
+	public GUIText infoCristobal;
+	public GUIText infoSalvador;
+	public GUIText infoCruz;
+	public GUIText infoFernadina;
+	public GUIText infoHav;
 	public static bool visitedIsabela = false;
 	bool visitedShop;
 
 	// Use this for initialization
 	void Start () {
-		areaName[0] = "Fernandina";
-		areaName [1] = "Isabela";
-		areaName [2] = "San Cristobal";
-		areaName [3] = "Santa Cruz";
-		areaName [4] = "San Salvador";
-		areaName [5] = "Ocean";
-
 		visitedShop = false;
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
@@ -71,6 +73,24 @@ public class mouseClicker : MonoBehaviour {
 				}
 			}
 
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "Oppgradering") {
+				Debug.Log ("Oppgraderinger");
+				//oceanInfo.visitedOcean = true;
+				//showText (5);		
+			}
+
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "Economy") {
+				Debug.Log ("økonomi");
+				//oceanInfo.visitedOcean = true;
+				//showText (5);
+			}
+
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "rapport") {
+				Debug.Log ("rapporter");
+				//oceanInfo.visitedOcean = true;
+				//showText (5);
+			}
+
 			//Tester om spilleren klikker på enten kjøp eller selg ansatte
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettOne") {
 				hireOpprydder.hireOne();
@@ -108,92 +128,103 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	public void showText(int n){
-		infoBox.transform.position = new Vector3 (0, 0, 0);
-		
-		info.text = "";
-		info.text = areaName [n] + "\n";
-		info.text += "\n";
+
+		infoFernadina.text = "";
+		infoSalvador.text = "";
+		infoIsabela.text = "";
+		infoCruz.text = "";
+		infoCristobal.text = "";
+		infoHav.text = "";
+
 		switch (n) {
-		case 0: info.text += "Populasjon: " + islandInfo.populasjonFernandina;
+		case 0:
+			infoBoxFernadina.transform.position = new Vector3 (0, 0, 0);
+			infoFernadina.text += "Populasjon: " + islandInfo.populasjonFernandina;
+			infoFernadina.text += "\n";
+			infoFernadina.text += "Antall turister: " + islandInfo.turisterFernandina;
+			infoFernadina.text += "\n";
+			infoFernadina.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngFernandina + Stella_kode.Iguana_FertilFernandina) + "\n";
+			infoFernadina.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilFernandina + Stella_kode.Brown_Pelican_FertilFernandina);
+			infoFernadina.text += "\n";
+			infoFernadina.text += "Mengde søppel: " + islandInfo.forsoplingFernandina;
+			infoFernadina.text += "\n";
+			infoFernadina.text += "Antall oppryddere: " + islandInfo.ansatteFernadina;
+			infoFernadina.text += "\n";
 			break;
-		case 1: info.text += "Populasjon: " + islandInfo.populasjonIsabela;
+
+		case 1:
+			infoBoxIsabela.transform.position = new Vector3 (0, 0, 0);
+			infoIsabela.text += "Populasjon: " + islandInfo.populasjonIsabela;
+			infoIsabela.text += "\n";
+			infoIsabela.text += "Antall turister: " + islandInfo.turisterIsabela;
+			infoIsabela.text += "\n";
+			infoIsabela.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngIsabela + Stella_kode.Iguana_FertilIsabela) + "\n";
+			infoIsabela.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilIsabela + Stella_kode.Brown_Pelican_FertilIsabela);
+			infoIsabela.text += "\n";
+			infoIsabela.text += "Mengde søppel: " + islandInfo.forsoplingIsabela;
+			infoIsabela.text += "\n";
+			infoIsabela.text += "Antall oppryddere: " + islandInfo.ansatteIsabela;
+			infoIsabela.text += "\n";
+
 			break;
-		case 2: info.text += "Populasjon: " + islandInfo.populasjonSanCristobal;
+		case 2: 
+			infoBoxCristobal.transform.position = new Vector3 (0, 0, 0);
+			infoCristobal.text += "Populasjon: " + islandInfo.populasjonSanCristobal;
+			infoCristobal.text += "\n";
+			infoCristobal.text += "Antall turister: " + islandInfo.turisterSanCristobal;
+			infoCristobal.text += "\n";
+			infoCristobal.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSanCristobal + Stella_kode.Iguana_FertilSanCristobal) + "\n";
+			infoCristobal.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSanCristobal + Stella_kode.Brown_Pelican_FertilSanCristobal); 
+			infoCristobal.text += "\n";
+			infoCristobal.text += "Mengde søppel: " + islandInfo.forsoplingSanCristobal;
+			infoCristobal.text += "\n";
+			infoCristobal.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal;
+			infoCristobal.text += "\n";
+
 			break;
-		case 3: info.text += "Populasjon: " + islandInfo.populasjonSanSalvador;
+		case 3: 
+			infoBoxSalvador.transform.position = new Vector3 (0, 0, 0);
+			infoSalvador.text += "Populasjon: " + islandInfo.populasjonSanSalvador;
+			infoSalvador.text += "\n";
+			infoSalvador.text += "Antall turister: " + islandInfo.turisterSanSalvador;
+			infoSalvador.text += "\n";
+			infoSalvador.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSanSalvador + Stella_kode.Iguana_FertilSanSalvador) + "\n";
+			infoSalvador.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSanSalvador + Stella_kode.Brown_Pelican_FertilSanSalvador);
+			infoSalvador.text += "\n";
+			infoSalvador.text += "Mengde søppel: " + islandInfo.forsoplingSanSalvador;
+			infoSalvador.text += "\n";
+			infoSalvador.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador;
+			infoSalvador.text += "\n";
+
 			break;
-		case 4: info.text += "Populasjon: " + islandInfo.populasjonSantaCruz;
+		case 4: 
+			infoBoxCruz.transform.position = new Vector3 (0, 0, 0);
+			infoCruz.text += "Populasjon: " + islandInfo.populasjonSantaCruz;
+			infoCruz.text += "\n";
+			infoCruz.text += "Antall turister: " + islandInfo.turisterSantaCruz;
+			infoCruz.text += "\n";
+			infoCruz.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSantaCruz + Stella_kode.Iguana_FertilSantaCruz) + "\n";
+			infoCruz.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSantaCruz + Stella_kode.Brown_Pelican_FertilSantaCruz); 
+			infoCruz.text += "\n";
+			infoCruz.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
+			infoCruz.text += "\n";
+			infoCruz.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
+			infoCruz.text += "\n";
+
 			break;
-		case 5: info.text += "Populasjon: Dette er et hav.";
-			break;
-		}
-		info.text += "\n";
-		switch (n) {
-		case 0: info.text += "Antall turister: " + islandInfo.turisterFernandina;
-			break;
-		case 1: info.text += "Antall turister: " + islandInfo.turisterIsabela;
-			break;
-		case 2: info.text += "Antall turister: " + islandInfo.turisterSanCristobal;
-			break;
-		case 3: info.text += "Antall turister: " + islandInfo.turisterSanSalvador;
-			break;
-		case 4: info.text += "Antall turister: " + islandInfo.turisterSantaCruz;
-			break;
-		case 5: info.text += "Antall turister: Dette er et hav.";
-			break;
-		}
-		info.text += "\n";
-		switch (n) {
-		case 0: info.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngFernandina + Stella_kode.Iguana_FertilFernandina) + "\n";
-			info.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilFernandina + Stella_kode.Brown_Pelican_FertilFernandina) + "\n"; 
-			break;
-		case 1: info.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngIsabela + Stella_kode.Iguana_FertilIsabela) + "\n";
-			info.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilIsabela + Stella_kode.Brown_Pelican_FertilIsabela) + "\n"; 
-			break;
-		case 2: info.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSanCristobal + Stella_kode.Iguana_FertilSanCristobal) + "\n";
-			info.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSanCristobal + Stella_kode.Brown_Pelican_FertilSanCristobal) + "\n"; 
-			break;
-		case 3: info.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSanSalvador + Stella_kode.Iguana_FertilSanSalvador) + "\n";
-			info.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSanSalvador + Stella_kode.Brown_Pelican_FertilSanSalvador) + "\n"; 
-			break;
-		case 4: info.text += "Dyr: Iguana - " + (Stella_kode.Iguana_UngSantaCruz + Stella_kode.Iguana_FertilSantaCruz) + "\n";
-			info.text += "Dyr: Pelican - " + (Stella_kode.Brown_Pelican_FertilSantaCruz + Stella_kode.Brown_Pelican_FertilSantaCruz) + "\n"; 
+		case 5: 
+			infoBoxHav.transform.position = new Vector3 (0, 0, 0);
+			infoHav.text += "Populasjon: Dette er et hav.";
+			infoHav.text += "\n";
+			infoHav.text += "Antall turister: Dette er et hav.";
+			infoHav.text += "\n";
+			infoHav.text += "Mengde søppel: 0";
+			infoHav.text += "\n";
+			infoHav.text += "Antall politifolk: " + oceanInfo.ansatteOcean;
+			infoHav.text += "\n";
 			break;
 		}
 
-		switch (n) {
-		case 0: info.text += "Mengde søppel: " + islandInfo.forsoplingFernandina;
-			break;
-		case 1: info.text += "Mengde søppel: " + islandInfo.forsoplingIsabela;
-			break;
-		case 2: info.text += "Mengde søppel: " + islandInfo.forsoplingSanCristobal;
-			break;
-		case 3: info.text += "Mengde søppel: " + islandInfo.forsoplingSanSalvador;
-			break;
-		case 4: info.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
-			break;
-		case 5: info.text += "Mengde søppel: 0";
-			break;
-		}
-		info.text += "\n";
-		info.text += "\n";
-		switch (n) {
-		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina;
-			break;
-		case 1: info.text += "Antall oppryddere: " + islandInfo.ansatteIsabela;
-			break;
-		case 2: info.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal;
-			break;
-		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
-			break;
-		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador;
-			break;
-		case 5: info.text += "Antall politifolk: " + oceanInfo.ansatteOcean;
-			break;
-		}
-		info.text += "\n";
-		info.text += "\n";
-		info.text += "Ansett/Spark ansatte: ANSETT SPARK";
 	}
 
 	void showShop() {
@@ -211,11 +242,22 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	public void close(){
-		infoBox.transform.position = new Vector3 (0, 0, 10);
+		infoBoxFernadina.transform.position = new Vector3 (0, 0, 10);
+		infoBoxCristobal.transform.position = new Vector3 (0, 0, 10);
+		infoBoxIsabela.transform.position = new Vector3 (0, 0, 10);
+		infoBoxCruz.transform.position = new Vector3 (0, 0, 10);
+		infoBoxSalvador.transform.position = new Vector3 (0, 0, 10);
+		infoBoxHav.transform.position = new Vector3 (0, 0, 10);
+
 		shopBox.transform.position = new Vector3 (0, 0, 10);
 		shop.text = "";
 		visitedShop = false;
-		info.text = "";
+		infoFernadina.text = "";
+		infoSalvador.text = "";
+		infoIsabela.text = "";
+		infoCruz.text = "";
+		infoCristobal.text = "";
+		infoHav.text = "";
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;
