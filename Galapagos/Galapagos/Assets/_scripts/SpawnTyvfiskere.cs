@@ -27,18 +27,18 @@ public class SpawnTyvfiskere : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//Henter hvor mange tyvfiskere det er fra Stella koden
-		totTyvfiskerBaat = (int)(Stella_kode.Tyvfiskere_Hai + Stella_kode.Tyvfiskere_Sjopolse)/fiskerePrBaat;
-		Debug.Log ("Totalt tyvfiskere er " + totTyvfiskerBaat);
+		if (pause.isPaused == false) {
+			//Henter hvor mange tyvfiskere det er fra Stella koden
+			totTyvfiskerBaat = (int)(Stella_kode.Tyvfiskere_Hai + Stella_kode.Tyvfiskere_Sjopolse) / fiskerePrBaat;
 
-		if (totTyvfiskerBaat > 0 && totTyvfiskerBaat > antallBater)
-		{
-		//Lager random nummer mellom grensene satt
-		randomX = rnd.Next (-10, 10);
-		randomY = rnd.Next (-5, 4);
-		//Spawner en ny tyvfisker båt
-		Instantiate(Tyvfisker, new Vector3(randomX, randomY, 1), Quaternion.identity);
-			antallBater ++;
+			if (totTyvfiskerBaat > 0 && totTyvfiskerBaat > antallBater) {
+				//Lager random nummer mellom grensene satt
+				randomX = rnd.Next (-10, 10);
+				randomY = rnd.Next (-5, 4);
+				//Spawner en ny tyvfisker båt
+				Instantiate (Tyvfisker, new Vector3 (randomX, randomY, 1), Quaternion.identity);
+				antallBater ++;
+			}
 		}
 	}
 }

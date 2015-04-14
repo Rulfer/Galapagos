@@ -48,7 +48,6 @@ public class fjernTyvfisker : MonoBehaviour {
 
 		lagretTid = (int)Math.Ceiling(Stella_kode.timer);
 
-		Debug.Log ("Random tall for retning tyvfiskere går = " + randomDir);
 
 	}
 

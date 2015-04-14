@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_scripts\GameMaster.cs" />
      <Compile Include="Assets\_scripts\Island\Hotel.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
      <Compile Include="Assets\_scripts\Island\fireOpprydder.cs" />
@@ -60,13 +59,18 @@
      <Compile Include="Assets\_scripts\mouseClicker.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
+     <Compile Include="Assets\_scripts\pause.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
      <Compile Include="Assets\_scripts\shortcuts.cs" />
+     <Compile Include="Assets\_scripts\weeklyChange.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+<<<<<<< HEAD
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+=======
+>>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
