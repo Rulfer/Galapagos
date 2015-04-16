@@ -18,14 +18,9 @@ public class mouseClicker : MonoBehaviour {
 	public GUIText infoCruz;
 	public GUIText infoFernadina;
 	public GUIText infoHav;
-<<<<<<< HEAD
 	public static bool visitedIsabela = false;
 	public GUIText weekly;
 	public GUIText paused;
-=======
-//	public GUIText weekly;
-//	public GUIText paused;
->>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 	bool visitedShop;
 	public static bool visitedWeekly;
 
@@ -231,10 +226,6 @@ public class mouseClicker : MonoBehaviour {
 			infoCruz.text += "\n";
 			infoCruz.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
 			infoCruz.text += "\n";
-<<<<<<< HEAD
-=======
-
->>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 			break;
 
 		case 5: 
@@ -317,13 +308,8 @@ public class mouseClicker : MonoBehaviour {
 		infoCristobal.text = "";
 		infoHav.text = "";
 		visitedWeekly = false;
-<<<<<<< HEAD
 		weekly.text = "";
 		paused.text = "";
-=======
-//		weekly.text = "";
-//		paused.text = "";
->>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;

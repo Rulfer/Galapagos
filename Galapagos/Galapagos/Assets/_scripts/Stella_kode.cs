@@ -526,7 +526,7 @@ public class Stella_kode : MonoBehaviour
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
 			}
 
-			weeklyChange.updateFernandina((Iguana_FertilFernandina+Iguana_UngFernandina),(Brown_Pelican_FertilFernandina+Brown_Pelican_UngeFernandina));
+			//weeklyChange.updateFernandina((Iguana_FertilFernandina+Iguana_UngFernandina),(Brown_Pelican_FertilFernandina+Brown_Pelican_UngeFernandina));
 			Debug.Log ((Iguana_FertilFernandina+Iguana_UngFernandina));
 			if(mouseClicker.visitedWeekly == true){
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showWeekly();
