@@ -69,11 +69,11 @@ public class islandInfo : MonoBehaviour {
 	// Use this for initialization
 	public static void Start () {
 		//Random tall jeg har lagt til
-		ansatteFernadina = 500;
-		ansatteIsabela = 200;
-		ansatteSanCristobal = 400;
-		ansatteSanSalvador = 300;
-		ansatteSantaCruz = 300;
+		ansatteFernadina = 0;
+		ansatteIsabela = 0;
+		ansatteSanCristobal = 0;
+		ansatteSanSalvador = 0;
+		ansatteSantaCruz = 0;
 
 		//Sørger for at endret er lik antall ansatte i starten
 		//Gjøres ikke dette vil masse fine buggy ting skje
@@ -119,7 +119,7 @@ public class islandInfo : MonoBehaviour {
 	//Tester om a_endret er ulik ansatte enten i positiv eller negativ retning.
 	//Stemmer dette vil antall ansatte oppdateres til å bli lik a_endret,
 	//og de nye tallene printes ut via mouseClicker sin showText() funksjon
-	void Update () {
+	void FixedUpdate () {
 		if (a_endretFernadina < ansatteFernadina || a_endretFernadina > ansatteFernadina) {
 			if(a_endretFernadina <= 0){
 				ansatteFernadina = 0; 

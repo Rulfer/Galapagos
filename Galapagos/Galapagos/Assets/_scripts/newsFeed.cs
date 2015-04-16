@@ -20,7 +20,7 @@ public class newsFeed : MonoBehaviour{
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		transform.position += Vector3.left * speed;
 	}
 

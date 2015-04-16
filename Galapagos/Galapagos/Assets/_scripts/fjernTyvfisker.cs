@@ -16,7 +16,7 @@ public class fjernTyvfisker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if (Stella_kode.timer > lagretTid)
 			{
