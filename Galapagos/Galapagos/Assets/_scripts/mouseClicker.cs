@@ -12,7 +12,6 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject weeklybox;
 	public GameObject pausedBox;
 	public GUIText shop;
-<<<<<<< HEAD
 	public GUIText infoIsabela;	
 	public GUIText infoCristobal;
 	public GUIText infoSalvador;
@@ -20,11 +19,8 @@ public class mouseClicker : MonoBehaviour {
 	public GUIText infoFernadina;
 	public GUIText infoHav;
 	public static bool visitedIsabela = false;
-=======
-	public GUIText info;
 	public GUIText weekly;
 	public GUIText paused;
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
 	bool visitedShop;
 	public static bool visitedWeekly;
 
@@ -157,7 +153,6 @@ public class mouseClicker : MonoBehaviour {
 		infoHav.text = "";
 
 		switch (n) {
-<<<<<<< HEAD
 		case 0:
 			infoBoxFernadina.transform.position = new Vector3 (0, 0, 0);
 			infoFernadina.text += "Populasjon: " + islandInfo.populasjonFernandina;
@@ -231,39 +226,6 @@ public class mouseClicker : MonoBehaviour {
 			infoCruz.text += "\n";
 			infoCruz.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
 			infoCruz.text += "\n";
-
-=======
-		case 0: info.text += "Mengde søppel: " + islandInfo.forsoplingFernandina;
-			break;
-		case 1: info.text += "Mengde søppel: " + islandInfo.forsoplingIsabela;
-			break;
-		case 2: info.text += "Mengde søppel: " + islandInfo.forsoplingSanCristobal;
-			break;
-		case 3: info.text += "Mengde søppel: " + islandInfo.forsoplingSanSalvador;
-			break;
-		case 4: info.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
-			break;
-		case 5: info.text += "Mengde søppel: 0";
-			break;
-		}
-		info.text += "\n";
-		info.text += "\n";
-		switch (n) {
-		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteFernadina * 125) + "kg";
-			break;
-		case 1: info.text += "Antall oppryddere: " + islandInfo.ansatteIsabela + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteIsabela * 125) + "kg";
-			break;
-		case 2: info.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanCristobal * 125) + "kg";
-			break;
-		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSantaCruz * 125) + "kg";
-			break;
-		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanSalvador * 125) + "kg";
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
 			break;
 		case 5: 
 			infoBoxHav.transform.position = new Vector3 (0, 0, 0);
@@ -338,19 +300,15 @@ public class mouseClicker : MonoBehaviour {
 
 		shop.text = "";
 		visitedShop = false;
-<<<<<<< HEAD
 		infoFernadina.text = "";
 		infoSalvador.text = "";
 		infoIsabela.text = "";
 		infoCruz.text = "";
 		infoCristobal.text = "";
 		infoHav.text = "";
-=======
 		visitedWeekly = false;
-		info.text = "";
 		weekly.text = "";
 		paused.text = "";
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;
