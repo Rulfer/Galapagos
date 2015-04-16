@@ -64,7 +64,14 @@
      <Compile Include="Assets\_scripts\shortcuts.cs" />
      <Compile Include="Assets\_scripts\weeklyChange.cs" />
  <Reference Include="UnityEngine.UI">
+<<<<<<< HEAD
  <HintPath>D:/Unity/Program files Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+=======
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+>>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

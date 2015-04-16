@@ -25,7 +25,7 @@ public class SpawnTyvfiskere : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		if (pause.isPaused == false) {
 			//Henter hvor mange tyvfiskere det er fra Stella koden

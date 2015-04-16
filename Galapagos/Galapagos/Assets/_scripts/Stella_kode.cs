@@ -249,7 +249,7 @@ public class Stella_kode : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 		//Oppdaterer variabler
 		

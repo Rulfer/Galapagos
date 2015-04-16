@@ -9,8 +9,8 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBoxFernadina;
 	public GameObject infoBoxHav;
 	public GameObject shopBox;
-	public GameObject weeklybox;
-	public GameObject pausedBox;
+//	public GameObject weeklybox;
+//	public GameObject pausedBox;
 	public GUIText shop;
 	public GUIText infoIsabela;	
 	public GUIText infoCristobal;
@@ -18,9 +18,14 @@ public class mouseClicker : MonoBehaviour {
 	public GUIText infoCruz;
 	public GUIText infoFernadina;
 	public GUIText infoHav;
+<<<<<<< HEAD
 	public static bool visitedIsabela = false;
 	public GUIText weekly;
 	public GUIText paused;
+=======
+//	public GUIText weekly;
+//	public GUIText paused;
+>>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 	bool visitedShop;
 	public static bool visitedWeekly;
 
@@ -33,7 +38,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Input.GetMouseButtonDown (0)) { //Tester om spilleren klikker med musa
@@ -226,7 +231,12 @@ public class mouseClicker : MonoBehaviour {
 			infoCruz.text += "\n";
 			infoCruz.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
 			infoCruz.text += "\n";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 			break;
+
 		case 5: 
 			infoBoxHav.transform.position = new Vector3 (0, 0, 0);
 			infoHav.text += "Populasjon: Dette er et hav.";
@@ -257,7 +267,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	public void showWeekly(){
-		visitedWeekly = true;
+/*		visitedWeekly = true;
 		weeklybox.transform.position = new Vector3 (0, 0, 0);
 		weekly.text = "";
 
@@ -273,17 +283,17 @@ public class mouseClicker : MonoBehaviour {
 		for (int i = 0; i < weeklyChange.p_numFern; i++) {
 			weekly.text += "Uke " + (i+1) + ": " + weeklyChange.peFern[i];
 			weekly.text += "\n";
-		}
+		}*/
 	}
 
 	public void pausedText(){
 		close ();
-		pausedBox.transform.position = new Vector3 (0, 0, 0);
-		paused.text = "Du har for lite penger til å lønne alle ansatte.";
-		weekly.text += "\n";
-		paused.text += "Du mangler " + Stella_kode.mangler + "$";
-		weekly.text += "\n";
-		weekly.text += "Som følge slutter " + Stella_kode.slutter + " ansatte.";
+//		pausedBox.transform.position = new Vector3 (0, 0, 0);
+//		paused.text = "Du har for lite penger til å lønne alle ansatte.";
+//		weekly.text += "\n";
+//		paused.text += "Du mangler " + Stella_kode.mangler + "$";
+//		weekly.text += "\n";
+//		weekly.text += "Som følge slutter " + Stella_kode.slutter + " ansatte.";
 	}
 
 	public void close(){
@@ -295,8 +305,8 @@ public class mouseClicker : MonoBehaviour {
 		infoBoxHav.transform.position = new Vector3 (0, 0, 10);
 
 		shopBox.transform.position = new Vector3 (0, 0, 10);
-		weeklybox.transform.position = new Vector3 (0, 0, 10);
-		pausedBox.transform.position = new Vector3 (0, 0, 10);
+//		weeklybox.transform.position = new Vector3 (0, 0, 10);
+//		pausedBox.transform.position = new Vector3 (0, 0, 10);
 
 		shop.text = "";
 		visitedShop = false;
@@ -307,8 +317,13 @@ public class mouseClicker : MonoBehaviour {
 		infoCristobal.text = "";
 		infoHav.text = "";
 		visitedWeekly = false;
+<<<<<<< HEAD
 		weekly.text = "";
 		paused.text = "";
+=======
+//		weekly.text = "";
+//		paused.text = "";
+>>>>>>> 641a461779c7e317f940c5ce1f41f9851c6850b8
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;
