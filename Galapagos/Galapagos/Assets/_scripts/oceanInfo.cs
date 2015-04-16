@@ -15,7 +15,7 @@ public class oceanInfo : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (a_endretOcean < ansatteOcean || a_endretOcean > ansatteOcean) {
 			if(a_endretOcean <= 0){
 				ansatteOcean = 0;

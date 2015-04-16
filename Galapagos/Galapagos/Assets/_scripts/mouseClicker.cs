@@ -9,22 +9,17 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBoxFernadina;
 	public GameObject infoBoxHav;
 	public GameObject shopBox;
-	public GameObject weeklybox;
-	public GameObject pausedBox;
+//	public GameObject weeklybox;
+//	public GameObject pausedBox;
 	public GUIText shop;
-<<<<<<< HEAD
 	public GUIText infoIsabela;	
 	public GUIText infoCristobal;
 	public GUIText infoSalvador;
 	public GUIText infoCruz;
 	public GUIText infoFernadina;
 	public GUIText infoHav;
-	public static bool visitedIsabela = false;
-=======
-	public GUIText info;
-	public GUIText weekly;
-	public GUIText paused;
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
+//	public GUIText weekly;
+//	public GUIText paused;
 	bool visitedShop;
 	public static bool visitedWeekly;
 
@@ -37,7 +32,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Input.GetMouseButtonDown (0)) { //Tester om spilleren klikker med musa
@@ -157,7 +152,6 @@ public class mouseClicker : MonoBehaviour {
 		infoHav.text = "";
 
 		switch (n) {
-<<<<<<< HEAD
 		case 0:
 			infoBoxFernadina.transform.position = new Vector3 (0, 0, 0);
 			infoFernadina.text += "Populasjon: " + islandInfo.populasjonFernandina;
@@ -232,39 +226,8 @@ public class mouseClicker : MonoBehaviour {
 			infoCruz.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz;
 			infoCruz.text += "\n";
 
-=======
-		case 0: info.text += "Mengde søppel: " + islandInfo.forsoplingFernandina;
 			break;
-		case 1: info.text += "Mengde søppel: " + islandInfo.forsoplingIsabela;
-			break;
-		case 2: info.text += "Mengde søppel: " + islandInfo.forsoplingSanCristobal;
-			break;
-		case 3: info.text += "Mengde søppel: " + islandInfo.forsoplingSanSalvador;
-			break;
-		case 4: info.text += "Mengde søppel: " + islandInfo.forsoplingSantaCruz;
-			break;
-		case 5: info.text += "Mengde søppel: 0";
-			break;
-		}
-		info.text += "\n";
-		info.text += "\n";
-		switch (n) {
-		case 0: info.text += "Antall oppryddere: " + islandInfo.ansatteFernadina + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteFernadina * 125) + "kg";
-			break;
-		case 1: info.text += "Antall oppryddere: " + islandInfo.ansatteIsabela + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteIsabela * 125) + "kg";
-			break;
-		case 2: info.text += "Antall oppryddere: " + islandInfo.ansatteSanCristobal + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanCristobal * 125) + "kg";
-			break;
-		case 3: info.text += "Antall oppryddere: " + islandInfo.ansatteSantaCruz + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSantaCruz * 125) + "kg";
-			break;
-		case 4: info.text += "Antall oppryddere: " + islandInfo.ansatteSanSalvador + "\n";
-			info.text += "Neste uke ryddes: " + (islandInfo.ansatteSanSalvador * 125) + "kg";
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
-			break;
+
 		case 5: 
 			infoBoxHav.transform.position = new Vector3 (0, 0, 0);
 			infoHav.text += "Populasjon: Dette er et hav.";
@@ -295,7 +258,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 
 	public void showWeekly(){
-		visitedWeekly = true;
+/*		visitedWeekly = true;
 		weeklybox.transform.position = new Vector3 (0, 0, 0);
 		weekly.text = "";
 
@@ -311,17 +274,17 @@ public class mouseClicker : MonoBehaviour {
 		for (int i = 0; i < weeklyChange.p_numFern; i++) {
 			weekly.text += "Uke " + (i+1) + ": " + weeklyChange.peFern[i];
 			weekly.text += "\n";
-		}
+		}*/
 	}
 
 	public void pausedText(){
 		close ();
-		pausedBox.transform.position = new Vector3 (0, 0, 0);
-		paused.text = "Du har for lite penger til å lønne alle ansatte.";
-		weekly.text += "\n";
-		paused.text += "Du mangler " + Stella_kode.mangler + "$";
-		weekly.text += "\n";
-		weekly.text += "Som følge slutter " + Stella_kode.slutter + " ansatte.";
+//		pausedBox.transform.position = new Vector3 (0, 0, 0);
+//		paused.text = "Du har for lite penger til å lønne alle ansatte.";
+//		weekly.text += "\n";
+//		paused.text += "Du mangler " + Stella_kode.mangler + "$";
+//		weekly.text += "\n";
+//		weekly.text += "Som følge slutter " + Stella_kode.slutter + " ansatte.";
 	}
 
 	public void close(){
@@ -333,24 +296,20 @@ public class mouseClicker : MonoBehaviour {
 		infoBoxHav.transform.position = new Vector3 (0, 0, 10);
 
 		shopBox.transform.position = new Vector3 (0, 0, 10);
-		weeklybox.transform.position = new Vector3 (0, 0, 10);
-		pausedBox.transform.position = new Vector3 (0, 0, 10);
+//		weeklybox.transform.position = new Vector3 (0, 0, 10);
+//		pausedBox.transform.position = new Vector3 (0, 0, 10);
 
 		shop.text = "";
 		visitedShop = false;
-<<<<<<< HEAD
 		infoFernadina.text = "";
 		infoSalvador.text = "";
 		infoIsabela.text = "";
 		infoCruz.text = "";
 		infoCristobal.text = "";
 		infoHav.text = "";
-=======
 		visitedWeekly = false;
-		info.text = "";
-		weekly.text = "";
-		paused.text = "";
->>>>>>> bacbccc13416b17b0c784105c881d9611b3e6c01
+//		weekly.text = "";
+//		paused.text = "";
 
 		if (islandInfo.visitedFernadina == true) {
 			islandInfo.visitedFernadina = false;

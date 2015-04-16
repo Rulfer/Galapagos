@@ -6,7 +6,7 @@ public class shortcuts : MonoBehaviour {
 	//Snarveier i spillet som kan nås ved hjelp av tastetrykk.
 	//Tallene 1-5 åpner øyene sine informasjonskort, 
 	//esc paused/unpauser spillet
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetKeyDown ("1")) {
 			GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().close ();
 			islandInfo.visitedFernadina = true;

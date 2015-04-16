@@ -11,7 +11,7 @@ public class fangesensor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		//Sjekker om båten har krasjet med en øy. Hvis den ikke er det kan den styres som vanlig
 		if (onIsland == false) {
