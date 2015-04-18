@@ -1,3 +1,6 @@
+17.04
+-Slider som endrer på maks antall turister som kan være på Galapagos til enhver tid. Denne går fra 0 til 10'000. Merk at det fremdeles ikke kan være flere turister enn det er plass til, som bli bestemt av hotellene. 
+
 14.04
 - Ansatte sparkes riktig. Dersom det ikke er nok penger til å lønne alle vil det regnes ut hvor mange prosent politiet og opprydderne er i forhold til totalt antall ansatte, og vil sparkes basert på det.
 - å trykke på "esc" knappen bør nå pause spillet. Klikke på den igjen vil unapause.

@@ -12,7 +12,7 @@ public class bankAccount : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (Stella_kode.okonomi > penger || Stella_kode.okonomi < penger) {
 			penger = Stella_kode.okonomi;
 			print ();

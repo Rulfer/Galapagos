@@ -25,6 +25,4 @@ public class pause : MonoBehaviour {
 	public static void unPause(){
 		isPaused = false;
 	}
-
-
 }

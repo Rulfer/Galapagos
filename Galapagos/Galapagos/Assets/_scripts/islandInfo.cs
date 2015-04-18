@@ -66,6 +66,13 @@ public class islandInfo : MonoBehaviour {
 
 	public static bool fernandinaOppdatert;
 
+	//Grensen som sier om turster får lov eller ei til å besøke øya
+	public static bool f_isClosed = false;
+	public static bool i_isClosed = false;
+	public static bool sc_isClosed = false;
+	public static bool ss_isClosed = false;
+	public static bool sz_isClosed = false;
+
 	// Use this for initialization
 	public static void Start () {
 		//Random tall jeg har lagt til
@@ -119,7 +126,7 @@ public class islandInfo : MonoBehaviour {
 	//Tester om a_endret er ulik ansatte enten i positiv eller negativ retning.
 	//Stemmer dette vil antall ansatte oppdateres til å bli lik a_endret,
 	//og de nye tallene printes ut via mouseClicker sin showText() funksjon
-	void FixedUpdate () {
+	void Update () {
 		if (a_endretFernadina < ansatteFernadina || a_endretFernadina > ansatteFernadina) {
 			if(a_endretFernadina <= 0){
 				ansatteFernadina = 0; 
@@ -184,7 +191,6 @@ public class islandInfo : MonoBehaviour {
 		//Dersom turismen oppdateres skal dette skje her
 		if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
 			turisterFernandina = Stella_kode.turisterFernandina ;
-			Debug.Log ("turisterfernandina er: " + turisterFernandina);
 		} else if (turisterIsabela < Stella_kode.turisterIsabela || turisterIsabela > Stella_kode.turisterIsabela) {
 			turisterIsabela = Stella_kode.turisterIsabela;
 		} else if (turisterSanCristobal < Stella_kode.turisterSanCristobal || turisterSanCristobal > Stella_kode.turisterSanCristobal) {
@@ -211,7 +217,6 @@ public class islandInfo : MonoBehaviour {
 		if (visitedFernadina == true) {
 			if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
 				turisterFernandina = Stella_kode.turisterFernandina;
-				Debug.Log ("turister fernandina: " + turisterFernandina);
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
 			} else if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
 				populasjonFernandina = Stella_kode.populasjonFernandina;

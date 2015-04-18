@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -54,11 +55,11 @@ public class Stella_kode : MonoBehaviour
 	//int totAntallForsopling = 0;
 	
 	
-	float Forsopling_fordeltFernandina = 0;
-	float Forsopling_fordeltIsabela = 0;
-	float Forsopling_fordeltSanCristobal = 0;
-	float Forsopling_fordeltSanSalvador = 0;
-	float Forsopling_fordeltSantaCruz = 0;
+//	float Forsopling_fordeltFernandina = 0;
+//	float Forsopling_fordeltIsabela = 0;
+//	float Forsopling_fordeltSanCristobal = 0;
+//	float Forsopling_fordeltSanSalvador = 0;
+//	float Forsopling_fordeltSantaCruz = 0;
 	float Forsopling_fordeltHav = 0;
 	
 	int totSoppel_fra_mennesker = 0;
@@ -164,7 +165,7 @@ public class Stella_kode : MonoBehaviour
 	int Fertil_Fisk = 25000;
 	int Yngel = 50000;
 	
-	int totalAreal;
+	//int totalAreal;
 	
 	public static int Brown_Pelican_FertilFernandina;
 	public static int Brown_Pelican_FertilIsabela;
@@ -213,22 +214,18 @@ public class Stella_kode : MonoBehaviour
 		prosentSantaCruz = 13.34f;
 		
 		//Regner ut total areal av alle øyene7
-		totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanSalvador+arealSantaCruz;
+		//totalAreal = arealFernadina + arealIsabela + arealSanCristobal+arealSanSalvador+arealSantaCruz;
 
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
-		Debug.Log ("pelikaner før: " + Brown_Pelican_FertilFernandina);
 		Brown_Pelican_FertilFernandina = (int) (prosentFernadina * Brown_Pelican_Fertil / 100);
-		Debug.Log ("pelikaner etter: " + Brown_Pelican_FertilFernandina);
 
 		Brown_Pelican_FertilIsabela = (int)(prosentIsabela * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanSalvador = (int)(prosentSanSalvador * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSantaCruz = (int)(prosentSantaCruz * Brown_Pelican_Fertil / 100);
 
-		Debug.Log ("Unger Før: " + Brown_Pelican_UngeFernandina);
 		Brown_Pelican_UngeFernandina = (int)(prosentFernadina * Brown_Pelican_Unge / 100);
-		Debug.Log ("Unger etter: " + Brown_Pelican_UngeFernandina);
 
 		Brown_Pelican_UngeIsabela = (int)(prosentIsabela * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Unge / 100);
@@ -249,7 +246,7 @@ public class Stella_kode : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
 	{
 		//Oppdaterer variabler
 		
@@ -275,9 +272,7 @@ public class Stella_kode : MonoBehaviour
 			
 			ForsoplingIsabela = ForsoplingIsabela + ((islandInfo.turisterIsabela * 15) + (islandInfo.populasjonIsabela * 15));
 			if(ForsoplingIsabela < 0){ ForsoplingIsabela = 0;}
-			Debug.Log ("ForsoplingIsabela = " + ForsoplingIsabela);
 
-			
 			ForsoplingSanCristobal = ForsoplingSanCristobal + ((islandInfo.turisterSanCristobal * 15) + (islandInfo.populasjonSanCristobal * 15));
 			if(ForsoplingSanCristobal < 0){ ForsoplingSanCristobal = 0;}
 
@@ -292,32 +287,31 @@ public class Stella_kode : MonoBehaviour
 			
 			
 			//Deler søpla på arealet
-			if(ForsoplingFernandina > 0){
-				Forsopling_fordeltFernandina = ForsoplingFernandina / arealFernadina;
-				Debug.Log("hello");
-				Debug.Log("hello" + ForsoplingFernandina + " no " + arealFernadina);
-			}
-			else {Forsopling_fordeltFernandina = 0;}
-			if(ForsoplingIsabela > 0){
-				Forsopling_fordeltIsabela = ForsoplingIsabela / arealIsabela;
-			}
-			else {
-				Forsopling_fordeltIsabela = 0;
-				Debug.Log("hello, no?");
-			}
-			Debug.Log ("FORSOPLING FORDELT ISABELA :::::::: " + Forsopling_fordeltFernandina);
-			if(ForsoplingSanCristobal > 0){Forsopling_fordeltSanCristobal = ForsoplingSanCristobal / arealSanCristobal;}
-			else {Forsopling_fordeltSanCristobal = 0;}
-			if(ForsoplingSanSalvador > 0){Forsopling_fordeltSanSalvador = ForsoplingSanSalvador / arealSanSalvador;}
-			else {Forsopling_fordeltSanSalvador = 0;}
-			if(ForsoplingSantaCruz > 0){Forsopling_fordeltSantaCruz = ForsoplingSantaCruz / arealSantaCruz;}
-			else {Forsopling_fordeltSantaCruz = 0;}
+//			if(ForsoplingFernandina > 0){
+//				Forsopling_fordeltFernandina = ForsoplingFernandina / arealFernadina;
+//				Debug.Log("hello");
+//				Debug.Log("hello" + ForsoplingFernandina + " no " + arealFernadina);
+//			}
+//			else {Forsopling_fordeltFernandina = 0;}
+//			if(ForsoplingIsabela > 0){
+//				Forsopling_fordeltIsabela = ForsoplingIsabela / arealIsabela;
+//			}
+//			else {
+//				Forsopling_fordeltIsabela = 0;
+//				Debug.Log("hello, no?");
+//			}
+//			Debug.Log ("FORSOPLING FORDELT ISABELA :::::::: " + Forsopling_fordeltFernandina);
+//			if(ForsoplingSanCristobal > 0){Forsopling_fordeltSanCristobal = ForsoplingSanCristobal / arealSanCristobal;}
+//			else {Forsopling_fordeltSanCristobal = 0;}
+//			if(ForsoplingSanSalvador > 0){Forsopling_fordeltSanSalvador = ForsoplingSanSalvador / arealSanSalvador;}
+//			else {Forsopling_fordeltSanSalvador = 0;}
+//			if(ForsoplingSantaCruz > 0){Forsopling_fordeltSantaCruz = ForsoplingSantaCruz / arealSantaCruz;}
+//			else {Forsopling_fordeltSantaCruz = 0;}
 			Forsopling_fordeltHav = ForsoplingHav / 90000000;
 			//Oppdaterer søppel fra mennesker
 			totSoppel_fra_mennesker = (int)((totTurister + totPopulasjon) / 60);
 			ForsoplingFernandina = updateForsopling (ForsoplingFernandina, oppryddereFernandina);
 			islandInfo.forsoplingFernandina = ForsoplingFernandina;
-			Debug.Log ("easdasdasdadasdasdasdadasdasdasdasdasdasdasdasdasdadasdadasd: " + ForsoplingFernandina);
 
 			ForsoplingIsabela = updateForsopling (ForsoplingIsabela, oppryddereIsabela);
 			islandInfo.forsoplingIsabela = ForsoplingIsabela;
@@ -335,7 +329,6 @@ public class Stella_kode : MonoBehaviour
 			
 			Plass_BP_trengerFernadina = (Brown_Pelican_FertilFernandina / 2) + (Brown_Pelican_UngeFernandina / 2);
 			Plass_BP_trengerIsabela = (Brown_Pelican_FertilIsabela / 2) + (Brown_Pelican_UngeIsabela / 2);
-			Debug.Log("Plass som trengs er eeeeeeeeeeeeeeeeeeeeeee: " + Plass_BP_trengerIsabela);
 			Plass_BP_trengerSanCristobal = (Brown_Pelican_FertilSanCristobal / 2) + (Brown_Pelican_UngeSanCristobal / 2);
 			Plass_BP_trengerSanSalvador = (Brown_Pelican_FertilSanSalvador / 2) + (Brown_Pelican_UngeSanSalvador / 2);
 			Plass_BP_trengerSantaCruz = (Brown_Pelican_FertilSantaCruz / 2) + (Brown_Pelican_UngeSantaCruz / 2);
@@ -375,7 +368,6 @@ public class Stella_kode : MonoBehaviour
 			//Regner ut plassen for dyrene å leve på
 			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
 			Tilgjengelig_BP_plassIsabela = ((arealIsabela) - (ForsoplingFernandina));
-			Debug.Log("Plass igjen er eeeeeeeeeeeeeeeeeeeeeee: " + Tilgjengelig_BP_plassIsabela);
 			Tilgjengelig_BP_plassSanCristobal = ((arealSanCristobal) - (ForsoplingSanCristobal));
 			Tilgjengelig_BP_plassSanSalvador =  ((arealSanSalvador) - (ForsoplingSanSalvador));
 			Tilgjengelig_BP_plassSantaCruz =  ((arealSantaCruz) - (ForsoplingSantaCruz));
@@ -473,44 +465,22 @@ public class Stella_kode : MonoBehaviour
 			//Her fordeles turistene mellom øyene
 			//Tester og om det kommer for mange enn det er plass til. Om det er tilfellet vil det bare komme så
 			//mange det er plass til
-			Debug.Log("Tursiter som drar = " + Turister_drar + " og turister som kommer er = " + Turister_kommer);
 			totTurister = Turister_kommer;
-			Debug.Log ("totalt antall turister = " + totTurister);
-			turisterFernandina =(int)Math.Floor (totTurister * 0.2);
-			if(turisterFernandina >= islandInfo.maxTurismeFernandina){
-				turisterFernandina = islandInfo.maxTurismeFernandina;
+
+			//Her begrenses turismen basert på hva spilleren har valgt i begrensningsmenyen
+			//Er det for mange turister vil bare det maksimale antallet som får lov til å komme inn, bli.
+			if(totTurister >= begrensninger.maxTurister){
+				totTurister = (int)begrensninger.maxTurister;
 			}
-			islandInfo.nyeTuristerFernandina = turisterFernandina;
-			turisterIsabela =(int)Math.Floor (totTurister * 0.2);
-			if(turisterIsabela >= islandInfo.maxTurismeIsabela){
-				turisterIsabela = islandInfo.maxTurismeIsabela;
-			}
-			islandInfo.nyeTuristerIsabela = turisterIsabela;
-			turisterSanCristobal =(int)Math.Floor (totTurister * 0.4);
-			if(turisterSanCristobal >= islandInfo.maxTurismeSanCristobal){
-				turisterSanCristobal = islandInfo.maxTurismeSanCristobal;
-			}
-			islandInfo.nyeTuristerSanCristobal = turisterSanCristobal;
-			turisterSanSalvador =(int)Math.Floor (totTurister * 0.1);
-			if(turisterSanSalvador >= islandInfo.maxTurismeSanSalvador){
-				turisterSanSalvador = islandInfo.maxTurismeSanSalvador;
-			}
-			islandInfo.nyeTuristerSanSalvador = turisterSanSalvador;
-			turisterSantaCruz =(int)Math.Floor (totTurister * 0.1);
-			if(turisterSantaCruz >= islandInfo.maxTurismeSantaCruz){
-				turisterSantaCruz = islandInfo.maxTurismeSantaCruz;
-			}
-			islandInfo.nyeTuristerSantaCruz = turisterSantaCruz;
-			Debug.Log ("Turister isabela: " + turisterIsabela);
+			//Sender den totale mengden turister inn til fordelTurisme() funksjonen
+			fordelTurisme(totTurister);
 
 			//Oppdaterer pengene vi får inn
 			penger_fra_turister_og_innbyggere = totTurister * 37 + totPopulasjon * 20;
 			//Oppdaterer økonomien
 			okonomi = updateOkonomi (okonomi);
 
-			Debug.Log ("Økonomi = " + okonomi);
 			test++;
-			Debug.Log ( "TEST ER " + test);
 
 			//Sjekker om spilleren ser på en øy.
 			//Om det er tilfellet skal den nye informasjonen vises
@@ -536,6 +506,86 @@ public class Stella_kode : MonoBehaviour
 		//I tilfelle det blir månedskifte settes disse lik hverandre
 		forrigeuke = uker;
 		forrigemaande = maander;
+	}
+
+	//Denne funksjonen tar seg av fordelingen av turisme
+	//Er det satt opp sperringer vil denne ta seg av det og fordele turistene gjevnt over alle tilgjengelige øyer
+	void fordelTurisme(int totTurister)
+	{
+		int rest = 0; //variabel som holder på hvor mange turister det er til overs
+		int ant = 5; //Variabel som sier hvor mange øyer som er åpne for turisme
+
+
+		//Sjekker om grensen er stengt eller ikke
+		//Er den stengt vil ant minske med 1, og rest vil øke med antall turister til overs
+		if (islandInfo.f_isClosed == true) {
+			turisterFernandina = 0;
+			rest = (int) Math.Floor (rest + totTurister * 0.2);
+			ant --;
+		}
+		if (islandInfo.i_isClosed == true) {
+			turisterIsabela = 0;
+			rest = (int) Math.Floor (rest + totTurister * 0.2);
+			ant --;
+		}
+		if (islandInfo.sc_isClosed == true) {
+			turisterSanCristobal = 0;
+			rest = (int) Math.Floor (rest + totTurister * 0.4);
+			ant --;
+		}
+		if (islandInfo.ss_isClosed == true) {
+			turisterSanSalvador = 0;
+			rest = (int) Math.Floor (rest + totTurister * 0.1);
+			ant --;
+		}
+		if (islandInfo.sz_isClosed == true) {
+			turisterSantaCruz = 0;
+			rest = (int) Math.Floor (rest + totTurister * 0.1);
+			ant --;
+		}
+
+		//Dersom en øy ikke er stengt skal den få turister
+		if (islandInfo.f_isClosed == false) {
+			turisterFernandina = (int)Math.Floor ((totTurister * 0.2) + (rest / ant)); 	//Regner ført ut turisterX. Merk at rest / ant, noe som betyr at lavere ant = høyere tall
+			if(turisterFernandina >= islandInfo.maxTurismeFernandina){ //Dersom det er flere turister enn det er plass til skjer:
+				rest = rest + islandInfo.maxTurismeFernandina - turisterFernandina; //Rest får gjenværende turister
+				turisterFernandina = islandInfo.maxTurismeFernandina; //Antall turister settes til maks antall mulige
+			}
+		}
+		if (islandInfo.i_isClosed == false) {
+			turisterIsabela = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			if(turisterIsabela >= islandInfo.maxTurismeIsabela){
+				rest = rest + islandInfo.maxTurismeIsabela - turisterIsabela;
+				turisterIsabela = islandInfo.maxTurismeIsabela;
+			}
+		}
+		if (islandInfo.sc_isClosed == false) {
+			turisterSanCristobal = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			if(turisterSanCristobal >= islandInfo.maxTurismeSanCristobal){
+				rest = rest + islandInfo.maxTurismeSanCristobal - turisterSanCristobal;
+				turisterSanCristobal = islandInfo.maxTurismeSanCristobal;
+			}
+		}
+		if (islandInfo.ss_isClosed == false) {
+			turisterSanSalvador = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			if(turisterSanSalvador >= islandInfo.maxTurismeSanSalvador){
+				rest = rest + islandInfo.maxTurismeSanSalvador - turisterSanSalvador;
+				turisterSanSalvador = islandInfo.maxTurismeSanSalvador;
+			}
+		}
+		if (islandInfo.sz_isClosed == false) {
+			turisterSantaCruz = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			if(turisterSantaCruz >= islandInfo.maxTurismeSantaCruz){
+				rest = rest + islandInfo.maxTurismeSantaCruz - turisterSantaCruz;
+				turisterSantaCruz = islandInfo.maxTurismeSantaCruz;
+			}
+		}
+
+		islandInfo.nyeTuristerFernandina = turisterFernandina;
+		islandInfo.nyeTuristerIsabela = turisterIsabela;
+		islandInfo.nyeTuristerSanCristobal = turisterSanCristobal;
+		islandInfo.nyeTuristerSanSalvador = turisterSanSalvador;
+		islandInfo.nyeTuristerSantaCruz = turisterSantaCruz;
 	}
 	
 	int oppdatererAntall_jobber(int Aj)
@@ -860,7 +910,6 @@ public class Stella_kode : MonoBehaviour
 		int Penger_politi = 0;
 		int Penger_Oppryddere = 0;
 
-		int ansatte = 0;
 		Inntekter = penger_fra_turister_og_innbyggere;
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#

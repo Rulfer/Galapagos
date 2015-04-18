@@ -9,6 +9,7 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBoxFernadina;
 	public GameObject infoBoxHav;
 	public GameObject shopBox;
+	public GameObject adminBox;
 //	public GameObject weeklybox;
 //	public GameObject pausedBox;
 	public GUIText shop;
@@ -18,6 +19,7 @@ public class mouseClicker : MonoBehaviour {
 	public GUIText infoCruz;
 	public GUIText infoFernadina;
 	public GUIText infoHav;
+	public GUIText infoAdmin;
 //	public GUIText weekly;
 //	public GUIText paused;
 	bool visitedShop;
@@ -32,7 +34,7 @@ public class mouseClicker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Input.GetMouseButtonDown (0)) { //Tester om spilleren klikker med musa
@@ -41,34 +43,33 @@ public class mouseClicker : MonoBehaviour {
 			//Gjløres dette vil vi sette bool visitedX = true for korrekt øy
 			//Printer så ut informasjonen til øya i showText();
 			if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandFernadina") {
-				Debug.Log ("treffer Fernadina");
 				islandInfo.visitedFernadina = true;
 				showText (0);
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandIsabela") {
-				Debug.Log ("treffer Isabela");
 				islandInfo.visitedIsabela = true;
 				showText (1);
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanCristobal") {
-				Debug.Log ("treffer San Cristobal");
 				islandInfo.visitedSanCristobal = true;
 				showText (2);
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSantaCruz") {
-				Debug.Log ("treffer Santa Cruz");
 				islandInfo.visitedSantaCruz = true;
 				showText (3);
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandSanSalvador") {
-				Debug.Log ("treffer San Salvador");
 				islandInfo.visitedSanSalvador = true;
 				showText (4);
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ocean") {
-				Debug.Log ("treffer Havet");
 				oceanInfo.visitedOcean = true;
 				showText (5);
+			} 
 
-			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
+			else if(Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "border"){
+				borders();
+			}
+
+
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
 				if(visitedShop == false){
 					showShop();
-					Debug.Log ("asdasdadasdas");
 				}
 			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "closeShop"){
 				if(visitedShop == true){
@@ -82,6 +83,10 @@ public class mouseClicker : MonoBehaviour {
 				Debug.Log ("Oppgraderinger");
 				//oceanInfo.visitedOcean = true;
 				//showText (5);		
+			}
+
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "begrensninger") {
+				showAdmin();
 			}
 
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "Economy") {
@@ -135,11 +140,48 @@ public class mouseClicker : MonoBehaviour {
 
 			//Tester om spilleren klikker utenfor informasjonsboksen (er en hitbox der)
 			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "close") {
-				Debug.Log ("lukker");
 				close ();
 			}
 		}
 
+	}
+
+	public static void borders(){
+		Debug.Log ("Nå kommer grenseland!");
+		if (islandInfo.visitedFernadina == true) {
+			if (islandInfo.f_isClosed == true) {
+				islandInfo.f_isClosed = false;
+			} else {
+				islandInfo.f_isClosed = true;
+			}
+		} else if (islandInfo.visitedIsabela == true) {
+			if (islandInfo.i_isClosed == true) {
+				islandInfo.i_isClosed = false;
+			} else {
+				islandInfo.i_isClosed = true;
+			}
+		}
+		else if (islandInfo.visitedSanCristobal == true) {
+			if (islandInfo.sc_isClosed == true) {
+				islandInfo.sc_isClosed = false;
+			} else {
+				islandInfo.sc_isClosed = true;
+			}
+		}
+		else if (islandInfo.visitedSanSalvador == true) {
+			if (islandInfo.ss_isClosed == true) {
+				islandInfo.ss_isClosed = false;
+			} else {
+				islandInfo.ss_isClosed = true;
+			}
+		}
+		else if (islandInfo.visitedSantaCruz == true) {
+			if (islandInfo.sz_isClosed == true) {
+				islandInfo.sz_isClosed = false;
+			} else {
+				islandInfo.sz_isClosed = true;
+			}
+		}
 	}
 
 	public void showText(int n){
@@ -257,6 +299,14 @@ public class mouseClicker : MonoBehaviour {
 		shop.text += "\n";
 	}
 
+	public void showAdmin() {
+		adminBox.transform.position = new Vector3 (0, 0, 0);
+		GameObject.Find ("Slider").transform.position = new Vector3 (1000, 550, 0); 
+		infoAdmin.text = "";
+		infoAdmin.text = "Max number of turists: " + begrensninger.maxTurister;
+		infoAdmin.text += "\n";
+	}
+
 	public void showWeekly(){
 /*		visitedWeekly = true;
 		weeklybox.transform.position = new Vector3 (0, 0, 0);
@@ -294,7 +344,11 @@ public class mouseClicker : MonoBehaviour {
 		infoBoxCruz.transform.position = new Vector3 (0, 0, 10);
 		infoBoxSalvador.transform.position = new Vector3 (0, 0, 10);
 		infoBoxHav.transform.position = new Vector3 (0, 0, 10);
+		adminBox.transform.position = new Vector3 (-1042f, 0f, 10f);
+		GameObject.Find ("Slider").transform.position = new Vector3 (-1365f, 132f, 0); 
 
+		
+		
 		shopBox.transform.position = new Vector3 (0, 0, 10);
 //		weeklybox.transform.position = new Vector3 (0, 0, 10);
 //		pausedBox.transform.position = new Vector3 (0, 0, 10);
@@ -307,6 +361,7 @@ public class mouseClicker : MonoBehaviour {
 		infoCruz.text = "";
 		infoCristobal.text = "";
 		infoHav.text = "";
+		infoAdmin.text = "";
 		visitedWeekly = false;
 //		weekly.text = "";
 //		paused.text = "";
@@ -324,5 +379,6 @@ public class mouseClicker : MonoBehaviour {
 		}if (oceanInfo.visitedOcean == true) {
 			oceanInfo.visitedOcean = false;
 		}
+
 	}
 }

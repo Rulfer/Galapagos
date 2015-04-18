@@ -11,7 +11,7 @@ public class randomEvents : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		timer -= Time.deltaTime;
 		if (timer <= 0.0f) {
 			createEvents();
