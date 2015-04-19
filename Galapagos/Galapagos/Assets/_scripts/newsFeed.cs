@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class newsFeed : MonoBehaviour{
-	public static string[] newsArray = new string[10]; //Array that contains all news
-	public static string[] newsImportantArray = new string[1000]; //Array that contains queued important news
+	public static string[] newsArray = new string[21]; //Array that contains all news
+	public static string[] newsImportantArray = new string[100]; //Array that contains queued important news
 	public static int newsQueue = 0; //Used to tell how many important news that are queued
-
+	bool first = true;
 
 	float speed = 0.0015f; //The speed of the newsfeed
 	Vector3 startPos; //Remembers the starting position of the news
@@ -19,7 +19,7 @@ public class newsFeed : MonoBehaviour{
 		printNews (); //Unleash the news!
 	}
 	
-	// Update is called once per frame
+	//Sørker for at newsfeed beveger seg uavhengig av FPS'en
 	void FixedUpdate () {
 		transform.position += Vector3.left * speed;
 	}
@@ -34,39 +34,50 @@ public class newsFeed : MonoBehaviour{
 	}
 
 	void News(){ //All the news in the game!
-		newsArray[0] = "Ghandi besøker Galapagos og tar med seg 4 pakker med eksplosiver. 'Jeg ønsker å vise jeg er rebell', påstår folk å ha hørt han si.";
-		newsArray[1] = "Raptor Jesus har blitt sett på en av øyene. Ny kult har oppstått og populasjonen økt med et par hundre folk.";
-		newsArray[2] = "Fiske opplever nedgang, og innbygerne tror det er tyvfiskere sin skyld. Når planlegger staten å gjøre noe med dette?";
-		newsArray [3] = "Jeg gikk tom for ideer. Dere andre får skrive noe.";
-		newsArray [4] = "Fremdeles tom for ideer, guys. Kan vi inkludere Obamacare på en eller annen måte?";
-		newsArray [5] = "Important news! Et cruise kjørte forbi Galapagos og campet på en av øyene. Store mengder søppel er lagt igjen.";
-		newsArray [6] = "Important news! Flyselskap tilbyr gratis reiser til Galapagos, så store mengder turister er forventet.";
-		newsArray [7] = "Important news! Lav populasjon av hai har gjort den ettertraktet på svartemarkedet. Myndighetene håper de har nok politi til å stoppe tyvfiskerne.";
-		newsArray [8] = "Important news! Galapagos sliter med økonomisk ustabilitet.";
-		newsArray [9] = "Important news! .";
+		newsArray [0] = "Game Developer finds a home on Galapagos. The population looks at him with disgust.";
+		newsArray [1] = "Gandhi visits Galapagos and brings 4 bags with explosives. People heard him say 'I wish to show how rebel I can be'.";
+		newsArray [2] = "Fiske opplever nedgang, og innbygerne tror det er tyvfiskere sin skyld. Når planlegger staten å gjøre noe med dette?";
+		newsArray [3] = "Scientist agree, there is no way of explaining how boats float.";
+		newsArray [4] = "The people of Galapagos are frightened by the possible threat of Obamacare. What would happen if it reached the islands?";
+		newsArray [5] = "Important news! A cruise drove by Galapagos and decided to camp on one of the islands. Large ammounts of trash left behind.";
+		newsArray [6] = "Important news! Bastard Airlines offers free travel to Galapagos, so expect more turists than expected.";
+		newsArray [7] = "Important news! Tanker hit ground and is now spilling toxic waste! As a result a whole 30% of the shark and sea cucumber population has died."; 
+		newsArray [8] = "Important news! Raptor Jesus has been spotted on one of the islands, causing a new cult and increased population on that island.";
+		newsArray [9] = "Important news! Lav populasjon av hai har gjort den ettertraktet på svartemarkedet. Myndighetene håper de har nok politi til å stoppe tyvfiskerne.";
+		newsArray [10] = "Important news! Galapagos are having economical issues. How will the government solve this?";
+		newsArray [11] = "Important news! Iguanas on Fernandina struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [12] = "Important news! Iguanas on Isabela struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [13] = "Important news! Iguanas on San Cristobal struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [14] = "Important news! Iguanas on San Salvador struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [15] = "Important news! Iguanas on Santa Cruz struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [16] = "Important news! Pelicans on Fernandina struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [17] = "Important news! Pelicans on Isabela struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [18] = "Important news! Pelicans on San Cristobal struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [19] = "Important news! Pelicans on San Salvador struggles, and has fallen bellow 20% of it's original population!";
+		newsArray [20] = "Important news! Pelicans on Santa Cruz struggles, and has fallen bellow 20% of it's original population!";
 	}
 
 	void pickRanNews(){ //If there are no important news then a random funny one will be displayed
-		int ranNum = Random.Range (0, 5); //A random number between 0 and 5 are generated, meaning 0 - 4 in the array
+		int ranNum = Random.Range (1, 5); //A random number between 0 and 5 are generated, meaning 0 - 4 in the array
 		news.color = Color.black;
-		news.text = newsArray[ranNum]; //Print the news to the screen
-		Debug.Log (ranNum);
+		if (first == true) {
+			news.text = newsArray [0]; //Print the news to the screen
+			first = false;
+		} else {
+			news.text = newsArray [ranNum];
+		} //Print the news to the screen
 	}
 
 	//Use this function to queue important news
-	//Are there a lot of pirates? Then send inn the n value that represent the newsArray you want to reach
+	//Are there a lot of pirates? Then send in the n value that represent the newsArray you want to reach
 	public static void disasterNews(int n){
 		if (newsQueue == 0) {
 			newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
-			Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray [newsQueue]);
-			Debug.Log ("Newsqueue: " + newsQueue);
 			newsQueue ++; //Increases the queue
 		} else {
-			for (int i = 0; i < newsQueue; i++) {
-				if (newsImportantArray [newsQueue] != newsImportantArray [n]) {
+			for (int i = 0; i < newsQueue; i++) { //Checks of the news is already in the queue
+				if (newsImportantArray [newsQueue] != newsImportantArray [n]) { //If its not then it will be saved
 					newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
-					Debug.Log ("newsImportantArray" + "[" + newsQueue + "]: " + newsImportantArray [newsQueue]);
-					Debug.Log ("Newsqueue: " + newsQueue);
 					newsQueue ++; //Increases the queue
 				} else {
 					//Denne finnes alt
@@ -79,7 +90,6 @@ public class newsFeed : MonoBehaviour{
 		if (newsQueue >= 1) {
 			news.color = Color.red; //Changes the color of the text as the news are important
 			news.text = newsImportantArray[0];
-			Debug.Log(newsImportantArray[0]);
 			newsQueue --; //Decrese as the neews has been shown
 
 			newsImportantArray[0] = null; //Removes the now used news
@@ -94,6 +104,8 @@ public class newsFeed : MonoBehaviour{
 		}
 		else{
 			pickRanNews();
+			news.color = Color.black; //Default color
+
 		}
 	}
 }

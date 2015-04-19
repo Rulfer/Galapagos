@@ -1,5 +1,11 @@
+19.04
+-Random Events er laget. Til nå er det bare 4-5 stykker, men de sørger for at dyr dør, turister kommer og slikt. Bare små ting som kan ha mye å si.
+-Utrydningstruede arter tiltrekker flere turister. Faller en art under 20% av sin originale populasjon vil det komme x-flere turister neste uke.
+-News er oppdatert til å være på engelsk, samt er knyttet sammen med nyopprettede Random events. Det kommer og news når en art faller under 20% av sin originale populasjon.
+
 17.04
 -Slider som endrer på maks antall turister som kan være på Galapagos til enhver tid. Denne går fra 0 til 10'000. Merk at det fremdeles ikke kan være flere turister enn det er plass til, som bli bestemt av hotellene. 
+-Mulighet til å si "Turister får lov til/ikke lov til å komme til denne øya". Det er en knapp på hver islandInfo card som skrur dette av og på. Atm er det ikke noe visuelt som sier om turister får komme eller ei, men knapper funker. Klikk for å sette på grensen, klikk igjen for å skru av.
 
 14.04
 - Ansatte sparkes riktig. Dersom det ikke er nok penger til å lønne alle vil det regnes ut hvor mange prosent politiet og opprydderne er i forhold til totalt antall ansatte, og vil sparkes basert på det.

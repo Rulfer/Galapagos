@@ -83,26 +83,26 @@ public class Stella_kode : MonoBehaviour
 	public static int turisterSanCristobal = 0;
 	public static int turisterSanSalvador = 0;
 	public static int turisterSantaCruz = 0;
-	int totTurister = 100;
+	public static int totTurister = 100;
 	int Turister_kommer = 0;
 	int Turister_drar = 0;
 	int Turisme = 0;
 	int penger_fra_turister_og_innbyggere = 0;
 	
 	//Hai
-	int Hai_Fertil = 5000;
-	int Hai_Unge = 30000;
+	public static int Hai_Fertil = 5000;
+	public static int Hai_Unge = 30000;
 	
 	//Iguana
-	int Iguana_Fertil = 20000;
-	int Iguana_Unge = 80000;
+	public static int Iguana_Fertil = 20000;
+	public static int Iguana_Unge = 80000;
 	
 	//Sjøpølse
-	int Sjopolse_Fertil = 1000000;
-	int Sjopolse_Unge = 2000000;
+	public static int Sjopolse_Fertil = 1000000;
+	public static int Sjopolse_Unge = 2000000;
 	
 	//Okonomien er gjort public for å kunne eksperementere med i Unity
-	public static int okonomi = 1000;
+	public static int okonomi = 10000;
 	
 	//Lovlig fiske
 	int Fisking = 780;
@@ -193,8 +193,13 @@ public class Stella_kode : MonoBehaviour
 
 	public static int slutter;
 	public static int mangler;
+	public static int ekstraReklame;
+	public static int ekstraSjopolseReklame;
+	public static int ekstraHaiReklame;
 
 	int test = 0;
+
+	public static int eventTourists = 0;
 	
 	// Use this for initialization
 	void Start ()
@@ -219,25 +224,24 @@ public class Stella_kode : MonoBehaviour
 		//Har definert hvor mange pelikaner det er over så nå deler jeg det mellom øyene basert på hvor stor øyene er.
 		//Gjør det samme med Iguana. Trenger bare å gjøre det med disse to siden de er land dyr.
 		Brown_Pelican_FertilFernandina = (int) (prosentFernadina * Brown_Pelican_Fertil / 100);
-
 		Brown_Pelican_FertilIsabela = (int)(prosentIsabela * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSanSalvador = (int)(prosentSanSalvador * Brown_Pelican_Fertil / 100);
 		Brown_Pelican_FertilSantaCruz = (int)(prosentSantaCruz * Brown_Pelican_Fertil / 100);
 
-		Brown_Pelican_UngeFernandina = (int)(prosentFernadina * Brown_Pelican_Unge / 100);
 
+		Brown_Pelican_UngeFernandina = (int)(prosentFernadina * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeIsabela = (int)(prosentIsabela * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSanCristobal = (int)(prosentSanCristobal * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSanSalvador = (int)(prosentSanSalvador * Brown_Pelican_Unge / 100);
 		Brown_Pelican_UngeSantaCruz = (int)(prosentSantaCruz * Brown_Pelican_Unge / 100);
-		
+
 		Iguana_FertilFernandina = (int)(prosentFernadina * Iguana_Fertil / 100);
 		Iguana_FertilIsabela = (int)(prosentIsabela * Iguana_Fertil / 100);
 		Iguana_FertilSanCristobal = (int)(prosentSanCristobal * Iguana_Fertil / 100);
 		Iguana_FertilSanSalvador = (int)(prosentSanSalvador * Iguana_Fertil / 100);
 		Iguana_FertilSantaCruz = (int)(prosentSantaCruz * Iguana_Fertil / 100);
-		
+
 		Iguana_UngFernandina = (int)(prosentFernadina * Iguana_Unge / 100);
 		Iguana_UngIsabela = (int)(prosentIsabela * Iguana_Unge / 100);
 		Iguana_UngSanCristobal = (int)(prosentSanCristobal * Iguana_Unge / 100);
@@ -265,7 +269,7 @@ public class Stella_kode : MonoBehaviour
 		oppryddereSantaCruz = islandInfo.ansatteSantaCruz;
 		
 		if (uker > forrigeuke) {
-			///////Oppdaterer mengden søppe
+			///////Oppdaterer mengden søppel
 			ForsoplingFernandina = ForsoplingFernandina + ((islandInfo.turisterFernandina * 15) + (islandInfo.populasjonFernandina * 15));
 			if(ForsoplingFernandina < 0){ ForsoplingFernandina = 0;}
 
@@ -286,27 +290,6 @@ public class Stella_kode : MonoBehaviour
 			islandInfo.forsoplingSantaCruz = ForsoplingSantaCruz;
 			
 			
-			//Deler søpla på arealet
-//			if(ForsoplingFernandina > 0){
-//				Forsopling_fordeltFernandina = ForsoplingFernandina / arealFernadina;
-//				Debug.Log("hello");
-//				Debug.Log("hello" + ForsoplingFernandina + " no " + arealFernadina);
-//			}
-//			else {Forsopling_fordeltFernandina = 0;}
-//			if(ForsoplingIsabela > 0){
-//				Forsopling_fordeltIsabela = ForsoplingIsabela / arealIsabela;
-//			}
-//			else {
-//				Forsopling_fordeltIsabela = 0;
-//				Debug.Log("hello, no?");
-//			}
-//			Debug.Log ("FORSOPLING FORDELT ISABELA :::::::: " + Forsopling_fordeltFernandina);
-//			if(ForsoplingSanCristobal > 0){Forsopling_fordeltSanCristobal = ForsoplingSanCristobal / arealSanCristobal;}
-//			else {Forsopling_fordeltSanCristobal = 0;}
-//			if(ForsoplingSanSalvador > 0){Forsopling_fordeltSanSalvador = ForsoplingSanSalvador / arealSanSalvador;}
-//			else {Forsopling_fordeltSanSalvador = 0;}
-//			if(ForsoplingSantaCruz > 0){Forsopling_fordeltSantaCruz = ForsoplingSantaCruz / arealSantaCruz;}
-//			else {Forsopling_fordeltSantaCruz = 0;}
 			Forsopling_fordeltHav = ForsoplingHav / 90000000;
 			//Oppdaterer søppel fra mennesker
 			totSoppel_fra_mennesker = (int)((totTurister + totPopulasjon) / 60);
@@ -322,7 +305,6 @@ public class Stella_kode : MonoBehaviour
 			ForsoplingSantaCruz = updateForsopling (ForsoplingSantaCruz, oppryddereSantaCruz);
 			islandInfo.forsoplingSantaCruz = ForsoplingSantaCruz;
 			ForsoplingHav = updateForsopling (ForsoplingHav, oppryddereHav);
-
 
 			//Oppdaterer plassen hvert enkelt dyr har
 			Plass_fisk_trenger = (Yngel / 10000) + (Fertil_Fisk / 10000);
@@ -354,13 +336,27 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_UngeSanCristobal = updatePelicanUnge (Brown_Pelican_FertilSanCristobal, Brown_Pelican_UngeSanCristobal, Plass_BP_trengerSanCristobal, Tilgjengelig_BP_plassSanCristobal);
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
-			//Oppdaterer hvor mye rykte dyrene sprer
-			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
 
-			Iguana_Reklame = (int)Math.Ceiling ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
-			Sjopolse_Reklame = (int)Math.Ceiling ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
-			Sjopolse_Reklame = (int)Math.Ceiling (Sjopolse_Reklame * 0.0000001);
-			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
+			if((Brown_Pelican_FertilFernandina + Brown_Pelican_UngeFernandina) <= 51){
+				ekstraReklame += 70;
+				newsFeed.disasterNews(16);
+			}
+			if((Brown_Pelican_FertilIsabela + Brown_Pelican_UngeIsabela) <= 377){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(17);
+			}
+			if((Brown_Pelican_FertilSanCristobal + Brown_Pelican_UngeSanCristobal) <= 45){
+				ekstraReklame += 50;
+				newsFeed.disasterNews(18);
+			}
+			if((Brown_Pelican_FertilSanSalvador + Brown_Pelican_UngeSanSalvador) <= 48){
+				ekstraReklame += 60;
+				newsFeed.disasterNews(19);
+			}
+			if((Brown_Pelican_FertilSantaCruz + Brown_Pelican_UngeSantaCruz) <= 80){
+				ekstraReklame += 100;
+				newsFeed.disasterNews(20);
+			}
 			
 			//Oppdaterer pengene vi får inn
 			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
@@ -399,6 +395,12 @@ public class Stella_kode : MonoBehaviour
 			//Oppdaterer haibestanden
 			Hai_Fertil = updateHaifertil (Hai_Fertil);
 			Hai_Unge = updateHaiunge (Hai_Unge);
+			if((Hai_Fertil + Hai_Unge) <= 7000){ekstraHaiReklame += 500;}
+			//Oppdaterer sjøpølse bestanden
+			Sjopolse_Fertil = updateSjopolsefertil (Sjopolse_Fertil);
+			Sjopolse_Unge = updateSjopolseung (Sjopolse_Unge);
+			if((Sjopolse_Fertil + Sjopolse_Unge) <= 240000){ekstraSjopolseReklame += 500;}
+
 			//Oppdaterer Iguana bestanden
 			Iguana_FertilFernandina = updateIguanafertil (Iguana_FertilFernandina, Iguana_UngFernandina, Plass_BP_trengerFernadina, Tilgjengelig_Iguana_plassFernandina);
 			Iguana_FertilIsabela = updateIguanafertil (Iguana_FertilIsabela, Iguana_UngIsabela, Plass_BP_trengerIsabela, Tilgjengelig_Iguana_plassIsabela);
@@ -412,24 +414,41 @@ public class Stella_kode : MonoBehaviour
 			Iguana_UngSanSalvador = updateIguanaunge (Iguana_FertilSanSalvador, Iguana_UngSanSalvador, Plass_iguana_trengerSanSalvador, Tilgjengelig_Iguana_plassSanSalvador);
 			Iguana_UngSantaCruz = updateIguanaunge (Iguana_FertilSantaCruz, Iguana_UngSantaCruz, Plass_iguana_trengerSantaCruz, Tilgjengelig_Iguana_plassSantaCruz);
 
+			if((Iguana_FertilFernandina + Iguana_UngFernandina) <= 1687){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(11);
+			}
+			if((Iguana_FertilIsabela + Iguana_UngIsabela) <= 12551){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(12);
+			}
+			if((Iguana_FertilSanCristobal + Iguana_UngSanCristobal) <= 1510){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(13);
+			}
+			if((Iguana_FertilSanSalvador + Iguana_UngSanSalvador) <= 1581){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(14);
+			}
+			if((Iguana_FertilSantaCruz + Iguana_UngSantaCruz) <= 2668){
+				ekstraReklame += 200;
+				newsFeed.disasterNews(15);
+			}
+
 			//Oppdaterer hvor mye rykte dyrene sprer
 			Hai_Reklame = (int)Math.Floor (Hai_Fertil * 0.01 + Hai_Unge * 0.01);
 			Iguana_Reklame = (int)Math.Floor ((Iguana_Fertil * 0.01) + (Iguana_Unge * 0.001));
 			Pelican_Reklame = (int)Math.Floor ((Brown_Pelican_Fertil * 0.01) + (Brown_Pelican_Unge * 0.001));
-			Sjopolse_Reklame = (int)Math.Floor ((Sjopolse_Unge + Sjopolse_Fertil) / 0.0000001);
-			Sjopolse_Reklame = (int)Math.Floor (Sjopolse_Reklame * 0.0000001);
-			Reklame = (int)Math.Floor ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame + Pelican_Reklame);
+			Sjopolse_Reklame = (int)Math.Floor ((Sjopolse_Unge + Sjopolse_Fertil) * 0.00007);
+			Reklame = (int)Math.Floor ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame + Pelican_Reklame + ekstraReklame);
 			
 			//Oppdaterer hvor mange som har hørt om hai fisk og sjøpølse fisking
-			Informerte_om_sjopolse = (int)Math.Ceiling (Sjopolse_Reklame * 0.01);
-			Informerte_Hai = (int)Math.Ceiling (Hai_Reklame * 0.1);
+			Informerte_om_sjopolse = (int)Math.Ceiling (Sjopolse_Reklame * 0.01 + ekstraSjopolseReklame);
+			Informerte_Hai = (int)Math.Ceiling (Hai_Reklame * 0.1 + ekstraHaiReklame);
 
 			//Oppdaterer populasjonen etter endringen som har skjedd
 			totPopulasjon = updatePopulasjon (totPopulasjon);
 
-			//Oppdaterer sjøpølse bestanden
-			Sjopolse_Fertil = updateSjopolsefertil (Sjopolse_Fertil);
-			Sjopolse_Unge = updateSjopolseung (Sjopolse_Unge);
 			//Oppdaterer Tyvfiskerne
 			Tyvfiskere_Hai = updateTyvfiskereHai (Tyvfiskere_Hai);
 			Tyvfiskere_Sjopolse = updateTyvfiskereSjopolse (Tyvfiskere_Sjopolse);
@@ -454,9 +473,7 @@ public class Stella_kode : MonoBehaviour
 			totPopulasjon = totPopulasjon + movingIn;
 			Debug.Log("tot populasjon: " + totPopulasjon);
 			Turister_kommer = Reklame;
-			Debug.Log("Fernandina populasjon: " + populasjonFernandina);
 			populasjonFernandina = (int)(prosentFernadina * totPopulasjon) / 100;
-			Debug.Log ("populasjon fernandina: " + populasjonFernandina); 
 			populasjonIsabela = (int)(prosentIsabela * totPopulasjon) / 100;
 			populasjonSanCristobal = (int)(prosentSanCristobal * totPopulasjon) / 100;
 			populasjonSanSalvador = (int)(prosentSanSalvador * totPopulasjon) / 100;
@@ -465,7 +482,8 @@ public class Stella_kode : MonoBehaviour
 			//Her fordeles turistene mellom øyene
 			//Tester og om det kommer for mange enn det er plass til. Om det er tilfellet vil det bare komme så
 			//mange det er plass til
-			totTurister = Turister_kommer;
+			totTurister = Turister_kommer + eventTourists;
+			eventTourists = 0;
 
 			//Her begrenses turismen basert på hva spilleren har valgt i begrensningsmenyen
 			//Er det for mange turister vil bare det maksimale antallet som får lov til å komme inn, bli.
@@ -501,6 +519,9 @@ public class Stella_kode : MonoBehaviour
 			if(mouseClicker.visitedWeekly == true){
 				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showWeekly();
 			}
+			ekstraHaiReklame = 0;
+			ekstraReklame = 0;
+			ekstraSjopolseReklame = 0;
 		}
 		
 		//I tilfelle det blir månedskifte settes disse lik hverandre
@@ -639,6 +660,7 @@ public class Stella_kode : MonoBehaviour
 		if (fertilBrownPelican <= 0) {
 			fertilBrownPelican = 0;
 		}
+
 		return (fertilBrownPelican);
 	}
 	
@@ -953,6 +975,7 @@ public class Stella_kode : MonoBehaviour
 			mangler = lonning - lommeboks; //Variabel som skal printes ut
 			slutter = totAnsatte - (totAntallOppryddere + Politi); //Variabel som skal printes ut
 			pause.pauseGame (); //Pauser spillet
+			newsFeed.disasterNews(10); //Aktiverer viktig melding om at spilleren har lite penger (mindre enn 0)
 		} 
 		else {
 			totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
