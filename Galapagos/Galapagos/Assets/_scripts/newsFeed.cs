@@ -3,7 +3,7 @@ using System.Collections;
 
 public class newsFeed : MonoBehaviour{
 	public static string[] newsArray = new string[21]; //Array that contains all news
-	public static string[] newsImportantArray = new string[100]; //Array that contains queued important news
+	public static string[] newsImportantArray = new string[1000]; //Array that contains queued important news
 	public static int newsQueue = 0; //Used to tell how many important news that are queued
 	bool first = true;
 
@@ -21,7 +21,9 @@ public class newsFeed : MonoBehaviour{
 	
 	//Sørker for at newsfeed beveger seg uavhengig av FPS'en
 	void FixedUpdate () {
-		transform.position += Vector3.left * speed;
+		if (pause.isPaused == false) {
+			transform.position += Vector3.left * speed;
+		}
 	}
 
 	void OnTriggerEnter(Collider other) //Restarts the newsbox. A simple hitbox
@@ -70,18 +72,35 @@ public class newsFeed : MonoBehaviour{
 
 	//Use this function to queue important news
 	//Are there a lot of pirates? Then send in the n value that represent the newsArray you want to reach
-	public static void disasterNews(int n){
-		if (newsQueue == 0) {
+	public static void disasterNews(int n)
+	{
+		bool isUsed = false;
+		if (newsQueue == 0) 
+		{
 			newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
 			newsQueue ++; //Increases the queue
-		} else {
-			for (int i = 0; i < newsQueue; i++) { //Checks of the news is already in the queue
-				if (newsImportantArray [newsQueue] != newsImportantArray [n]) { //If its not then it will be saved
-					newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
-					newsQueue ++; //Increases the queue
-				} else {
+		} 
+		else 
+		{
+			for (int i = 0; i < newsQueue; i++) 
+			{ //Checks of the news is already in the queue
+				if (newsImportantArray [i] != newsImportantArray [n]) 
+				{ //If its not then it will be saved
+					Debug.Log("i = " + i);
+				} 
+				else 
+				{
 					//Denne finnes alt
+					Debug.Log("Nyheten eksisterer alt");
+					isUsed = true;
 				}
+			}
+			if(isUsed == false)
+			{
+				Debug.Log("Nyheten eksisterer ikke!");
+				newsImportantArray [newsQueue] = newsArray [n]; //Saves the news
+				Debug.Log("Lagrer nyheten");
+				newsQueue ++; //Increases the queue
 			}
 		}
 	}

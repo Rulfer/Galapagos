@@ -1,7 +1,14 @@
+20.04
+- Tre tap kriterier er oppstått! For å tape må spilleren ha oppfylt minst 2 tap kriterier. Dersom spiller har 0 penger etter å ha betalt lønninger 3 ganger på rad registreres det som tap kriterie. Dersom 3 dyr er på 5% av sin originale populasjon aktiveres tapkriterie og dersom bare 50 turister er på galapagos aktiveres et tap kriterie.
+- Er nå mulig å pause og un-pause ved å klikke på esc tasten.
+- Spiller kan restarte eller avslutte spillet via pause menyen.
+- En pause skjerm dukker opp når spilleren taper spillet. Her kan spilleren enten restarte spillet eller avslutte det.
+- Bugfix i newsfeed. Den leter nå korrekt gjennom og ser om det er kommet nye nyheter eller ei.
+
 19.04
--Random Events er laget. Til nå er det bare 4-5 stykker, men de sørger for at dyr dør, turister kommer og slikt. Bare små ting som kan ha mye å si.
--Utrydningstruede arter tiltrekker flere turister. Faller en art under 20% av sin originale populasjon vil det komme x-flere turister neste uke.
--News er oppdatert til å være på engelsk, samt er knyttet sammen med nyopprettede Random events. Det kommer og news når en art faller under 20% av sin originale populasjon.
+- Random Events er laget. Til nå er det bare 4-5 stykker, men de sørger for at dyr dør, turister kommer og slikt. Bare små ting som kan ha mye å si.
+- Utrydningstruede arter tiltrekker flere turister. Faller en art under 20% av sin originale populasjon vil det komme x-flere turister neste uke.
+- News er oppdatert til å være på engelsk, samt er knyttet sammen med nyopprettede Random events. Det kommer og news når en art faller under 20% av sin originale populasjon.
 
 17.04
 -Slider som endrer på maks antall turister som kan være på Galapagos til enhver tid. Denne går fra 0 til 10'000. Merk at det fremdeles ikke kan være flere turister enn det er plass til, som bli bestemt av hotellene. 

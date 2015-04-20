@@ -337,23 +337,23 @@ public class Stella_kode : MonoBehaviour
 			Brown_Pelican_UngeSanSalvador = updatePelicanUnge (Brown_Pelican_FertilSanSalvador, Brown_Pelican_UngeSanSalvador, Plass_BP_trengerSanSalvador, Tilgjengelig_BP_plassSanSalvador);
 			Brown_Pelican_UngeSantaCruz = updatePelicanUnge (Brown_Pelican_FertilSantaCruz, Brown_Pelican_UngeSantaCruz, Plass_BP_trengerSantaCruz, Tilgjengelig_BP_plassSantaCruz);
 
-			if((Brown_Pelican_FertilFernandina + Brown_Pelican_UngeFernandina) <= 51){
+			if((Brown_Pelican_FertilFernandina + Brown_Pelican_UngeFernandina) <= 16){
 				ekstraReklame += 70;
 				newsFeed.disasterNews(16);
 			}
-			if((Brown_Pelican_FertilIsabela + Brown_Pelican_UngeIsabela) <= 377){
+			if((Brown_Pelican_FertilIsabela + Brown_Pelican_UngeIsabela) <= 125){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(17);
 			}
-			if((Brown_Pelican_FertilSanCristobal + Brown_Pelican_UngeSanCristobal) <= 45){
+			if((Brown_Pelican_FertilSanCristobal + Brown_Pelican_UngeSanCristobal) <= 15){
 				ekstraReklame += 50;
 				newsFeed.disasterNews(18);
 			}
-			if((Brown_Pelican_FertilSanSalvador + Brown_Pelican_UngeSanSalvador) <= 48){
+			if((Brown_Pelican_FertilSanSalvador + Brown_Pelican_UngeSanSalvador) <= 16){
 				ekstraReklame += 60;
 				newsFeed.disasterNews(19);
 			}
-			if((Brown_Pelican_FertilSantaCruz + Brown_Pelican_UngeSantaCruz) <= 80){
+			if((Brown_Pelican_FertilSantaCruz + Brown_Pelican_UngeSantaCruz) <= 27){
 				ekstraReklame += 100;
 				newsFeed.disasterNews(20);
 			}
@@ -414,23 +414,23 @@ public class Stella_kode : MonoBehaviour
 			Iguana_UngSanSalvador = updateIguanaunge (Iguana_FertilSanSalvador, Iguana_UngSanSalvador, Plass_iguana_trengerSanSalvador, Tilgjengelig_Iguana_plassSanSalvador);
 			Iguana_UngSantaCruz = updateIguanaunge (Iguana_FertilSantaCruz, Iguana_UngSantaCruz, Plass_iguana_trengerSantaCruz, Tilgjengelig_Iguana_plassSantaCruz);
 
-			if((Iguana_FertilFernandina + Iguana_UngFernandina) <= 1687){
+			if((Iguana_FertilFernandina + Iguana_UngFernandina) <= 337){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(11);
 			}
-			if((Iguana_FertilIsabela + Iguana_UngIsabela) <= 12551){
+			if((Iguana_FertilIsabela + Iguana_UngIsabela) <= 2510){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(12);
 			}
-			if((Iguana_FertilSanCristobal + Iguana_UngSanCristobal) <= 1510){
+			if((Iguana_FertilSanCristobal + Iguana_UngSanCristobal) <= 302){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(13);
 			}
-			if((Iguana_FertilSanSalvador + Iguana_UngSanSalvador) <= 1581){
+			if((Iguana_FertilSanSalvador + Iguana_UngSanSalvador) <= 316){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(14);
 			}
-			if((Iguana_FertilSantaCruz + Iguana_UngSantaCruz) <= 2668){
+			if((Iguana_FertilSantaCruz + Iguana_UngSantaCruz) <= 533){
 				ekstraReklame += 200;
 				newsFeed.disasterNews(15);
 			}
@@ -500,6 +500,47 @@ public class Stella_kode : MonoBehaviour
 
 			test++;
 
+			int doomedAnimals = 0;
+			bool looseTourism = false;
+			bool looseAnimal = false;
+			if((Brown_Pelican_FertilFernandina + Brown_Pelican_UngeFernandina) <= 6){
+				doomedAnimals ++;
+			}
+			if((Brown_Pelican_FertilIsabela + Brown_Pelican_UngeIsabela) <= 32){
+				doomedAnimals ++;
+			}
+			if((Brown_Pelican_FertilSanCristobal + Brown_Pelican_UngeSanCristobal) <= 5){
+				doomedAnimals ++;
+			}
+			if((Brown_Pelican_FertilSanSalvador + Brown_Pelican_UngeSanSalvador) <= 5){
+				doomedAnimals ++;
+			}
+			if((Brown_Pelican_FertilSantaCruz + Brown_Pelican_UngeSantaCruz) <= 7){
+				doomedAnimals ++;
+			}
+			if((Iguana_FertilFernandina + Iguana_UngFernandina) <= 85){
+				doomedAnimals ++;
+			}
+			if((Iguana_FertilIsabela + Iguana_UngIsabela) <= 628){
+				doomedAnimals ++;
+			}
+			if((Iguana_FertilSanCristobal + Iguana_UngSanCristobal) <= 75){
+				doomedAnimals ++;
+			}
+			if((Iguana_FertilSanSalvador + Iguana_UngSanSalvador) <= 316){
+				doomedAnimals ++;
+			}
+			if((Iguana_FertilSantaCruz + Iguana_UngSantaCruz) <= 133){
+				doomedAnimals ++;
+			}
+			if(doomedAnimals >= 3){looseAnimal = true;} //Dersom 3 arter er på 5% av sin originale populasjon aktiveres tap bool
+			else{looseAnimal = false;} //Om ikke vil den deaktiveres
+
+			if(totTurister <= 50){looseTourism = true;} //Dersom spilleren har mindre enn 50 turister aktiveres tap bool
+			else{looseTourism = false;} //Om ikke vil den deaktiveres
+
+			winLoose.checkAnimalTourism(looseAnimal, looseTourism);
+
 			//Sjekker om spilleren ser på en øy.
 			//Om det er tilfellet skal den nye informasjonen vises
 			if(islandInfo.visitedFernadina == true){
@@ -567,14 +608,14 @@ public class Stella_kode : MonoBehaviour
 
 		//Dersom en øy ikke er stengt skal den få turister
 		if (islandInfo.f_isClosed == false) {
-			turisterFernandina = (int)Math.Floor ((totTurister * 0.2) + (rest / ant)); 	//Regner ført ut turisterX. Merk at rest / ant, noe som betyr at lavere ant = høyere tall
+			turisterFernandina = (int)Math.Floor ((totTurister * 0.1) + (rest / ant)); 	//Regner ført ut turisterX. Merk at rest / ant, noe som betyr at lavere ant = høyere tall
 			if(turisterFernandina >= islandInfo.maxTurismeFernandina){ //Dersom det er flere turister enn det er plass til skjer:
 				rest = rest + islandInfo.maxTurismeFernandina - turisterFernandina; //Rest får gjenværende turister
 				turisterFernandina = islandInfo.maxTurismeFernandina; //Antall turister settes til maks antall mulige
 			}
 		}
 		if (islandInfo.i_isClosed == false) {
-			turisterIsabela = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			turisterIsabela = (int)Math.Floor ((totTurister * 0.4) + (rest / ant));
 			if(turisterIsabela >= islandInfo.maxTurismeIsabela){
 				rest = rest + islandInfo.maxTurismeIsabela - turisterIsabela;
 				turisterIsabela = islandInfo.maxTurismeIsabela;
@@ -588,7 +629,7 @@ public class Stella_kode : MonoBehaviour
 			}
 		}
 		if (islandInfo.ss_isClosed == false) {
-			turisterSanSalvador = (int)Math.Floor ((totTurister * 0.2) + (rest / ant));
+			turisterSanSalvador = (int)Math.Floor ((totTurister * 0.1) + (rest / ant));
 			if(turisterSanSalvador >= islandInfo.maxTurismeSanSalvador){
 				rest = rest + islandInfo.maxTurismeSanSalvador - turisterSanSalvador;
 				turisterSanSalvador = islandInfo.maxTurismeSanSalvador;
@@ -932,6 +973,8 @@ public class Stella_kode : MonoBehaviour
 		int Penger_politi = 0;
 		int Penger_Oppryddere = 0;
 
+		bool looseMoney = false;
+
 		Inntekter = penger_fra_turister_og_innbyggere;
 		//Trenger ikke teller fordi dette skal skje hver måned
 		//Dette er en oversettelse av funksjonen PULSE i stella til C#
@@ -976,11 +1019,16 @@ public class Stella_kode : MonoBehaviour
 			slutter = totAnsatte - (totAntallOppryddere + Politi); //Variabel som skal printes ut
 			pause.pauseGame (); //Pauser spillet
 			newsFeed.disasterNews(10); //Aktiverer viktig melding om at spilleren har lite penger (mindre enn 0)
+			looseMoney = true;
 		} 
 		else {
 			totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 			okonomi = okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+			looseMoney = false;
 		}
+
+		winLoose.checkMoney(looseMoney);
+
 		return totOkonomi;
 	}
 	

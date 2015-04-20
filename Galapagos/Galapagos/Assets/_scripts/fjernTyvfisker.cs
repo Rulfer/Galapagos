@@ -17,18 +17,15 @@ public class fjernTyvfisker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-		if (Stella_kode.timer > lagretTid)
-			{
+		if (pause.isPaused == false) {
+			if (Stella_kode.timer > lagretTid) {
 
 				//Lager et random tall som skal velge hvilken retning tyvfiskeren vil gå
 				randomDir = rnd.Next (0, 4);
 				//Skjekker at tyvfiskeren er innenfor grensen
-			if (transform.position.x >= -10 && transform.position.x <= 10 && transform.position.y <= 5 && transform.position.y >= -5)
-			{
-				//Bruker switch til å translatere
-				switch(randomDir)
-				{
+				if (transform.position.x >= -10 && transform.position.x <= 10 && transform.position.y <= 5 && transform.position.y >= -5) {
+					//Bruker switch til å translatere
+					switch (randomDir) {
 					case 0:
 						transform.Translate (0.1f, 0.1f, 0);
 						break;
@@ -41,12 +38,13 @@ public class fjernTyvfisker : MonoBehaviour {
 						break;
 					case 3:
 						transform.Translate (-0.1f, 0.1f, 0);
-					break;
+						break;
+					}
 				}
 			}
-		}
 
-		lagretTid = (int)Math.Ceiling(Stella_kode.timer);
+			lagretTid = (int)Math.Ceiling (Stella_kode.timer);
+		}
 
 
 	}

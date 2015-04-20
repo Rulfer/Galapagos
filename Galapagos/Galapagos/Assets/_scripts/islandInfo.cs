@@ -127,132 +127,125 @@ public class islandInfo : MonoBehaviour {
 	//Stemmer dette vil antall ansatte oppdateres til å bli lik a_endret,
 	//og de nye tallene printes ut via mouseClicker sin showText() funksjon
 	void Update () {
-		if (a_endretFernadina < ansatteFernadina || a_endretFernadina > ansatteFernadina) {
-			if(a_endretFernadina <= 0){
-				ansatteFernadina = 0; 
-				a_endretFernadina = ansatteFernadina;
-				Stella_kode.oppryddereFernandina = ansatteFernadina;
+		if (pause.isPaused == false) {
+			if (a_endretFernadina < ansatteFernadina || a_endretFernadina > ansatteFernadina) {
+				if (a_endretFernadina <= 0) {
+					ansatteFernadina = 0; 
+					a_endretFernadina = ansatteFernadina;
+					Stella_kode.oppryddereFernandina = ansatteFernadina;
+				} else {
+					ansatteFernadina = a_endretFernadina;
+					Stella_kode.oppryddereFernandina = ansatteFernadina;
+				}
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
+			} else if (a_endretIsabela < ansatteIsabela || a_endretIsabela > ansatteIsabela) {
+				if (a_endretIsabela <= 0) {
+					ansatteIsabela = 0; 
+					a_endretIsabela = ansatteIsabela;
+					Stella_kode.oppryddereIsabela = ansatteIsabela;
+				} else {
+					ansatteIsabela = a_endretIsabela;
+					Stella_kode.oppryddereIsabela = ansatteIsabela;
+				}
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
+			} else if (a_endretSanCristobal < ansatteSanCristobal || a_endretSanCristobal > ansatteSanCristobal) {
+				if (a_endretSanCristobal <= 0) {
+					ansatteSanCristobal = 0; 
+					a_endretSanCristobal = ansatteSanCristobal;
+					Stella_kode.oppryddereSanCristobal = ansatteSanCristobal;
+				} else {
+					ansatteSanCristobal = a_endretSanCristobal;
+					Stella_kode.oppryddereSanCristobal = ansatteSanCristobal;
+				}
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
+			} else if (a_endretSantaCruz < ansatteSantaCruz || a_endretSantaCruz > ansatteSantaCruz) {
+				if (a_endretSantaCruz <= 0) {
+					ansatteSantaCruz = 0; 
+					a_endretSantaCruz = ansatteSantaCruz;
+					Stella_kode.oppryddereSantaCruz = ansatteSantaCruz;
+				} else {
+					ansatteSantaCruz = a_endretSantaCruz;
+					Stella_kode.oppryddereSantaCruz = ansatteSantaCruz;
+				}
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
+			} else if (a_endretSanSalvador < ansatteSanSalvador || a_endretSanSalvador > ansatteSanSalvador) {
+				if (a_endretSanSalvador <= 0) {
+					ansatteSanSalvador = 0; 
+					a_endretSanSalvador = ansatteSanSalvador;
+					Stella_kode.oppryddereSanSalvador = ansatteSanSalvador;
+				} else {
+					ansatteSanSalvador = a_endretSanSalvador;
+					Stella_kode.oppryddereSanSalvador = ansatteSanSalvador;
+				}
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
 			}
-			else{
-				ansatteFernadina = a_endretFernadina;
-				Stella_kode.oppryddereFernandina = ansatteFernadina;
-			}
-			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(0);
-		}
-		else if (a_endretIsabela < ansatteIsabela || a_endretIsabela > ansatteIsabela) {
-			if(a_endretIsabela <= 0){
-				ansatteIsabela = 0; 
-				a_endretIsabela = ansatteIsabela;
-				Stella_kode.oppryddereIsabela = ansatteIsabela;
-			}
-			else{
-				ansatteIsabela = a_endretIsabela;
-				Stella_kode.oppryddereIsabela = ansatteIsabela;
-			}
-			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(1);
-		}
-		else if (a_endretSanCristobal < ansatteSanCristobal || a_endretSanCristobal > ansatteSanCristobal) {
-			if(a_endretSanCristobal <= 0){
-				ansatteSanCristobal = 0; 
-				a_endretSanCristobal = ansatteSanCristobal;
-				Stella_kode.oppryddereSanCristobal = ansatteSanCristobal;
-			}
-			else{
-				ansatteSanCristobal = a_endretSanCristobal;
-				Stella_kode.oppryddereSanCristobal = ansatteSanCristobal;
-			}
-			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(2);
-		}
-		else if (a_endretSantaCruz < ansatteSantaCruz || a_endretSantaCruz > ansatteSantaCruz) {
-			if(a_endretSantaCruz <= 0){
-				ansatteSantaCruz = 0; 
-				a_endretSantaCruz = ansatteSantaCruz;
-				Stella_kode.oppryddereSantaCruz = ansatteSantaCruz;
-			}
-			else{
-				ansatteSantaCruz = a_endretSantaCruz;
-				Stella_kode.oppryddereSantaCruz = ansatteSantaCruz;
-			}
-			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(3);
-		}
-		else if (a_endretSanSalvador < ansatteSanSalvador || a_endretSanSalvador > ansatteSanSalvador) {
-			if(a_endretSanSalvador <= 0){
-				ansatteSanSalvador = 0; 
-				a_endretSanSalvador = ansatteSanSalvador;
-				Stella_kode.oppryddereSanSalvador = ansatteSanSalvador;
-			}
-			else{
-				ansatteSanSalvador = a_endretSanSalvador;
-				Stella_kode.oppryddereSanSalvador = ansatteSanSalvador;
-			}
-			GameObject.Find("MainCamera").GetComponent<mouseClicker>().showText(4);
-		}
 
-		//Dersom turismen oppdateres skal dette skje her
-		if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
-			turisterFernandina = Stella_kode.turisterFernandina ;
-		} else if (turisterIsabela < Stella_kode.turisterIsabela || turisterIsabela > Stella_kode.turisterIsabela) {
-			turisterIsabela = Stella_kode.turisterIsabela;
-		} else if (turisterSanCristobal < Stella_kode.turisterSanCristobal || turisterSanCristobal > Stella_kode.turisterSanCristobal) {
-			turisterSanCristobal = Stella_kode.turisterSanCristobal;
-		} else if (turisterSanSalvador < Stella_kode.turisterSanSalvador || turisterSanSalvador > Stella_kode.turisterSanSalvador) {
-			turisterSanSalvador = Stella_kode.turisterSanSalvador;
-		} else if (turisterSantaCruz < Stella_kode.turisterSantaCruz || turisterSantaCruz > Stella_kode.turisterSantaCruz) {
-			turisterSantaCruz = Stella_kode.turisterSantaCruz;
-		}
-
-		if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
-			populasjonFernandina = Stella_kode.populasjonFernandina;
-		} else if (populasjonIsabela < Stella_kode.populasjonIsabela || populasjonIsabela > Stella_kode.populasjonIsabela) {
-			populasjonIsabela = Stella_kode.populasjonIsabela;
-		} else if (populasjonSanCristobal < Stella_kode.populasjonSanCristobal || populasjonSanCristobal > Stella_kode.populasjonSanCristobal) {
-			populasjonSanCristobal = Stella_kode.populasjonSanCristobal;
-		} else if (populasjonSanSalvador < Stella_kode.populasjonSanSalvador || populasjonSanSalvador > Stella_kode.populasjonSanSalvador) {
-			populasjonSanSalvador = Stella_kode.populasjonSanSalvador;
-		} else if (populasjonSantaCruz < Stella_kode.populasjonSantaCruz || populasjonSantaCruz > Stella_kode.populasjonSantaCruz) {
-			populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
-		}
-
-
-		if (visitedFernadina == true) {
+			//Dersom turismen oppdateres skal dette skje her
 			if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
 				turisterFernandina = Stella_kode.turisterFernandina;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
-			} else if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
+			} else if (turisterIsabela < Stella_kode.turisterIsabela || turisterIsabela > Stella_kode.turisterIsabela) {
+				turisterIsabela = Stella_kode.turisterIsabela;
+			} else if (turisterSanCristobal < Stella_kode.turisterSanCristobal || turisterSanCristobal > Stella_kode.turisterSanCristobal) {
+				turisterSanCristobal = Stella_kode.turisterSanCristobal;
+			} else if (turisterSanSalvador < Stella_kode.turisterSanSalvador || turisterSanSalvador > Stella_kode.turisterSanSalvador) {
+				turisterSanSalvador = Stella_kode.turisterSanSalvador;
+			} else if (turisterSantaCruz < Stella_kode.turisterSantaCruz || turisterSantaCruz > Stella_kode.turisterSantaCruz) {
+				turisterSantaCruz = Stella_kode.turisterSantaCruz;
+			}
+
+			if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
 				populasjonFernandina = Stella_kode.populasjonFernandina;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
-			} 
-		} else if (visitedIsabela == true) {
-				if (turisterIsabela < nyeTuristerIsabela || turisterIsabela > nyeTuristerIsabela) {
-				turisterIsabela = nyeTuristerIsabela;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
 			} else if (populasjonIsabela < Stella_kode.populasjonIsabela || populasjonIsabela > Stella_kode.populasjonIsabela) {
 				populasjonIsabela = Stella_kode.populasjonIsabela;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
-			} 
-		} else if (visitedSanCristobal == true) {
-			if (turisterSanCristobal < nyeTuristerSanCristobal || turisterSanCristobal > nyeTuristerSanCristobal) {
-				turisterSanCristobal = nyeTuristerSanCristobal;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
 			} else if (populasjonSanCristobal < Stella_kode.populasjonSanCristobal || populasjonSanCristobal > Stella_kode.populasjonSanCristobal) {
 				populasjonSanCristobal = Stella_kode.populasjonSanCristobal;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
-			} 
-		} else if (visitedSanSalvador == true) {
-			if (turisterSanSalvador < nyeTuristerSanSalvador || turisterSanSalvador > nyeTuristerSanSalvador) {
-				turisterSanSalvador = nyeTuristerSanSalvador;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
 			} else if (populasjonSanSalvador < Stella_kode.populasjonSanSalvador || populasjonSanSalvador > Stella_kode.populasjonSanSalvador) {
 				populasjonSanSalvador = Stella_kode.populasjonSanSalvador;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
-			} 
-		} else if (visitedSantaCruz == true) {
-			if (turisterSantaCruz < nyeTuristerSantaCruz || turisterSantaCruz > nyeTuristerSantaCruz) {
-				turisterSantaCruz = nyeTuristerSantaCruz;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
 			} else if (populasjonSantaCruz < Stella_kode.populasjonSantaCruz || populasjonSantaCruz > Stella_kode.populasjonSantaCruz) {
 				populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+			}
+
+
+			if (visitedFernadina == true) {
+				if (turisterFernandina < Stella_kode.turisterFernandina || turisterFernandina > Stella_kode.turisterFernandina) {
+					turisterFernandina = Stella_kode.turisterFernandina;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
+				} else if (populasjonFernandina < Stella_kode.populasjonFernandina || populasjonFernandina > Stella_kode.populasjonFernandina) {
+					populasjonFernandina = Stella_kode.populasjonFernandina;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
+				} 
+			} else if (visitedIsabela == true) {
+				if (turisterIsabela < nyeTuristerIsabela || turisterIsabela > nyeTuristerIsabela) {
+					turisterIsabela = nyeTuristerIsabela;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
+				} else if (populasjonIsabela < Stella_kode.populasjonIsabela || populasjonIsabela > Stella_kode.populasjonIsabela) {
+					populasjonIsabela = Stella_kode.populasjonIsabela;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
+				} 
+			} else if (visitedSanCristobal == true) {
+				if (turisterSanCristobal < nyeTuristerSanCristobal || turisterSanCristobal > nyeTuristerSanCristobal) {
+					turisterSanCristobal = nyeTuristerSanCristobal;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
+				} else if (populasjonSanCristobal < Stella_kode.populasjonSanCristobal || populasjonSanCristobal > Stella_kode.populasjonSanCristobal) {
+					populasjonSanCristobal = Stella_kode.populasjonSanCristobal;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
+				} 
+			} else if (visitedSanSalvador == true) {
+				if (turisterSanSalvador < nyeTuristerSanSalvador || turisterSanSalvador > nyeTuristerSanSalvador) {
+					turisterSanSalvador = nyeTuristerSanSalvador;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
+				} else if (populasjonSanSalvador < Stella_kode.populasjonSanSalvador || populasjonSanSalvador > Stella_kode.populasjonSanSalvador) {
+					populasjonSanSalvador = Stella_kode.populasjonSanSalvador;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
+				} 
+			} else if (visitedSantaCruz == true) {
+				if (turisterSantaCruz < nyeTuristerSantaCruz || turisterSantaCruz > nyeTuristerSantaCruz) {
+					turisterSantaCruz = nyeTuristerSantaCruz;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+				} else if (populasjonSantaCruz < Stella_kode.populasjonSantaCruz || populasjonSantaCruz > Stella_kode.populasjonSantaCruz) {
+					populasjonSantaCruz = Stella_kode.populasjonSantaCruz;
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+				}
 			}
 		}
 	}

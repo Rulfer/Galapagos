@@ -19,7 +19,7 @@ public class pause : MonoBehaviour {
 
 	public static void pauseMoney(){
 		isPaused = true;
-		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().pausedText ();
+//		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (6);
 	}
 
 	public static void unPause(){
