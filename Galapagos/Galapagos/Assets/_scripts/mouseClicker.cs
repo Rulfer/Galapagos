@@ -104,25 +104,25 @@ public class mouseClicker : MonoBehaviour {
 					//showText (5);
 				}
 
-				//Tester om spilleren klikker på enten kjøp eller selg ansatte
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettOne") {
-					hireOpprydder.hireOne();
-				}
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettFive") {
-					hireOpprydder.hireFive();
-				}
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettTen") {
-					hireOpprydder.hireTen();
-				}
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkOne") {
-					fireOpprydder.fireOne();
-				}
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkFive") {
-					fireOpprydder.fireFive();
-				}
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkTen") {
-					fireOpprydder.fireTen();
-				}
+//				//Tester om spilleren klikker på enten kjøp eller selg ansatte
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettOne") {
+//					hireOpprydder.hireOne();
+//				}
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettFive") {
+//					hireOpprydder.hireFive();
+//				}
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "ansettTen") {
+//					hireOpprydder.hireTen();
+//				}
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkOne") {
+//					fireOpprydder.fireOne();
+//				}
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkFive") {
+//					fireOpprydder.fireFive();
+//				}
+//				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "sparkTen") {
+//					fireOpprydder.fireTen();
+//				}
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "buildHotel") {
 					Hotel.build();
@@ -307,15 +307,11 @@ public class mouseClicker : MonoBehaviour {
 	void showShop() {
 		visitedShop = true;
 		shopBox.transform.position = new Vector3 (4.35f, 0.4825f, 0f);
-		shop.text += "\n";
-		shop.text += "+1 opprydder      -1 opprydder";
-		shop.text += "\n";
-		shop.text += "\n";
-		shop.text += "+5 oppryddere     -5 oppryddere";
-		shop.text += "\n";
-		shop.text += "\n";
-		shop.text += "+10 oppryddere    -10 oppryddere";
-		shop.text += "\n";
+		shop.text += "Fernandina: " + "\n";
+		shop.text += "Isabela: " + "\n";
+		shop.text += "San Salvador: " + "\n";
+		shop.text += "San Cristobal: " + "\n";
+		shop.text += "Santa Cruz: " + "\n";
 	}
 
 	public void showAdmin() {

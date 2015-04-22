@@ -1,3 +1,6 @@
+22.04
+- Flyttet hyring og sparking av ansatte til ny meny. Dette er nå den nede til høyre. Er ikke lenger mulig å gjøre dette fra islandinfo kortet.
+
 21.04
 - Tre vinn kriterier er oppstått! Et krav er når alle dyrene er på minst 50% av sin originale populasjon i 3 uker, ha over 2 000 tursiter i 3 uker og over 100'000$ i 3 måneder etter lønning.
 

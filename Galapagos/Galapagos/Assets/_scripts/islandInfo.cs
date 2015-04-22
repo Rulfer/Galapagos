@@ -137,7 +137,9 @@ public class islandInfo : MonoBehaviour {
 					ansatteFernadina = a_endretFernadina;
 					Stella_kode.oppryddereFernandina = ansatteFernadina;
 				}
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
+				if(visitedFernadina == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (0);
+				}
 			} else if (a_endretIsabela < ansatteIsabela || a_endretIsabela > ansatteIsabela) {
 				if (a_endretIsabela <= 0) {
 					ansatteIsabela = 0; 
@@ -147,7 +149,9 @@ public class islandInfo : MonoBehaviour {
 					ansatteIsabela = a_endretIsabela;
 					Stella_kode.oppryddereIsabela = ansatteIsabela;
 				}
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
+				if(visitedIsabela == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (1);
+				}
 			} else if (a_endretSanCristobal < ansatteSanCristobal || a_endretSanCristobal > ansatteSanCristobal) {
 				if (a_endretSanCristobal <= 0) {
 					ansatteSanCristobal = 0; 
@@ -157,7 +161,9 @@ public class islandInfo : MonoBehaviour {
 					ansatteSanCristobal = a_endretSanCristobal;
 					Stella_kode.oppryddereSanCristobal = ansatteSanCristobal;
 				}
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
+				if(visitedSanCristobal == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (2);
+				}
 			} else if (a_endretSantaCruz < ansatteSantaCruz || a_endretSantaCruz > ansatteSantaCruz) {
 				if (a_endretSantaCruz <= 0) {
 					ansatteSantaCruz = 0; 
@@ -167,7 +173,9 @@ public class islandInfo : MonoBehaviour {
 					ansatteSantaCruz = a_endretSantaCruz;
 					Stella_kode.oppryddereSantaCruz = ansatteSantaCruz;
 				}
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
+				if(visitedSantaCruz == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (3);
+				}
 			} else if (a_endretSanSalvador < ansatteSanSalvador || a_endretSanSalvador > ansatteSanSalvador) {
 				if (a_endretSanSalvador <= 0) {
 					ansatteSanSalvador = 0; 
@@ -177,7 +185,9 @@ public class islandInfo : MonoBehaviour {
 					ansatteSanSalvador = a_endretSanSalvador;
 					Stella_kode.oppryddereSanSalvador = ansatteSanSalvador;
 				}
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+				if(visitedSanSalvador == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (4);
+				}
 			}
 
 			//Dersom turismen oppdateres skal dette skje her

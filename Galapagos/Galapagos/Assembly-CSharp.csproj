@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\Island\Hotel.cs" />
+     <Compile Include="Assets\_scripts\Island\ansatte.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
      <Compile Include="Assets\_scripts\Island\fireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\hireOpprydder.cs" />
