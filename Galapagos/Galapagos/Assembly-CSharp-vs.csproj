@@ -47,13 +47,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\Island\Hotel.cs" />
+     <Compile Include="Assets\_scripts\Island\ansatte.cs" />
      <Compile Include="Assets\_scripts\Island\closePaper.cs" />
      <Compile Include="Assets\_scripts\Island\fireOpprydder.cs" />
      <Compile Include="Assets\_scripts\Island\hireOpprydder.cs" />
      <Compile Include="Assets\_scripts\SpawnTyvfiskere.cs" />
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
      <Compile Include="Assets\_scripts\bankAccount.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\_scripts\cleanerUpgrades.cs" />
+=======
+     <Compile Include="Assets\_scripts\begrensninger.cs" />
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
      <Compile Include="Assets\_scripts\fangesensor.cs" />
      <Compile Include="Assets\_scripts\fjernTyvfisker.cs" />
      <Compile Include="Assets\_scripts\islandInfo.cs" />
@@ -67,6 +72,7 @@
      <Compile Include="Assets\_scripts\touristUpgrades.cs" />
      <Compile Include="Assets\_scripts\upgrades.cs" />
      <Compile Include="Assets\_scripts\weeklyChange.cs" />
+     <Compile Include="Assets\_scripts\winLoose.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -15,23 +15,23 @@ public class fireOpprydder : MonoBehaviour {
 	//Endrer a_endret variabelen for korrekt øy og fjerner 5 ansatte.
 	//Når disse er endret vil update funksjonen i islandInfo oppdage det og endre verdiene og samtidig oppdatere informasjonen på skjermen
 	public static void fireOne(){
-		if (islandInfo.visitedIsabela == true) {
+		if (ansatte.shopIsabela == true) {
 			islandInfo.a_endretIsabela -= 1;
 			Stella_kode.oppryddereIsabela += 1;
 		} 
-		else if (islandInfo.visitedFernadina == true) {
+		else if (ansatte.shopFernandina == true) {
 			islandInfo.a_endretFernadina -= 1;
 			Stella_kode.oppryddereFernandina -= 1;
 		} 
-		else if (islandInfo.visitedSanCristobal == true) {
+		else if (ansatte.shopSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 1;
 			Stella_kode.oppryddereSanCristobal -= 1;
 		} 
-		else if (islandInfo.visitedSanSalvador == true) {
+		else if (ansatte.shopSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 1;
 			Stella_kode.oppryddereSanSalvador -= 1;
 		} 
-		else if (islandInfo.visitedSantaCruz == true) {
+		else if (ansatte.shopSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 1;
 			Stella_kode.oppryddereSantaCruz -= 1;
 		} 
@@ -39,26 +39,31 @@ public class fireOpprydder : MonoBehaviour {
 			oceanInfo.a_endretOcean -= 1;
 			Stella_kode.Politi -= 1;
 		}
+		ansatte.shopFernandina = false;
+		ansatte.shopIsabela = false;
+		ansatte.shopSanCristobal = false;
+		ansatte.shopSantaCruz = false;
+		ansatte.shopSanSalvador = false;
 	}
 	
 	public static void fireFive(){
-		if (islandInfo.visitedIsabela == true) {
+		if (ansatte.shopIsabela == true) {
 			islandInfo.a_endretIsabela -= 5;
 			Stella_kode.oppryddereIsabela -= 5;
 		} 
-		else if (islandInfo.visitedFernadina == true) {
+		else if (ansatte.shopFernandina == true) {
 			islandInfo.a_endretFernadina -= 5;
 			Stella_kode.oppryddereFernandina -= 5;
 		} 
-		else if (islandInfo.visitedSanCristobal == true) {
+		else if (ansatte.shopSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 5;
 			Stella_kode.oppryddereIsabela -= 5;
 		} 
-		else if (islandInfo.visitedSanSalvador == true) {
+		else if (ansatte.shopSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 5;
 			Stella_kode.oppryddereSanSalvador -= 5;
 		} 
-		else if (islandInfo.visitedSantaCruz == true) {
+		else if (ansatte.shopSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 5;
 			Stella_kode.oppryddereSantaCruz -= 5;
 		} 
@@ -66,26 +71,30 @@ public class fireOpprydder : MonoBehaviour {
 			oceanInfo.a_endretOcean -= 5;
 			Stella_kode.Politi -= 5;
 		}
-	}
+		ansatte.shopFernandina = false;
+		ansatte.shopIsabela = false;
+		ansatte.shopSanCristobal = false;
+		ansatte.shopSantaCruz = false;
+		ansatte.shopSanSalvador = false;	}
 	
 	public static void fireTen(){
-		if (islandInfo.visitedIsabela == true) {
+		if (ansatte.shopIsabela == true) {
 			islandInfo.a_endretIsabela -= 10;
 			Stella_kode.oppryddereIsabela -= 10;
 		} 
-		else if (islandInfo.visitedFernadina == true) {
+		else if (ansatte.shopFernandina == true) {
 			islandInfo.a_endretFernadina -= 10;
 			Stella_kode.oppryddereFernandina -= 10;
 		} 
-		else if (islandInfo.visitedSanCristobal == true) {
+		else if (ansatte.shopSanCristobal == true) {
 			islandInfo.a_endretSanCristobal -= 10;
 			Stella_kode.oppryddereSanCristobal -= 10;
 		} 
-		else if (islandInfo.visitedSanSalvador == true) {
+		else if (ansatte.shopSanSalvador == true) {
 			islandInfo.a_endretSanSalvador -= 10;
 			Stella_kode.oppryddereSanSalvador -= 10;
 		} 
-		else if (islandInfo.visitedSantaCruz == true) {
+		else if (ansatte.shopSantaCruz == true) {
 			islandInfo.a_endretSantaCruz -= 10;
 			Stella_kode.oppryddereSantaCruz -= 10;
 		} 
@@ -93,5 +102,11 @@ public class fireOpprydder : MonoBehaviour {
 			oceanInfo.a_endretOcean -= 10;
 			Stella_kode.Politi -= 10;
 		}
+		ansatte.shopFernandina = false;
+		ansatte.shopIsabela = false;
+		ansatte.shopSanCristobal = false;
+		ansatte.shopSantaCruz = false;
+		ansatte.shopSanSalvador = false;	
 	}
+
 }

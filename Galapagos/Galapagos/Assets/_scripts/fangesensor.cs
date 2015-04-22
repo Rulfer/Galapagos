@@ -14,6 +14,7 @@ public class fangesensor : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+<<<<<<< HEAD
 		//Sjekker om båten har krasjet med en øy. Hvis den ikke er det kan den styres som vanlig
 		if (onIsland == false) {
 			if (Input.GetKey (KeyCode.W)) {
@@ -32,6 +33,28 @@ public class fangesensor : MonoBehaviour {
 				transform.Translate (Vector3.right / boatSpeed);
 			}
 		} 
+=======
+		if (pause.isPaused == false) {
+			//Sjekker om båten har krasjet med en øy. Hvis den ikke er det kan den styres som vanlig
+			if (onIsland == false) {
+				if (Input.GetKey (KeyCode.W)) {
+					transform.Translate (Vector3.up / 20);
+				}
+
+				if (Input.GetKey (KeyCode.A)) {
+					transform.Translate (Vector3.left / 20);
+				}
+
+				if (Input.GetKey (KeyCode.S)) {
+					transform.Translate (Vector3.down / 20);
+				}
+
+				if (Input.GetKey (KeyCode.D)) {
+					transform.Translate (Vector3.right / 20);
+				}
+			} 
+		}
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
 
 	}
 	

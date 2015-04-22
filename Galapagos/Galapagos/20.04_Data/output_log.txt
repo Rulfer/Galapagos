@@ -1,0 +1,35 @@
+Initialize engine version: 5.0.1f1 (5a2e8fe35a68)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 Series (ID=0x67b0)
+    Vendor:   ATI
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.068 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\BårdHarald\Dropbox\Skole Semester 4\Animasjon og Interaktivitet 3\Mappe 3\Galapagos\Galapagos\Galapagos\20.04_Data\Managed\System.dll (this message is harmless)
+Hello?
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.413117 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 629.
+Total: 0.265157 ms (FindLiveObjects: 0.061259 ms CreateObjectMapping: 0.025524 ms MarkObjects: 0.174169 ms  DeleteObjects: 0.003903 ms)
+
+Hello?
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+

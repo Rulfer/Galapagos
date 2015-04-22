@@ -11,27 +11,25 @@ public class weeklyChange : MonoBehaviour {
 
 
 	public static void updateFernandina(int antallIguana, int antallPelican){
- 		if (i_numFern < 9) {
-			igFern [i_numFern] = antallIguana;
-			i_numFern++;
-		} 
-		
-		else {
-			igFern[i_numFern] = antallIguana;
-			for(int i = 0; i < i_numFern; i++){
-				igFern[i] = igFern[i+1];
-			}			
-		}
+		if (pause.isPaused == false) {
+			if (i_numFern < 9) {
+				igFern [i_numFern] = antallIguana;
+				i_numFern++;
+			} else {
+				igFern [i_numFern] = antallIguana;
+				for (int i = 0; i < i_numFern; i++) {
+					igFern [i] = igFern [i + 1];
+				}			
+			}
 
-		if (p_numFern < 9) {
-			peFern [p_numFern] = antallPelican;
-			p_numFern++;
-		} 
-		
-		else {
-			peFern[p_numFern] = antallPelican;
-			for(int j =0; j < p_numFern; j++){
-				peFern[j] = peFern[j+1];
+			if (p_numFern < 9) {
+				peFern [p_numFern] = antallPelican;
+				p_numFern++;
+			} else {
+				peFern [p_numFern] = antallPelican;
+				for (int j =0; j < p_numFern; j++) {
+					peFern [j] = peFern [j + 1];
+				}
 			}
 		}
 	}

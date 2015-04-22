@@ -13,14 +13,16 @@ public class bankAccount : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		if (Stella_kode.okonomi > penger || Stella_kode.okonomi < penger) {
-			penger = Stella_kode.okonomi;
-			print ();
-		}
+	void Update () {
+		if (pause.isPaused == false) {
+			if (Stella_kode.okonomi > penger || Stella_kode.okonomi < penger) {
+				penger = Stella_kode.okonomi;
+				print ();
+			}
 
-		if (penger <= 0) {
-			newsFeed.disasterNews (8);
+			if (penger <= 0) {
+				newsFeed.disasterNews (8);
+			}
 		}
 	}
 
