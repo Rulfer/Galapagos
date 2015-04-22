@@ -9,8 +9,12 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject infoBoxFernadina;
 	public GameObject infoBoxHav;
 	public GameObject shopBox;
+<<<<<<< HEAD
+	public GameObject upgradeBox;
+=======
 	public GameObject adminBox;
 	public GameObject pauseBox;
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
 //	public GameObject weeklybox;
 //	public GameObject pausedBox;
 	public GUIText shop;
@@ -25,6 +29,7 @@ public class mouseClicker : MonoBehaviour {
 //	public GUIText weekly;
 //	public GUIText paused;
 	bool visitedShop;
+	public static bool visitedUpgrades;
 	public static bool visitedWeekly;
 
 	// Use this for initialization
@@ -68,6 +73,103 @@ public class mouseClicker : MonoBehaviour {
 				else if(Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "border"){
 					borders();
 				}
+<<<<<<< HEAD
+			} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "closeShop"){
+				if(visitedShop == true){
+					shopBox.transform.position = new Vector3 (0, 0, 10);
+					shop.text = "";
+					//visitedShop = false;
+				}
+			}
+			// Sjekker om man kjøper oppgraderinger
+			//registerer trykk på politioppgraderinger
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu1") {
+				policeUpgrades.upgradeOne();
+				Debug.Log ("treff PU1");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu2") {
+				policeUpgrades.upgradeTwo();
+				Debug.Log ("treff PU2");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu3") {
+				policeUpgrades.upgradeThree();
+				Debug.Log ("treff PU3");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu4") {
+				policeUpgrades.upgradeFour();
+				Debug.Log ("treff PU4");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu5") {
+				policeUpgrades.upgradeFive();
+				Debug.Log ("treff PU5");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "pu6") {
+				policeUpgrades.upgradeSix();
+				Debug.Log ("treff PU6");
+			}
+
+			//registerer trykk på turismeoppgraderinger
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu1") {
+				touristUpgrades.upgradeOne();
+				Debug.Log ("treff TU1");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu2") {
+				touristUpgrades.upgradeTwo();
+				Debug.Log ("treff TU2");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu3") {
+				touristUpgrades.upgradeThree();
+				Debug.Log ("treff TU3");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu4") {
+				touristUpgrades.upgradeFour();
+				Debug.Log ("treff TU4");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu5") {
+				touristUpgrades.upgradeFive();
+				Debug.Log ("treff TU5");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "tu6") {
+				touristUpgrades.upgradeSix();
+				Debug.Log ("treff TU6");
+			}
+			//registrerer trykk på søppeloppgraderinger
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su1") {
+				cleanerUpgrades.upgradeOne();
+				Debug.Log ("treff SU1");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su2") {
+				cleanerUpgrades.upgradeTwo();
+				Debug.Log ("treff SU2");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su3") {
+				cleanerUpgrades.upgradeThree();
+				Debug.Log ("treff SU3");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su4") {
+				cleanerUpgrades.upgradeFour();
+				Debug.Log ("treff SU4");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su5") {
+				cleanerUpgrades.upgradeFive();
+				Debug.Log ("treff SU5");
+			}
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "su6") {
+				cleanerUpgrades.upgradeSix();
+				Debug.Log ("treff SU6");
+			}
+
+			// trykk på oppgraderingsmenyen
+			else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "upgradeM") 
+			{
+				Debug.Log ("Oppgraderinger");
+				visitedUpgrades = true;
+
+					upgradeBox.transform.position = new Vector3 (0, 0, 0);
+					//visitedUpgrades = false;
+				
+			}
+=======
 
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
@@ -87,6 +189,7 @@ public class mouseClicker : MonoBehaviour {
 					//oceanInfo.visitedOcean = true;
 					//showText (5);		
 				}
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "begrensninger") {
 					showAdmin();
@@ -368,6 +471,7 @@ public class mouseClicker : MonoBehaviour {
 		GameObject.Find ("Slider").transform.position = new Vector3 (-1365f, 132f, 0); 
 
 		shopBox.transform.position = new Vector3 (0, 0, 10);
+		upgradeBox.transform.position = new Vector3 (0, 0, 10);
 //		weeklybox.transform.position = new Vector3 (0, 0, 10);
 //		pausedBox.transform.position = new Vector3 (0, 0, 10);
 

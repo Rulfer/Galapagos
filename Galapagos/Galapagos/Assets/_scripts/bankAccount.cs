@@ -8,6 +8,7 @@ public class bankAccount : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		penger = Stella_kode.okonomi;
+
 		print ();
 	}
 	

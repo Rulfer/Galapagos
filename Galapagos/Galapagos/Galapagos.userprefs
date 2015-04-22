@@ -1,4 +1,12 @@
 ﻿<Properties>
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\cleanerUpgrades.cs">
+    <Files>
+      <File FileName="Assets\_scripts\upgrades.cs" Line="131" Column="1" />
+      <File FileName="Assets\_scripts\pause.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="159" Column="4" />
+=======
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\begrensninger.cs">
     <Files>
@@ -7,15 +15,40 @@
       <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\winLoose.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\randomEvents.cs" Line="1" Column="1" />
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
       <File FileName="Assets\_scripts\Stella_kode.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\islandInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\pause.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\SpawnTyvfiskere.cs" Line="1" Column="1" />
+<<<<<<< HEAD
       <File FileName="Assets\_scripts\shortcuts.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\oceanInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="1" Column="1" />
+=======
+<<<<<<< HEAD
+      <File FileName="Assets\_scripts\shortcuts.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\randomEvents.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\oceanInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\newsFeed.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="5" Column="13" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="65" Column="53" />
+      <File FileName="Assets\_scripts\bankAccount.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\policeUpgrades.cs" Line="67" Column="21" />
+      <File FileName="Assets\_scripts\cleanerUpgrades.cs" Line="25" Column="4" />
+      <File FileName="Assets\_scripts\touristUpgrades.cs" Line="24" Column="19" />
+=======
+      <File FileName="Assets\_scripts\shortcuts.cs" Line="33" Column="3" />
+      <File FileName="Assets\_scripts\oceanInfo.cs" Line="8" Column="33" />
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="314" Column="27" />
+      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="36" Column="37" />
+      <File FileName="Assets\_scripts\Island\ansatte.cs" Line="46" Column="100" />
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
+>>>>>>> 19f29812f68e5058cee66b16bb46762dc5dbc8d5
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -54,7 +54,11 @@
      <Compile Include="Assets\_scripts\SpawnTyvfiskere.cs" />
      <Compile Include="Assets\_scripts\Stella_kode.cs" />
      <Compile Include="Assets\_scripts\bankAccount.cs" />
+<<<<<<< HEAD
+     <Compile Include="Assets\_scripts\cleanerUpgrades.cs" />
+=======
      <Compile Include="Assets\_scripts\begrensninger.cs" />
+>>>>>>> 04f682fddbab43d5437c35d2a3cc1331d6cd8e55
      <Compile Include="Assets\_scripts\fangesensor.cs" />
      <Compile Include="Assets\_scripts\fjernTyvfisker.cs" />
      <Compile Include="Assets\_scripts\islandInfo.cs" />
@@ -62,8 +66,11 @@
      <Compile Include="Assets\_scripts\newsFeed.cs" />
      <Compile Include="Assets\_scripts\oceanInfo.cs" />
      <Compile Include="Assets\_scripts\pause.cs" />
+     <Compile Include="Assets\_scripts\policeUpgrades.cs" />
      <Compile Include="Assets\_scripts\randomEvents.cs" />
      <Compile Include="Assets\_scripts\shortcuts.cs" />
+     <Compile Include="Assets\_scripts\touristUpgrades.cs" />
+     <Compile Include="Assets\_scripts\upgrades.cs" />
      <Compile Include="Assets\_scripts\weeklyChange.cs" />
      <Compile Include="Assets\_scripts\winLoose.cs" />
  <Reference Include="UnityEngine.UI">
