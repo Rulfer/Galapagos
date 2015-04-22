@@ -501,8 +501,11 @@ public class Stella_kode : MonoBehaviour
 			test++;
 
 			int doomedAnimals = 0;
+			int healthyAnimals = 0;
 			bool looseTourism = false;
 			bool looseAnimal = false;
+			bool greatAnimals = false;
+			bool greatTourism = false;
 			if((Brown_Pelican_FertilFernandina + Brown_Pelican_UngeFernandina) <= 6){
 				doomedAnimals ++;
 			}
@@ -533,13 +536,32 @@ public class Stella_kode : MonoBehaviour
 			if((Iguana_FertilSantaCruz + Iguana_UngSantaCruz) <= 133){
 				doomedAnimals ++;
 			}
+
+			if(Brown_Pelican_FertilFernandina + Brown_Pelican_FertilIsabela + Brown_Pelican_FertilSanCristobal + Brown_Pelican_FertilSanSalvador + Brown_Pelican_FertilSantaCruz >= 500){
+				healthyAnimals++;
+			}
+			if(Iguana_FertilFernandina + Iguana_FertilIsabela + Iguana_FertilSanCristobal + Iguana_FertilSanSalvador + Iguana_FertilSantaCruz >= 10000){
+				healthyAnimals++;
+			}
+			if(Hai_Fertil >= 2500){
+				healthyAnimals++;
+			}
+			if(Sjopolse_Fertil >= 500000){
+				healthyAnimals++;
+			}
 			if(doomedAnimals >= 3){looseAnimal = true;} //Dersom 3 arter er på 5% av sin originale populasjon aktiveres tap bool
 			else{looseAnimal = false;} //Om ikke vil den deaktiveres
 
 			if(totTurister <= 50){looseTourism = true;} //Dersom spilleren har mindre enn 50 turister aktiveres tap bool
 			else{looseTourism = false;} //Om ikke vil den deaktiveres
 
-			winLoose.checkAnimalTourism(looseAnimal, looseTourism);
+			if(healthyAnimals >= 4){greatAnimals = true;}
+			else{greatAnimals = false;}
+
+			if(totTurister >= 2000){greatTourism = true;}
+			else{greatTourism = false;}
+
+			winLoose.checkAnimalTourism(looseAnimal, looseTourism, greatAnimals, greatTourism);
 
 			//Sjekker om spilleren ser på en øy.
 			//Om det er tilfellet skal den nye informasjonen vises
@@ -974,6 +996,7 @@ public class Stella_kode : MonoBehaviour
 		int Penger_Oppryddere = 0;
 
 		bool looseMoney = false;
+		bool winMoney = false;
 
 		Inntekter = penger_fra_turister_og_innbyggere;
 		//Trenger ikke teller fordi dette skal skje hver måned
@@ -1020,14 +1043,17 @@ public class Stella_kode : MonoBehaviour
 			pause.pauseGame (); //Pauser spillet
 			newsFeed.disasterNews(10); //Aktiverer viktig melding om at spilleren har lite penger (mindre enn 0)
 			looseMoney = true;
+			winMoney = false;
 		} 
 		else {
 			totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
 			okonomi = okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+
+			if(okonomi >= 100000){winMoney = true;}
 			looseMoney = false;
 		}
 
-		winLoose.checkMoney(looseMoney);
+		winLoose.checkMoney(looseMoney, winMoney);
 
 		return totOkonomi;
 	}

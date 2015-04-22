@@ -1,3 +1,6 @@
+21.04
+- Tre vinn kriterier er oppstått! Et krav er når alle dyrene er på minst 50% av sin originale populasjon i 3 uker, ha over 2 000 tursiter i 3 uker og over 100'000$ i 3 måneder etter lønning.
+
 20.04
 - Tre tap kriterier er oppstått! For å tape må spilleren ha oppfylt minst 2 tap kriterier. Dersom spiller har 0 penger etter å ha betalt lønninger 3 ganger på rad registreres det som tap kriterie. Dersom 3 dyr er på 5% av sin originale populasjon aktiveres tapkriterie og dersom bare 50 turister er på galapagos aktiveres et tap kriterie.
 - Er nå mulig å pause og un-pause ved å klikke på esc tasten.

@@ -333,6 +333,13 @@ public class mouseClicker : MonoBehaviour {
 		infoPause.text += "2 av tap kravene ble oppnådd." + "\n";
 	}
 
+	public void victory() {
+		close ();
+		pauseBox.transform.position = new Vector3 (0, 0, 0);
+		infoPause.text += "Du har vunnet spillet!" + "\n";
+		infoPause.text += "2 av vinn kravene ble oppnådd." + "\n";
+	}
+
 	public void showWeekly(){
 /*		visitedWeekly = true;
 		weeklybox.transform.position = new Vector3 (0, 0, 0);

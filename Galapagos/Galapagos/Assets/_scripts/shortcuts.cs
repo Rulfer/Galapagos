@@ -31,15 +31,18 @@ public class shortcuts : MonoBehaviour {
 			} 
 		}
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Debug.Log("Hello?");
-			if(pause.isPaused == false){
-				pause.pauseGame();
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (6);
-			}
-			else if(pause.isPaused == true){
-				pause.unPause();
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().close ();
+		//Dersom spillet ikke er over kan esc klikkes
+		//Denne pauser / un-pauser spillet
+		if (winLoose.endGame == false) {
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				Debug.Log ("Hello?");
+				if (pause.isPaused == false) { //Dersom spillet er kjørende skal det pauses
+					pause.pauseGame ();
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (6);
+				} else if (pause.isPaused == true) {//Dersom spillet er pauset skal det un-pauses
+					pause.unPause ();
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().close ();
+				}
 			}
 		}
 	}
