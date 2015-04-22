@@ -4,6 +4,7 @@ using System.Collections;
 public class fangesensor : MonoBehaviour {
 
 	public static bool onIsland = false;
+	public static int boatSpeed = 50;
 
 	// Use this for initialization
 	void Start () {
@@ -16,19 +17,19 @@ public class fangesensor : MonoBehaviour {
 		//Sjekker om båten har krasjet med en øy. Hvis den ikke er det kan den styres som vanlig
 		if (onIsland == false) {
 			if (Input.GetKey (KeyCode.W)) {
-				transform.Translate (Vector3.up / 20);
+				transform.Translate (Vector3.up / boatSpeed);
 			}
 
 			if (Input.GetKey (KeyCode.A)) {
-				transform.Translate (Vector3.left / 20);
+				transform.Translate (Vector3.left / boatSpeed);
 			}
 
 			if (Input.GetKey (KeyCode.S)) {
-				transform.Translate (Vector3.down / 20);
+				transform.Translate (Vector3.down / boatSpeed);
 			}
 
 			if (Input.GetKey (KeyCode.D)) {
-				transform.Translate (Vector3.right / 20);
+				transform.Translate (Vector3.right / boatSpeed);
 			}
 		} 
 

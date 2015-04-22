@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\pause.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\cleanerUpgrades.cs">
     <Files>
+      <File FileName="Assets\_scripts\upgrades.cs" Line="131" Column="1" />
       <File FileName="Assets\_scripts\pause.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="159" Column="4" />
       <File FileName="Assets\_scripts\Stella_kode.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\islandInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\weeklyChange.cs" Line="1" Column="1" />
@@ -12,9 +13,14 @@
       <File FileName="Assets\_scripts\randomEvents.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\oceanInfo.cs" Line="1" Column="1" />
       <File FileName="Assets\_scripts\newsFeed.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\fangesensor.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\fjernTyvfisker.cs" Line="5" Column="13" />
+      <File FileName="Assets\_scripts\fangesensor.cs" Line="65" Column="53" />
       <File FileName="Assets\_scripts\bankAccount.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\hireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\Island\fireOpprydder.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\policeUpgrades.cs" Line="67" Column="21" />
+      <File FileName="Assets\_scripts\cleanerUpgrades.cs" Line="25" Column="4" />
+      <File FileName="Assets\_scripts\touristUpgrades.cs" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,6 +11,8 @@ public class Stella_kode : MonoBehaviour
 	int maander = 0;
 	int forrigemaande = 0;
 	int aar = 0;
+	public static int pengerFraTurister = 150;
+	public static int oppryddereRydder = 125;
 	//int forrigeaar = 0;
 
 	//Her stilles det hvor mange sekunder det skal ta mellom hver uke.
@@ -370,7 +372,7 @@ public class Stella_kode : MonoBehaviour
 			Reklame = (int)Math.Ceiling ((totTurister * 0.1) + Hai_Reklame + Iguana_Reklame + Sjopolse_Reklame);
 			
 			//Oppdaterer pengene vi får inn
-			penger_fra_turister_og_innbyggere = totTurister * 150 + totPopulasjon * 50;
+			penger_fra_turister_og_innbyggere = totTurister * pengerFraTurister + totPopulasjon * 50;
 
 			//Regner ut plassen for dyrene å leve på
 			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
@@ -683,7 +685,7 @@ public class Stella_kode : MonoBehaviour
 		//if (maander > forrigemaande)
 		//{
 			//I månedsskiftet kaster vi søppel
-			ryddaSoppel = Oppryddere*125;
+			ryddaSoppel = Oppryddere*oppryddereRydder;
 		//}
 		
 		totForsopling = totForsopling + (innSoppel - ryddaSoppel);
