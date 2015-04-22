@@ -1,0 +1,42 @@
+22.04
+- Flyttet hyring og sparking av ansatte til ny meny. Dette er nå den nede til høyre. Er ikke lenger mulig å gjøre dette fra islandinfo kortet.
+
+21.04
+- Tre vinn kriterier er oppstått! Et krav er når alle dyrene er på minst 50% av sin originale populasjon i 3 uker, ha over 2 000 tursiter i 3 uker og over 100'000$ i 3 måneder etter lønning.
+
+20.04
+- Tre tap kriterier er oppstått! For å tape må spilleren ha oppfylt minst 2 tap kriterier. Dersom spiller har 0 penger etter å ha betalt lønninger 3 ganger på rad registreres det som tap kriterie. Dersom 3 dyr er på 5% av sin originale populasjon aktiveres tapkriterie og dersom bare 50 turister er på galapagos aktiveres et tap kriterie.
+- Er nå mulig å pause og un-pause ved å klikke på esc tasten.
+- Spiller kan restarte eller avslutte spillet via pause menyen.
+- En pause skjerm dukker opp når spilleren taper spillet. Her kan spilleren enten restarte spillet eller avslutte det.
+- Bugfix i newsfeed. Den leter nå korrekt gjennom og ser om det er kommet nye nyheter eller ei.
+
+19.04
+- Random Events er laget. Til nå er det bare 4-5 stykker, men de sørger for at dyr dør, turister kommer og slikt. Bare små ting som kan ha mye å si.
+- Utrydningstruede arter tiltrekker flere turister. Faller en art under 20% av sin originale populasjon vil det komme x-flere turister neste uke.
+- News er oppdatert til å være på engelsk, samt er knyttet sammen med nyopprettede Random events. Det kommer og news når en art faller under 20% av sin originale populasjon.
+
+17.04
+-Slider som endrer på maks antall turister som kan være på Galapagos til enhver tid. Denne går fra 0 til 10'000. Merk at det fremdeles ikke kan være flere turister enn det er plass til, som bli bestemt av hotellene. 
+-Mulighet til å si "Turister får lov til/ikke lov til å komme til denne øya". Det er en knapp på hver islandInfo card som skrur dette av og på. Atm er det ikke noe visuelt som sier om turister får komme eller ei, men knapper funker. Klikk for å sette på grensen, klikk igjen for å skru av.
+
+14.04
+- Ansatte sparkes riktig. Dersom det ikke er nok penger til å lønne alle vil det regnes ut hvor mange prosent politiet og opprydderne er i forhold til totalt antall ansatte, og vil sparkes basert på det.
+- å trykke på "esc" knappen bør nå pause spillet. Klikke på den igjen vil unapause.
+- Fjernet "GameMaster" c# klassen
+
+12.04
+- Endret på hvordan forsøpling nå påvirker boplassen til et dyr. Det er nå ForsøplingX, svaret man får fra updateForsopliong, som sier hvor mye plass som er tatt.
+- Forsøkt å sparke ansatte automatisk når det er for lite penger til å betale lønninger, men tror ikke dette har funket som det skal.
+
+
+11.04
+- Flyttet rundt på ting i Update i Stella_kode for å endre på rekkefølgen funksjoner tar sted
+- Fikset forsøpling. Stella_kode oppdaterer nå mengden søppel korrekt, samt rydder søppel. Mengden søppel oppdateres nå gjennom Stella_Kode istedenfor islandInfo.
+
+09.04
+- Endret verdiene for dyrene ved å kjøre STELLA i 1600 måneder og kopiere gjennomsnittsverdier derfra
+-Modifisert verdiene fra STELLA til dyrene til å passe med størrelsene på øyene i spillet.
+- Fikset prosentFernandina, rosentIsabela osv. Disse gir nå korrekt verdi
+- Viser iguana og pelican for Fernandina på infokortet. Oppdateres ikke riktig.
+- Ikke lenger mulig å kjøpe ansatte om spilleren har for lite penger
