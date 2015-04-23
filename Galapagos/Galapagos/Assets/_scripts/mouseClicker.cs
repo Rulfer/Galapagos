@@ -31,10 +31,16 @@ public class mouseClicker : MonoBehaviour {
 	public static bool visitedUpgrades;
 	public static bool visitedWeekly;
 
+	public AudioSource[] sounds;
+	public AudioSource thump;
+
 	// Use this for initialization
 	void Start () {
 		visitedShop = false;
 		visitedWeekly = false;
+
+		sounds = GetComponents<AudioSource>();
+		thump = sounds[1];
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
 	}
@@ -44,7 +50,7 @@ public class mouseClicker : MonoBehaviour {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Input.GetMouseButtonDown (0)) { //Tester om spilleren klikker med musa
-
+			thump.Play ();
 			if(pause.isPaused == false){
 				//Spilleren klikker med musa,og vi ser om en av øyene klikkes på.
 				//Gjløres dette vil vi sette bool visitedX = true for korrekt øy
