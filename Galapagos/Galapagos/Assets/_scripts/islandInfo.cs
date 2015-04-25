@@ -73,6 +73,8 @@ public class islandInfo : MonoBehaviour {
 	public static bool ss_isClosed = false;
 	public static bool sz_isClosed = false;
 
+	public static int totOppryddere;
+
 	// Use this for initialization
 	public static void Start () {
 		//Random tall jeg har lagt til
@@ -128,6 +130,7 @@ public class islandInfo : MonoBehaviour {
 	//og de nye tallene printes ut via mouseClicker sin showText() funksjon
 	void Update () {
 		if (pause.isPaused == false) {
+			totOppryddere = ansatteFernadina + ansatteIsabela + ansatteSanCristobal + ansatteSanSalvador + ansatteSantaCruz;
 			if (a_endretFernadina < ansatteFernadina || a_endretFernadina > ansatteFernadina) {
 				if (a_endretFernadina <= 0) {
 					ansatteFernadina = 0; 

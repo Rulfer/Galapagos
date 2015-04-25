@@ -12,7 +12,7 @@ public class Stella_kode : MonoBehaviour
 	int maander = 0;
 	int forrigemaande = 0;
 	int aar = 0;
-	public static int pengerFraTurister = 150;
+	public static int pengerFraTurister = 37;
 	public static int oppryddereRydder = 125;
 	//int forrigeaar = 0;
 
@@ -55,19 +55,13 @@ public class Stella_kode : MonoBehaviour
 	public static int ForsoplingSantaCruz;
 	int ForsoplingHav = 0;
 	//int totAntallForsopling = 0;
-	
-	
-//	float Forsopling_fordeltFernandina = 0;
-//	float Forsopling_fordeltIsabela = 0;
-//	float Forsopling_fordeltSanCristobal = 0;
-//	float Forsopling_fordeltSanSalvador = 0;
-//	float Forsopling_fordeltSantaCruz = 0;
+
 	float Forsopling_fordeltHav = 0;
 	
 	int totSoppel_fra_mennesker = 0;
 	
 	//Populasjonen på øya og deres ting
-	int totPopulasjon = 100;
+	public static int totPopulasjon = 100;
 	int movingIn;
 	public static int populasjonFernandina = 10;
 	public static int populasjonIsabela = 10;
@@ -199,6 +193,8 @@ public class Stella_kode : MonoBehaviour
 	public static int ekstraSjopolseReklame;
 	public static int ekstraHaiReklame;
 
+	public static int maanedligInntekt = 0;
+
 	int test = 0;
 
 	public static int eventTourists = 0;
@@ -249,6 +245,8 @@ public class Stella_kode : MonoBehaviour
 		Iguana_UngSanCristobal = (int)(prosentSanCristobal * Iguana_Unge / 100);
 		Iguana_UngSanSalvador = (int)(prosentSanSalvador * Iguana_Unge / 100);
 		Iguana_UngSantaCruz = (int)(prosentSantaCruz * Iguana_Unge / 100);
+
+		maanedligInntekt = (totTurister * 37) + (totPopulasjon * 20);
 	}
 	
 	// Update is called once per frame
@@ -361,7 +359,7 @@ public class Stella_kode : MonoBehaviour
 			}
 			
 			//Oppdaterer pengene vi får inn
-			penger_fra_turister_og_innbyggere = totTurister * pengerFraTurister + totPopulasjon * 50;
+			//penger_fra_turister_og_innbyggere = totTurister * pengerFraTurister + totPopulasjon * 50;
 
 			//Regner ut plassen for dyrene å leve på
 			Tilgjengelig_BP_plassFernandia = ((arealFernadina) - (ForsoplingFernandina));
@@ -496,7 +494,7 @@ public class Stella_kode : MonoBehaviour
 			fordelTurisme(totTurister);
 
 			//Oppdaterer pengene vi får inn
-			penger_fra_turister_og_innbyggere = totTurister * 37 + totPopulasjon * 20;
+			penger_fra_turister_og_innbyggere = totTurister * pengerFraTurister + totPopulasjon * 20;
 			//Oppdaterer økonomien
 			okonomi = updateOkonomi (okonomi);
 
@@ -587,6 +585,11 @@ public class Stella_kode : MonoBehaviour
 			ekstraHaiReklame = 0;
 			ekstraReklame = 0;
 			ekstraSjopolseReklame = 0;
+
+			if(mouseClicker.visitedEconomy == true){
+				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showEconomy();
+
+			}
 		}
 		
 		//I tilfelle det blir månedskifte settes disse lik hverandre
@@ -1010,6 +1013,7 @@ public class Stella_kode : MonoBehaviour
 			Penger_politi = Politi * 700;
 			Penger_Oppryddere = totAntallOppryddere * 300;
 			Debug.Log ("Betaler opprydderne: " + Penger_Oppryddere);
+			maanedligInntekt = 0;
 		}
 		Debug.Log ("NumPoliti = " + Politi);
 		Debug.Log ("NumOppryddere = " + totAntallOppryddere);
@@ -1049,12 +1053,12 @@ public class Stella_kode : MonoBehaviour
 		} 
 		else {
 			totOkonomi = totOkonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
-			okonomi = okonomi + (Inntekter - Penger_politi - Penger_Oppryddere);
+					okonomi = totOkonomi;
 
 			if(okonomi >= 100000){winMoney = true;}
 			looseMoney = false;
 		}
-
+		maanedligInntekt += Inntekter;
 		winLoose.checkMoney(looseMoney, winMoney);
 
 		return totOkonomi;

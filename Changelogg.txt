@@ -1,3 +1,15 @@
+25.04
+- Economy displayer nå korrekt data. Har ukentlig inntekt fra turisme og populasjon, samt månedlig inntekt totalt. Viser og korrekt status etter endt måned (penger etter utgifter).
+- Generell bugfixing av økonomien i spillet.
+
+24.04
+- La til Economy siden. Denne oppdateres hver uke, og viser inntektene og utgiftene til spilleren. Foreløpig viser den bare hvor mye spilleren tjente sist uke, dette skal bli sist uke.
+
+23.04
+- La til en sang som looper.
+- Sang som spiller av når spillet tapes eller vinner
+- Lyden av papir når en av ingame menyene åpnes (de nede til høyre)
+
 22.04
 - Flyttet hyring og sparking av ansatte til ny meny. Dette er nå den nede til høyre. Er ikke lenger mulig å gjøre dette fra islandinfo kortet.
 

@@ -13,6 +13,7 @@ public class mouseClicker : MonoBehaviour {
 	public GameObject adminBox;
 	public GameObject pauseBox;
 	public GameObject endscreenBox;
+	public GameObject economyBox;
 
 //	public GameObject weeklybox;
 //	public GameObject pausedBox;
@@ -25,14 +26,25 @@ public class mouseClicker : MonoBehaviour {
 	public GUIText infoHav;
 	public GUIText infoAdmin;
 	public GUIText infoPause;
+	public GUIText infoEconomy;
+	public GUIText infoEconomy1;
+	public GUIText infoEconomy2;
+	public GUIText infoEconomy3;
+
 //	public GUIText weekly;
 //	public GUIText paused;
 	bool visitedShop;
 	public static bool visitedUpgrades;
 	public static bool visitedWeekly;
+	public static bool visitedEconomy = false;
+	bool visitedPapers = false;
 
 	public AudioSource[] sounds;
-	public AudioSource thump;
+	public AudioSource loopedSong;
+	public AudioSource thumpSound;
+	public AudioSource gameOverSound;
+	public AudioSource winSound;
+	public AudioSource paperSound;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +52,11 @@ public class mouseClicker : MonoBehaviour {
 		visitedWeekly = false;
 
 		sounds = GetComponents<AudioSource>();
-		thump = sounds[1];
+		loopedSong = sounds [0];
+		thumpSound = sounds[1];
+		gameOverSound = sounds [2];
+		winSound = sounds [3];
+		paperSound = sounds [4];
 
 		islandInfo.Start (); //Startvariablene til islandInfo lagres nå
 	}
@@ -50,10 +66,10 @@ public class mouseClicker : MonoBehaviour {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Input.GetMouseButtonDown (0)) { //Tester om spilleren klikker med musa
-			thump.Play ();
+			//thumpSound.Play ();
 			if(pause.isPaused == false){
 				//Spilleren klikker med musa,og vi ser om en av øyene klikkes på.
-				//Gjløres dette vil vi sette bool visitedX = true for korrekt øy
+				//Gjøres dette vil vi sette bool visitedX = true for korrekt øy
 				//Printer så ut informasjonen til øya i showText();
 				if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "islandFernadina") {
 					islandInfo.visitedFernadina = true;
@@ -167,45 +183,44 @@ public class mouseClicker : MonoBehaviour {
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "upgradeM") 
 				{
 					Debug.Log ("Oppgraderinger");
-					visitedUpgrades = true;
-
+					if(visitedUpgrades == false){
+						close ();
 						upgradeBox.transform.position = new Vector3 (0, 0, 0);
-						//visitedUpgrades = false;
-					
+						paperSound.Play();
+					}
+					visitedUpgrades = true;
 				}
 
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "shop") {
 					if(visitedShop == false){
+						close ();
 						showShop();
+						paperSound.Play();
+						visitedShop = true;
 					}
 				} else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "closeShop"){
 					if(visitedShop == true){
-						shopBox.transform.position = new Vector3 (0, 0, 10);
-						shop.text = "";
+						close();
 						visitedShop = false;
 					}
 				}
-
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "Oppgradering") {
-					Debug.Log ("Oppgraderinger");
-					//oceanInfo.visitedOcean = true;
-					//showText (5);		
-				}
-
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "begrensninger") {
-					showAdmin();
-				}
-
-				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "Economy") {
+				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "economy") {
 					Debug.Log ("økonomi");
-					//oceanInfo.visitedOcean = true;
-					//showText (5);
+					if(visitedEconomy == false){ 
+						showEconomy();
+						paperSound.Play();
+					}
 				}
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "rapport") {
 					Debug.Log ("rapporter");
-					showAdmin();
+					if(visitedPapers == false){
+						close ();
+						showAdmin();
+						paperSound.Play();
+						visitedPapers = true;
+					}
 				}
 
 				else if (Physics.Raycast (ray, out hit, 100) && hit.transform.tag == "buildHotel") {
@@ -388,6 +403,32 @@ public class mouseClicker : MonoBehaviour {
 
 	}
 
+	public void showEconomy() {
+		close ();
+		visitedEconomy = true;
+		int money = Stella_kode.maanedligInntekt - (Stella_kode.totAntallOppryddere * 300) - (Stella_kode.Politi * 700);
+		economyBox.transform.position = new Vector3 (0, 0, 0);
+		infoEconomy.text = "Economy" + "\n";
+		infoEconomy.text += "Income" + "\n"+ "\n"+ "\n" + "\n";
+		infoEconomy1.color = Color.green; //Grønn tekst for inntekter
+		infoEconomy1.text += "From tourists this week: " + (Stella_kode.totTurister * 37) + "\n";
+		infoEconomy1.text += "From population this week: " + (Stella_kode.totPopulasjon * 20) + "\n";
+		infoEconomy1.text += "Total income this month: " + Stella_kode.maanedligInntekt + "\n" + "\n";
+		infoEconomy.text += "Expenses" + "\n";
+		infoEconomy2.color += Color.red; //Rød tekst for utgifter
+		infoEconomy2.text += "Cleaners: " + (islandInfo.totOppryddere * 300) + "\n";
+		infoEconomy2.text += "Police: " + (Stella_kode.Politi * 700) + "\n";
+		infoEconomy2.text += "Total expences this month: " + ((islandInfo.totOppryddere * 300) + (Stella_kode.Politi * 700)) + "\n";
+		infoEconomy2.text += "\n";
+		if (money > 0) {
+			infoEconomy3.color = Color.green; //Grønn tekst for inntekter
+			infoEconomy3.text += "Total next month: " + money;
+		} else {
+			infoEconomy3.color = Color.red; //Grønn tekst for inntekter
+			infoEconomy3.text += "Total next month: " + money;
+		}
+	}
+
 	void showShop() {
 		visitedShop = true;
 		shopBox.transform.position = new Vector3 (4.35f, 0.4825f, 0f);
@@ -449,6 +490,7 @@ public class mouseClicker : MonoBehaviour {
 		infoBoxHav.transform.position = new Vector3 (0, 0, 10);
 		adminBox.transform.position = new Vector3 (-1042f, 0f, 10f);
 		pauseBox.transform.position = new Vector3 (0, 0, 10);
+		economyBox.transform.position = new Vector3 (0, 0, 10);
 		GameObject.Find ("Slider").transform.position = new Vector3 (-1365f, 132f, 0); 
 
 		shopBox.transform.position = new Vector3 (0, 0, 10);
@@ -466,7 +508,14 @@ public class mouseClicker : MonoBehaviour {
 		infoHav.text = "";
 		infoAdmin.text = "";
 		infoPause.text = "";
+		infoEconomy.text = "";
+		infoEconomy1.text = "";
+		infoEconomy2.text = "";
+		infoEconomy3.text = "";
 		visitedWeekly = false;
+		visitedEconomy = false;
+		visitedPapers = false;
+		visitedUpgrades = false;
 //		weekly.text = "";
 //		paused.text = "";
 

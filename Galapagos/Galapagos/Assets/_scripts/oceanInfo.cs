@@ -25,7 +25,9 @@ public class oceanInfo : MonoBehaviour {
 					ansatteOcean = a_endretOcean;
 				}
 				Debug.Log ("ansatte" + ansatteOcean);
-				GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (5);
+				if(visitedOcean == true){
+					GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().showText (5);
+				}
 			}
 		}
 	}

@@ -92,6 +92,8 @@ public class winLoose : MonoBehaviour {
 	void gameOver(){
 		endGame = true;
 		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().gameOver ();
+		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().loopedSong.Stop ();
+		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().gameOverSound.Play ();
 		pause.pauseGame ();
 	}
 
@@ -99,6 +101,8 @@ public class winLoose : MonoBehaviour {
 	void victory(){
 		endGame = true;
 		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().victory ();
+		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().loopedSong.Stop ();
+		GameObject.Find ("MainCamera").GetComponent<mouseClicker> ().winSound.Play ();
 		pause.pauseGame ();
 	}
 

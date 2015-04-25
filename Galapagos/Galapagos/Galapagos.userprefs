@@ -2,11 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\mouseClicker.cs">
     <Files>
-      <File FileName="Assets\_scripts\mouseClicker.cs" Line="202" Column="18" />
-      <File FileName="Assets\_scripts\fangesensor.cs" Line="55" Column="1" />
-      <File FileName="Assets\_scripts\shortcuts.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\pause.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\begrensninger.cs" Line="12" Column="3" />
+      <File FileName="Assets\_scripts\Stella_kode.cs" Line="487" Column="1" />
+      <File FileName="Assets\_scripts\oceanInfo.cs" Line="30" Column="6" />
+      <File FileName="Assets\_scripts\mouseClicker.cs" Line="409" Column="43" />
+      <File FileName="Assets\_scripts\newsFeed.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\islandInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\randomEvents.cs" Line="1" Column="1" />
+      <File FileName="Assets\_scripts\upgrades.cs" Line="79" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
