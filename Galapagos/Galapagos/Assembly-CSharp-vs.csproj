@@ -58,6 +58,7 @@
      <Compile Include="Assets\_scripts\cleanerUpgrades.cs" />
      <Compile Include="Assets\_scripts\fangesensor.cs" />
      <Compile Include="Assets\_scripts\fjernTyvfisker.cs" />
+     <Compile Include="Assets\_scripts\infoBoxes.cs" />
      <Compile Include="Assets\_scripts\islandInfo.cs" />
      <Compile Include="Assets\_scripts\mouseClicker.cs" />
      <Compile Include="Assets\_scripts\newsFeed.cs" />
